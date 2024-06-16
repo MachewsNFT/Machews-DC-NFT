@@ -10,33 +10,31 @@
     <header>
         <h1>Contact Us</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="calculator.html">Calculator</a>
-            <a href="contact.html">Contact</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </nav>
     </header>
     <main>
         <div class="container">
-            <h2>Get in Touch</h2>
-            <form id="contactForm">
+            <h2>Discord Server Name</h2>
+            <form id="contactForm" action="mailto:wiskeygolfenterprises@gmail.com" method="post" enctype="text/plain">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <label for="showcaseLink">Showcase Link</label>
+                    <input type="url" id="showcaseLink" name="showcaseLink" required>
                 </div>
                 <button type="submit">Send</button>
             </form>
         </div>
     </main>
     <footer>
-        <p>&copy; 2024 My Website</p>
+        <p>&copy; 2024 DC NFT Test Page</p>
     </footer>
 </body>
 </html>
