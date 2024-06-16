@@ -1,0 +1,57 @@
+let comics = [];
+
+function addComic() {
+    const series = document.getElementById('series').value;
+    const mint = document.getElementById('mint').value;
+    const rarity = document.getElementById('rarity').value;
+    const firstMint = document.getElementById('firstMint').value;
+    const lastMint = document.getElementById('lastMint').value;
+    const publishedYear = document.getElementById('publishedYear').value;
+
+    comics.push({ series, mint, rarity, firstMint, lastMint, publishedYear });
+    updateComicsList();
+}
+
+function removeComic() {
+    comics.pop();
+    updateComicsList();
+}
+
+function updateComicsList() {
+    const comicsList = document.getElementById('comicsList');
+    comicsList.innerHTML = '';
+    comics.forEach((comic, index) => {
+        const comicDiv = document.createElement('div');
+        comicDiv.textContent = `${index + 1}. ${comic.series} - Mint: ${comic.mint}, Rarity: ${comic.rarity}, First Mint: ${comic.firstMint}, Last Mint: ${comic.lastMint}, Year: ${comic.publishedYear}`;
+        comicsList.appendChild(comicDiv);
+    });
+}
+
+function calculateTotal() {
+    let totalPoints = 0;
+    comics.forEach(comic => {
+        totalPoints += getPoints(comic);
+    });
+
+    const totalPointsDiv = document.getElementById('totalPoints');
+    totalPointsDiv.textContent = `Total Points: ${totalPoints}`;
+}
+
+function getPoints(comic) {
+    let points = 0;
+    const rarityPoints = {
+        'Legendary': 50,
+        'Epic': 40,
+        'Rare': 30,
+        'Uncommon': 20,
+        'Core': 10
+    };
+
+    points += rarityPoints[comic.rarity];
+    points += (comic.firstMint === 'Yes') ? 25 : 0;
+    points += (comic.lastMint === 'Yes') ? 25 : 0;
+    points += (parseInt(comic.mint) === parseInt(comic.series.split('#')[1])) ? 20 : 0;
+    points += parseInt(comic.publishedYear) - 1900;
+
+    return points;
+}
