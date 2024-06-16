@@ -72,7 +72,7 @@
     <div class="container">
         <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
         <h1>Delta Charlie</h1>
-        <h2>DC3 Super Power Pack Series: JLA The Nail Best of 10</h2>
+        <h2>DC3 Super Power Pack Series: JLA The Nail Best Complete Set</h2>
         <form action="/submit" method="post">
             <div class="form-control">
                 <label for="discord">Discord Handle:</label>
@@ -91,35 +91,4 @@
             <ol>
                 <li><a href="#">Player 1</a>: 1000 points</li>
                 <li><a href="#">Player 2</a>: 950 points</li>
-                <li><a href="#">Player 3</a>: 900 points</li>
-            </ol>
-        </div>
-        <div class="countdown">
-            Countdown to End of Contest<br>
-            <span id="countdown-timer">04:57:05</span>
-        </div>
-    </div>
-
-    <script>
-        // Countdown timer script
-        const endTime = new Date("Jul 15, 2024 23:59:59").getTime();
-
-        const countdown = setInterval(() => {
-            const now = new Date().getTime();
-            const timeLeft = endTime - now;
-
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown-timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-            if (timeLeft < 0) {
-                clearInterval(countdown);
-                document.getElementById("countdown-timer").innerHTML = "Contest Ended";
-            }
-        }, 1000);
-    </script>
-</body>
-</html>
+                <li><a href="#">Player 3
