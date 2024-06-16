@@ -3,60 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC NFT Contest Calculator</title>
     <link rel="stylesheet" href="styles.css">
-    <title>DC NFT Points Calculator</title>
 </head>
 <body>
     <div class="container">
-        <h1>Points Calculator</h1>
-        <form id="pointsForm">
-            <div class="comic-entry">
-                <label for="series">Comic Series</label>
-                <select id="series" name="series">
-                    <option value="JLA: Another Nail #2">JLA: Another Nail #2</option>
-                    <option value="JLA: Another Nail #1">JLA: Another Nail #1</option>
-                    <option value="Justice League of America: The Nail #3">Justice League of America: The Nail #3</option>
-                    <option value="Justice League of America: The Nail #2">Justice League of America: The Nail #2</option>
-                    <option value="Justice League of America: The Nail #1">Justice League of America: The Nail #1</option>
-                </select>
+        <h1>DC NFT Contest Calculator</h1>
+        <form id="calculatorForm">
+            <div id="comicsContainer">
+                <div class="comicEntry">
+                    <label for="comicSeries">Comic Series:</label>
+                    <select name="comicSeries" required>
+                        <option value="JLA: Another Nail (2004) #2">JLA: Another Nail (2004) #2</option>
+                        <option value="JLA: Another Nail (2004) #1">JLA: Another Nail (2004) #1</option>
+                        <option value="Justice League of America: The Nail (1998) #3">Justice League of America: The Nail (1998) #3</option>
+                        <option value="Justice League of America: The Nail (1998) #2">Justice League of America: The Nail (1998) #2</option>
+                        <option value="Justice League of America: The Nail (1998) #1">Justice League of America: The Nail (1998) #1</option>
+                    </select>
 
-                <label for="mint">Mint Number</label>
-                <input type="number" id="mint" name="mint">
+                    <label for="mintNumber">Mint Number:</label>
+                    <input type="number" name="mintNumber" required>
 
-                <label for="rarity">Rarity</label>
-                <select id="rarity" name="rarity">
-                    <option value="Legendary">Legendary</option>
-                    <option value="Epic">Epic</option>
-                    <option value="Rare">Rare</option>
-                    <option value="Uncommon">Uncommon</option>
-                    <option value="Core">Core</option>
-                </select>
+                    <label for="rarity">Rarity:</label>
+                    <select name="rarity" required>
+                        <option value="Legendary">Legendary</option>
+                        <option value="Epic">Epic</option>
+                        <option value="Rare">Rare</option>
+                        <option value="Uncommon">Uncommon</option>
+                        <option value="Core">Core</option>
+                    </select>
 
-                <label for="firstMint">First Mint</label>
-                <select id="firstMint" name="firstMint">
-                    <option value="No">No</option>
-                    <option value="Yes">Yes</option>
-                </select>
+                    <label for="firstMint">First Mint:</label>
+                    <select name="firstMint" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
 
-                <label for="lastMint">Last Mint</label>
-                <select id="lastMint" name="lastMint">
-                    <option value="No">No</option>
-                    <option value="Yes">Yes</option>
-                </select>
+                    <label for="lastMint">Last Mint:</label>
+                    <select name="lastMint" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
 
-                <label for="publishedYear">Published Year</label>
-                <input type="number" id="publishedYear" name="publishedYear" value="2004">
+                    <label for="editionNumber">Edition Number:</label>
+                    <input type="number" name="editionNumber" required>
+                </div>
             </div>
 
-            <button type="button" onclick="addComic()">Add Comic</button>
-            <button type="button" onclick="removeComic()">Remove Comic</button>
-            <button type="button" onclick="calculateTotal()">Calculate Total</button>
+            <button type="button" id="addComicButton">Add Comic</button>
+            <button type="button" id="removeComicButton">Remove Comic</button>
+            <button type="submit">Calculate Total Points</button>
         </form>
 
-        <div id="comicsList"></div>
-        <div id="totalPoints"></div>
+        <h2>Total Points: <span id="totalPoints">0</span></h2>
     </div>
 
-    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('addComicButton').addEventListener('click', function() {
+            const comicsContainer = document.getElementById('comicsContainer');
+            const newComicEntry = document.querySelector('.comicEntry').cloneNode(true);
+            comicsContainer.appendChild(newComicEntry);
+        });
+
+        document.getElementById('removeComicButton').addEventListener('click', function() {
+            const comicsContainer = document.getElementById('comicsContainer');
+            if (comicsContainer.children.length > 1) {
+                comicsContainer.removeChild(comicsContainer.lastChild);
+            }
+        });
+
+        document.getElementById('calculatorForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const comicEntries = document.querySelectorAll('.comicEntry');
+            let totalPoints = 0;
+
+            comicEntries.forEach(entry => {
+                const series = entry.querySelector('[name="comicSeries"]').value;
+                const mintNumber = parseInt(entry.querySelector('[name="mintNumber"]').value);
+                const rarity = entry.querySelector('[name="rarity"]').value;
+                const firstMint = entry.querySelector('[name="firstMint"]').value === 'Yes';
+                const lastMint = entry.querySelector('[name="lastMint"]').value === 'Yes';
+                const editionNumber = parseInt(entry.querySelector('[name="editionNumber"]').value);
+
+                let points = 0;
+
+                // Rarity points
+                switch (rarity) {
+                    case 'Legendary':
+                        points += 50;
+                        break;
+                    case 'Epic':
+                        points += 40;
+                        break;
+                    case 'Rare':
+                        points += 30;
+                        break;
+                    case 'Uncommon':
+                        points += 20;
+                        break;
+                    case 'Core':
+                        points += 10;
+                        break;
+                }
+
+                // Mint number points
+                if (mintNumber === 1) {
+                    points += 100;
+                }
+
+                // Edition number points
+                if (mintNumber === editionNumber) {
+                    points += 50;
+                }
+
+                // First and last mint points
+                if (firstMint) {
+                    points += 25;
+                }
+                if (lastMint) {
+                    points += 25;
+                }
+
+                // Additional special numbers
+                const specialNumbers = [10, 100, 1000];
+                if (specialNumbers.includes(mintNumber)) {
+                    points += 20;
+                }
+
+                totalPoints += points;
+            });
+
+            document.getElementById('totalPoints').textContent = totalPoints;
+        });
+    </script>
 </body>
 </html>
