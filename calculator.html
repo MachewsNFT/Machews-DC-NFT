@@ -3,118 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comic Points Calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <title>DC NFT Points Calculator</title>
 </head>
 <body>
-    <header>
-        <h1>Comic Points Calculator</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="calculator.html">Calculator</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="container">
-            <h2>Calculate Your Points</h2>
-            <form id="calculatorForm">
-                <div class="form-group">
-                    <label for="series">Comic Series</label>
-                    <select id="series" name="series">
-                        <option value="Titans: Beast World">Titans: Beast World</option>
-                        <option value="Crisis on Infinite Earths">Crisis on Infinite Earths</option>
-                        <option value="Justice League vs. Suicide Squad">Justice League vs. Suicide Squad</option>
-                        <option value="Justice League of America">Justice League of America</option>
-                        <option value="Aquaman">Aquaman</option>
-                        <option value="Dawn of DC 2">Dawn of DC 2</option>
-                        <option value="Series Villains">Series Villains</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="mintNumber">Mint Number</label>
-                    <input type="number" id="mintNumber" name="mintNumber">
-                </div>
-                <div class="form-group">
-                    <label for="rarity">Rarity</label>
-                    <select id="rarity" name="rarity">
-                        <option value="Legendary">Legendary</option>
-                        <option value="Epic">Epic</option>
-                        <option value="Rare">Rare</option>
-                        <option value="Uncommon">Uncommon</option>
-                        <option value="Core">Core</option>
-                        <option value="Common">Common</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="firstMint">First Mint</label>
-                    <select id="firstMint" name="firstMint">
-                        <option value="No">No</option>
-                        <option value="Yes">Yes</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="lastMint">Last Mint</label>
-                    <select id="lastMint" name="lastMint">
-                        <option value="No">No</option>
-                        <option value="Yes">Yes</option>
-                    </select>
-                </div>
-                <button type="button" onclick="addComic()">Add</button>
-            </form>
-            <div class="comics-list">
-                <ul id="comicsList"></ul>
+    <div class="container">
+        <h1>Points Calculator</h1>
+        <form id="pointsForm">
+            <div class="comic-entry">
+                <label for="series">Comic Series</label>
+                <select id="series" name="series">
+                    <option value="JLA: Another Nail #2">JLA: Another Nail #2</option>
+                    <option value="JLA: Another Nail #1">JLA: Another Nail #1</option>
+                    <option value="Justice League of America: The Nail #3">Justice League of America: The Nail #3</option>
+                    <option value="Justice League of America: The Nail #2">Justice League of America: The Nail #2</option>
+                    <option value="Justice League of America: The Nail #1">Justice League of America: The Nail #1</option>
+                </select>
+
+                <label for="mint">Mint Number</label>
+                <input type="number" id="mint" name="mint">
+
+                <label for="rarity">Rarity</label>
+                <select id="rarity" name="rarity">
+                    <option value="Legendary">Legendary</option>
+                    <option value="Epic">Epic</option>
+                    <option value="Rare">Rare</option>
+                    <option value="Uncommon">Uncommon</option>
+                    <option value="Core">Core</option>
+                </select>
+
+                <label for="firstMint">First Mint</label>
+                <select id="firstMint" name="firstMint">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="lastMint">Last Mint</label>
+                <select id="lastMint" name="lastMint">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+
+                <label for="publishedYear">Published Year</label>
+                <input type="number" id="publishedYear" name="publishedYear" value="2004">
             </div>
-            <div class="total-points" id="totalPoints">Total Points: 0</div>
-        </div>
-        <script>
-            function addComic() {
-                const series = document.getElementById('series').value;
-                const mintNumber = document.getElementById('mintNumber').value;
-                const rarity = document.getElementById('rarity').value;
-                const firstMint = document.getElementById('firstMint').value;
-                const lastMint = document.getElementById('lastMint').value;
 
-                const basePoints = {
-                    'Titans: Beast World': 50,
-                    'Crisis on Infinite Earths': 45,
-                    'Justice League vs. Suicide Squad': 40,
-                    'Justice League of America': 35,
-                    'Aquaman': 50,
-                    'Dawn of DC 2': 55,
-                    'Series Villains': 60
-                };
+            <button type="button" onclick="addComic()">Add Comic</button>
+            <button type="button" onclick="removeComic()">Remove Comic</button>
+            <button type="button" onclick="calculateTotal()">Calculate Total</button>
+        </form>
 
-                const rarityPoints = {
-                    'Legendary': 30,
-                    'Epic': 25,
-                    'Rare': 20,
-                    'Uncommon': 15,
-                    'Core': 10,
-                    'Common': 10
-                };
+        <div id="comicsList"></div>
+        <div id="totalPoints"></div>
+    </div>
 
-                const editionPoints = rarityPoints[rarity];
-                const mintBonus = 100 - parseInt(mintNumber, 10);
-
-                let totalPoints = basePoints[series] + editionPoints + mintBonus;
-                if (firstMint === 'Yes') totalPoints += 25;
-                if (lastMint === 'Yes') totalPoints += 25;
-
-                const comicsList = document.getElementById('comicsList');
-                const listItem = document.createElement('li');
-                listItem.textContent = `${series}, Mint: ${mintNumber}, Rarity: ${rarity}, First Mint: ${firstMint}, Last Mint: ${lastMint}, Points: ${totalPoints}`;
-                comicsList.appendChild(listItem);
-
-                const totalPointsElement = document.getElementById('totalPoints');
-                totalPointsElement.textContent = `Total Points: ${Array.from(comicsList.children).reduce((sum, item) => sum + parseInt(item.textContent.split(': ')[1], 10), 0)}`;
-            }
-        </script>
-    </main>
-    <footer>
-        <p>&copy; 2024 DC NFT Test Page</p>
-    </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
