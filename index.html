@@ -15,10 +15,7 @@
             <label for="discordHandle">Discord Handle:</label>
             <input type="text" id="discordHandle" name="discordHandle" placeholder="piedpiper" required style="font-size: 20px; color: #333;">
 
-            <label for="candyUsername">Showcase:</label>
-            <input type="text" id="candyUsername" name="candyUsername" required style="font-size: 20px; color: #333;">
-
-            <label for="showcaseLink">Drop Link:</label>
+            <label for="showcaseLink">Showcase:</label>
             <input type="text" id="showcaseLink" name="showcaseLink" placeholder="Drop link" required style="font-size: 20px; color: #333;">
 
             <button type="submit">Submit</button>
@@ -29,12 +26,10 @@
         document.getElementById('entryForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const discordHandle = document.getElementById('discordHandle').value;
-            const candyUsername = document.getElementById('candyUsername').value;
             const showcaseLink = document.getElementById('showcaseLink').value;
 
             // Store the data in local storage
             localStorage.setItem('discordHandle', discordHandle);
-            localStorage.setItem('candyUsername', candyUsername);
             localStorage.setItem('showcaseLink', showcaseLink);
 
             // Redirect to the calculator page
