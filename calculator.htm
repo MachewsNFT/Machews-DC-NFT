@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Points Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Comic Points Calculator</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="calculator.html">Calculator</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Calculate Your Points</h2>
+            <form id="calculatorForm">
+                <div class="form-group">
+                    <label for="series">Comic Series</label>
+                    <select id="series" name="series">
+                        <option value="Titans: Beast World">Titans: Beast World</option>
+                        <option value="Crisis on Infinite Earths">Crisis on Infinite Earths</option>
+                        <option value="Justice League vs. Suicide Squad">Justice League vs. Suicide Squad</option>
+                        <option value="Justice League of America">Justice League of America</option>
+                        <option value="Aquaman">Aquaman</option>
+                        <option value="Dawn of DC 2">Dawn of DC 2</option>
+                        <option value="Series Villains">Series Villains</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mintNumber">Mint Number</label>
+                    <input type="number" id="mintNumber" name="mintNumber">
+                </div>
+                <div class="form-group">
+                    <label for="rarity">Rarity</label>
+                    <select id="rarity" name="rarity">
+                        <option value="Legendary">Legendary</option>
+                        <option value="Epic">Epic</option>
+                        <option value="Rare">Rare</option>
+                        <option value="Uncommon">Uncommon</option>
+                        <option value="Core">Core</option>
+                        <option value="Common">Common</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="firstMint">First Mint</label>
+                    <select id="firstMint" name="firstMint">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lastMint">Last Mint</label>
+                    <select id="lastMint" name="lastMint">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+                <button type="button" onclick="addComic()">Add</button>
+            </form>
+            <div class="comics-list">
+                <ul id="comicsList"></ul>
+            </div>
+            <div class="total-points" id="totalPoints">Total Points: 0</div>
+        </div>
+        <script>
+            // Your JavaScript code for calculator functionality
+        </script>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Website</p>
+    </footer>
+</body>
+</html>
