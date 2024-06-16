@@ -1,131 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delta Charlie Contest Entry</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <title>DC3 Super Power Pack Series Contest</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         body {
-            font-family: 'Special Elite', cursive;
-            background: url('background.jpg') no-repeat center center fixed;
+            background-image: url('background.jpg');
             background-size: cover;
-            color: white;
+            font-family: 'Special Elite', cursive;
         }
+
         .container {
-            max-width: 600px;
-            margin: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            border: 1px solid #ccc;
+            margin: auto;
+            width: 50%;
             border-radius: 10px;
-        }
-        h1, h2 {
             text-align: center;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            margin: 10px 0 5px;
-        }
-        input {
+
+        .form-control {
+            margin: 10px 0;
             padding: 10px;
-            margin-bottom: 10px;
-            font-size: 20px;
-            color: #333;
+            width: 100%;
         }
-        button {
+
+        .form-control input {
+            width: 100%;
             padding: 10px;
-            background-color: green;
-            color: white;
-            font-size: 20px;
-            border: none;
             border-radius: 5px;
+            border: none;
+        }
+
+        .form-control input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
             cursor: pointer;
         }
-        .leaderboard, .countdown {
-            text-align: center;
+
+        .form-control input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .leaderboard {
             margin-top: 20px;
         }
-        .countdown {
-            font-size: 24px;
-            font-weight: bold;
+
+        .leaderboard a {
+            color: #d4af37;
+            text-decoration: none;
         }
-        .image-section img {
-            width: 100%;
+
+        .leaderboard a:hover {
+            text-decoration: underline;
+        }
+
+        .countdown {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+
+        .banner-image {
+            max-width: 100%;
+            height: auto;
             border-radius: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="image-section">
-            <img src="your-image-url.jpg" alt="Comic Banner">
-        </div>
+        <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
         <h1>Delta Charlie</h1>
         <h2>DC3 Super Power Pack Series: JLA The Nail Best of 10</h2>
-        <form id="entryForm">
-            <label for="discordHandle">Discord Handle:</label>
-            <input type="text" id="discordHandle" name="discordHandle" placeholder="piedpiper" required>
-            
-            <label for="showcaseLink">Showcase Link:</label>
-            <input type="text" id="showcaseLink" name="showcaseLink" placeholder="Showcase link" required>
-
-            <button type="submit">Submit</button>
+        <form action="/submit" method="post">
+            <div class="form-control">
+                <label for="discord">Discord Handle:</label>
+                <input type="text" id="discord" name="discord" value="piedpiper">
+            </div>
+            <div class="form-control">
+                <label for="showcase">Showcase Link:</label>
+                <input type="text" id="showcase" name="showcase" value="Showcase link">
+            </div>
+            <div class="form-control">
+                <input type="submit" value="Submit">
+            </div>
         </form>
-
         <div class="leaderboard">
-            <h2>Current Leaderboard</h2>
-            <ol id="leaderboardList">
-                <li><a href="https://www.candy.com/dc/showcases/43d4157b-8d93-45c2-a9da-4f94a70aee3b" target="_blank" style="color: white;">Player 1</a>: 1000 points</li>
-                <li><a href="https://www.candy.com/dc/showcases/your-link-here" target="_blank" style="color: white;">Player 2</a>: 950 points</li>
-                <li><a href="https://www.candy.com/dc/showcases/your-link-here" target="_blank" style="color: white;">Player 3</a>: 900 points</li>
+            <h3>Current Leaderboard</h3>
+            <ol>
+                <li><a href="#">Player 1</a>: 1000 points</li>
+                <li><a href="#">Player 2</a>: 950 points</li>
+                <li><a href="#">Player 3</a>: 900 points</li>
             </ol>
         </div>
-
         <div class="countdown">
-            <h2>Countdown to End of Contest</h2>
-            <div id="countdownClock">00:00:00</div>
+            Countdown to End of Contest<br>
+            <span id="countdown-timer">04:57:05</span>
         </div>
     </div>
 
     <script>
-        // Countdown Timer
-        function startCountdown(endTime) {
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const timeLeft = endTime - now;
+        // Countdown timer script
+        const endTime = new Date("Jul 15, 2024 23:59:59").getTime();
 
-                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const timeLeft = endTime - now;
 
-                document.getElementById("countdownClock").innerHTML = 
-                    (hours < 10 ? '0' : '') + hours + ":" + 
-                    (minutes < 10 ? '0' : '') + minutes + ":" + 
-                    (seconds < 10 ? '0' : '') + seconds;
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                if (timeLeft < 0) {
-                    clearInterval(countdownInterval);
-                    document.getElementById("countdownClock").innerHTML = "00:00:00";
-                }
+            document.getElementById("countdown-timer").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (timeLeft < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown-timer").innerHTML = "Contest Ended";
             }
-
-            updateCountdown();  // initial call
-            const countdownInterval = setInterval(updateCountdown, 1000);
-        }
-
-        // Set the end date for the countdown (replace with your actual end date/time)
-        const contestEndDate = new Date("Jul 15, 2024 23:59:59").getTime();
-        startCountdown(contestEndDate);
-
-        document.getElementById('entryForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Form submitted!');
-        });
+        }, 1000);
     </script>
 </body>
 </html>
