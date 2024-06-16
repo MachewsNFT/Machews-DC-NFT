@@ -10,9 +10,11 @@
     <header>
         <h1>Comic Points Calculator</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="calculator.html">Calculator</a>
-            <a href="contact.html">Contact</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </nav>
     </header>
     <main>
@@ -68,11 +70,51 @@
             <div class="total-points" id="totalPoints">Total Points: 0</div>
         </div>
         <script>
-            // Your JavaScript code for calculator functionality
+            function addComic() {
+                const series = document.getElementById('series').value;
+                const mintNumber = document.getElementById('mintNumber').value;
+                const rarity = document.getElementById('rarity').value;
+                const firstMint = document.getElementById('firstMint').value;
+                const lastMint = document.getElementById('lastMint').value;
+
+                const basePoints = {
+                    'Titans: Beast World': 50,
+                    'Crisis on Infinite Earths': 45,
+                    'Justice League vs. Suicide Squad': 40,
+                    'Justice League of America': 35,
+                    'Aquaman': 50,
+                    'Dawn of DC 2': 55,
+                    'Series Villains': 60
+                };
+
+                const rarityPoints = {
+                    'Legendary': 30,
+                    'Epic': 25,
+                    'Rare': 20,
+                    'Uncommon': 15,
+                    'Core': 10,
+                    'Common': 10
+                };
+
+                const editionPoints = rarityPoints[rarity];
+                const mintBonus = 100 - parseInt(mintNumber, 10);
+
+                let totalPoints = basePoints[series] + editionPoints + mintBonus;
+                if (firstMint === 'Yes') totalPoints += 25;
+                if (lastMint === 'Yes') totalPoints += 25;
+
+                const comicsList = document.getElementById('comicsList');
+                const listItem = document.createElement('li');
+                listItem.textContent = `${series}, Mint: ${mintNumber}, Rarity: ${rarity}, First Mint: ${firstMint}, Last Mint: ${lastMint}, Points: ${totalPoints}`;
+                comicsList.appendChild(listItem);
+
+                const totalPointsElement = document.getElementById('totalPoints');
+                totalPointsElement.textContent = `Total Points: ${Array.from(comicsList.children).reduce((sum, item) => sum + parseInt(item.textContent.split(': ')[1], 10), 0)}`;
+            }
         </script>
     </main>
     <footer>
-        <p>&copy; 2024 My Website</p>
+        <p>&copy; 2024 DC NFT Test Page</p>
     </footer>
 </body>
 </html>
