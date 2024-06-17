@@ -33,6 +33,13 @@ body {
     flex-direction: column;
     align-items: center;
     width: 25%;
+    position: relative;
+}
+
+.sidebar.right {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .main-content {
@@ -49,7 +56,6 @@ body {
     align-items: center;
     width: 300px; /* Adjust width as needed */
     margin-bottom: 20px;
-    position: absolute;
 }
 
 .external-link img {
@@ -79,14 +85,4 @@ input[type="number"],
 input[type="url"],
 select {
     width: calc(100% - 22px);
-    padding: 12px; /* Increased by 20% */
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: black;
-    font-size: 1.2em; /* Increased by 20% */
-    font-family: 'Open Sans', sans-serif;
-}
-
-input::placeholder {
-    color: rgba(0, 0, 0, 0.5); /* Make placeholder
+    padding: 12px
