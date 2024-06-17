@@ -16,6 +16,20 @@ body {
     height: 100vh;
     color: white;
     font-size: 1.5625em; /* Increased font size by 25% */
+    position: relative;
+}
+
+.external-link {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+.external-link img {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
 }
 
 .container {
