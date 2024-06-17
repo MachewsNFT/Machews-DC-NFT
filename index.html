@@ -30,47 +30,4 @@
                 <label for="showcaseLink">Showcase Link:</label>
                 <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
 
-                <div id="comics">
-                    <h3>Comics</h3>
-                    ${[...Array(5)].map((_, i) => `
-                    <div class="comic">
-                        <label for="comic${i + 1}_rarity">Rarity:</label>
-                        <select id="comic${i + 1}_rarity" name="comics[${i}][rarity]" required>
-                            ${['Legendary', 'Epic', 'Rare', 'Uncommon', 'Core'].map(rarity => `<option value="${rarity}">${rarity}</option>`).join('')}
-                        </select>
-
-                        <label for="comic${i + 1}_mint">Mint Number:</label>
-                        <input type="number" id="comic${i + 1}_mint" name="comics[${i}][mint]" required>
-                    </div>
-                    `).join('')}
-                </div>
-
-                <button type="submit">Submit</button>
-            </form>
-
-            <h3>Current Leaderboard</h3>
-            <div id="leaderboard">
-                <p>1. <a href="#">Player 1</a>: 1000 points</p>
-                <p>2. <a href="#">Player 2</a>: 950 points</p>
-                <p>3. <a href="#">Player 3</a>: 900 points</p>
-            </div>
-
-            <h3>Countdown to End of Contest</h3>
-            <div id="countdown-timer">28d 17h 58m 12s</div>
-            <div class="bottom-center">
-                <a href="https://dc3.wiki" target="_blank">
-                    <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki">
-                </a>
-            </div>
-        </div>
-
-        <div class="sidebar right">
-            <div class="external-link">
-                <a href="https://www.candy.com/dc/marketplace?collection=%5B%222024+Super+Power+Packs+-+Series+JLA%3A+The+Nail%22%5D" target="_blank">
-                    <img src="dc.jpg" alt="DC Logo">
-                </a>
-            </div>
-            <div id="results">
-                <h3>Submission Results</h3>
-                <p>Discord Handle: <span id="result-discordHandle"></span></p>
-                <p>Total Points: <span id​⬤
+                <div id="com
