@@ -114,6 +114,16 @@ button:hover {
     font-size: 1.2em; /* Increased by 20% */
 }
 
+#contest-rules {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 1em; /* Font size adjusted for readability */
+}
+
+#contest-rules p {
+    margin: 5px 0;
+}
+
 .wiki-logo img {
     width: 150px;
     height: auto;
