@@ -85,4 +85,14 @@ input[type="number"],
 input[type="url"],
 select {
     width: calc(100% - 22px);
-    padding: 12px
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+    font-size: 1.2em; /* Increased by 20% */
+    font-family: 'Open Sans', sans-serif;
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
