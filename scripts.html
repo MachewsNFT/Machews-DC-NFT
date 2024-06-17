@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scripts</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <img src="comicbanner.jpg" alt="Comic Banner">
-        </div>
-    </div>
-    <script src="scripts.js"></script>
-</body>
-</html>
+document.getElementById('submissionForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+    const data = {
+        discordHandle: formData.get('discordHandle'),
+        showcaseLink: formData.get('showcaseLink'),
+        comics: []
+    };
+
+    for (let i = 0; i <
