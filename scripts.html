@@ -10,7 +10,6 @@ document.getElementById('submissionForm').addEventListener('submit', function(ev
 
     for (let i = 0; i < 5; i++) {
         data.comics.push({
-            number: formData.get(`comics[${i}][number]`),
             rarity: formData.get(`comics[${i}][rarity]`),
             mint: formData.get(`comics[${i}][mint]`)
         });
