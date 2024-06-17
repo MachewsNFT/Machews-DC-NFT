@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="comicbanner.jpg" alt="Comic Banner">
+        <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
         <h1>Delta Charlie</h1>
         <h2>DC3 Super Power Pack Series: JLA The Nail Best Complete Set</h2>
         
@@ -25,11 +25,6 @@
                 <h3>Comics</h3>
                 ${[...Array(5)].map((_, i) => `
                 <div class="comic">
-                    <label for="comic${i + 1}_number">Comic ${i + 1} Number:</label>
-                    <select id="comic${i + 1}_number" name="comics[${i}][number]" required>
-                        ${['#1', '#2', '#3', '#4', '#5'].map(num => `<option value="${num}">${num}</option>`).join('')}
-                    </select>
-
                     <label for="comic${i + 1}_rarity">Rarity:</label>
                     <select id="comic${i + 1}_rarity" name="comics[${i}][rarity]" required>
                         ${['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'].map(rarity => `<option value="${rarity}">${rarity}</option>`).join('')}
@@ -54,7 +49,6 @@
         <h3>Countdown to End of Contest</h3>
         <div id="countdown-timer">28d 17h 58m 12s</div>
 
-        <div class="hit-counter">Hit Counter: 001</div>
         <a href="https://dc3.wiki" class="wiki-logo">
             <img src="dc3-wiki-logo.png" alt="DC3 Wiki">
         </a>
