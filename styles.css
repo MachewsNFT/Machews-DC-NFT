@@ -2,34 +2,10 @@ body {
     font-family: 'Open Sans', sans-serif;
     background: linear-gradient(
         to bottom,
-        #F9EB00 10%,
-        #F4EB00 10%,
-        #FFEE00 10%,
-        #C5D600 10%,
-        #C5EB00 10%,
-        #F9E400 10%,
-        #C6DC00 10%,
-        #B4D700 10%,
-        #C8DC00 10%,
-        #007AFF 10%,
-        #0064FF 10%,
-        #0032FF 10%,
-        #1964FF 10%,
-        #3264FF 10%,
-        #3264FF 10%,
-        #1932FF 10%,
-        #0032DC 10%,
-        #FF00FF 10%,
-        #FF0064 10%,
-        #FF3200 10%,
-        #FF1932 10%,
-        #FF6400 10%,
-        #FF1900 10%,
-        #006432 10%,
-        #006432 10%,
-        #196432 10%,
-        #009632 10%,
-        #009664 10%
+        #F9EB00 25%,
+        #C5D600 25%,
+        #007AFF 25%,
+        #FF0064 25%
     );
     background-size: cover;
     margin: 0;
@@ -39,7 +15,7 @@ body {
     align-items: center;
     height: 100vh;
     color: white;
-    font-size: 1.25em;
+    font-size: 1.5625em; /* Increased font size by 25% */
 }
 
 .container {
