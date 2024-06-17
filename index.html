@@ -27,7 +27,7 @@
                 <div class="comic">
                     <label for="comic${i + 1}_rarity">Rarity:</label>
                     <select id="comic${i + 1}_rarity" name="comics[${i}][rarity]" required>
-                        ${['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'].map(rarity => `<option value="${rarity}">${rarity}</option>`).join('')}
+                        ${['Lego', 'Epic', 'Rare', 'UC', 'Core'].map(rarity => `<option value="${rarity}">${rarity}</option>`).join('')}
                     </select>
 
                     <label for="comic${i + 1}_mint">Mint Number:</label>
