@@ -49,22 +49,25 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
+    width: 300px; /* Adjust width as needed */
 }
 
 .external-link img {
-    width: 130%; /* Increased by 30% */
+    width: 100%;
     height: auto;
     border-radius: 8px;
 }
 
 .external-link.left {
     top: 20px;
-    left: 20px;
+    left: calc(100% - 320px); /* Move left one full length */
+    transform: scale(1.3); /* Increase size by 30% */
 }
 
 .external-link.right {
     top: 20px;
-    right: 20px;
+    right: calc(100% - 320px); /* Move right one full length */
+    transform: scale(1.3); /* Increase size by 30% */
 }
 
 .banner-image {
