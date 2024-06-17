@@ -58,25 +58,6 @@ body {
     border-radius: 8px;
 }
 
-.rules-box {
-    background-color: #FF0064; /* Using a different color from the palette */
-    padding: 20px;
-    border-radius: 8px;
-    text-align: left;
-    width: 100%;
-    font-size: 1.2em; /* Increased by 20% */
-}
-
-#contest-rules ol {
-    margin: 0;
-    padding-left: 20px;
-}
-
-#contest-rules li {
-    margin: 10px 0;
-    font-size: 1.2em; /* Font size adjusted for readability */
-}
-
 .banner-image {
     width: 100%;
     border-radius: 8px;
@@ -145,7 +126,7 @@ button:hover {
 .bottom-center {
     position: absolute;
     bottom: 20px;
-    width: 300px; /* Adjust width to 200% */
+    width: 150px; /* Reduce size by half */
     left: 50%;
     transform: translateX(-50%);
 }
