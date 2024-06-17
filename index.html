@@ -32,66 +32,16 @@
 
                 <div id="comics">
                     <h3>Comic Rarity and Mint Number</h3>
-                    <div class="comic">
-                        <label for="comic1_rarity">Comic Rarity:</label>
-                        <select id="comic1_rarity" name="comics[0][rarity]" required>
-                            <option value="Lego">Lego</option>
-                            <option value="Epic">Epic</option>
-                            <option value="Rare">Rare</option>
-                            <option value="UC">UC</option>
-                            <option value="Core">Core</option>
-                        </select>
-                        <label for="comic1_mint">Mint Number:</label>
-                        <input type="number" id="comic1_mint" name="comics[0][mint]" required>
-                    </div>
-                    <div class="comic">
-                        <label for="comic2_rarity">Comic Rarity:</label>
-                        <select id="comic2_rarity" name="comics[1][rarity]" required>
-                            <option value="Lego">Lego</option>
-                            <option value="Epic">Epic</option>
-                            <option value="Rare">Rare</option>
-                            <option value="UC">UC</option>
-                            <option value="Core">Core</option>
-                        </select>
-                        <label for="comic2_mint">Mint Number:</label>
-                        <input type="number" id="comic2_mint" name="comics[1][mint]" required>
-                    </div>
-                    <div class="comic">
-                        <label for="comic3_rarity">Comic Rarity:</label>
-                        <select id="comic3_rarity" name="comics[2][rarity]" required>
-                            <option value="Lego">Lego</option>
-                            <option value="Epic">Epic</option>
-                            <option value="Rare">Rare</option>
-                            <option value="UC">UC</option>
-                            <option value="Core">Core</option>
-                        </select>
-                        <label for="comic3_mint">Mint Number:</label>
-                        <input type="number" id="comic3_mint" name="comics[2][mint]" required>
-                    </div>
-                    <div class="comic">
-                        <label for="comic4_rarity">Comic Rarity:</label>
-                        <select id="comic4_rarity" name="comics[3][rarity]" required>
-                            <option value="Lego">Lego</option>
-                            <option value="Epic">Epic</option>
-                            <option value="Rare">Rare</option>
-                            <option value="UC">UC</option>
-                            <option value="Core">Core</option>
-                        </select>
-                        <label for="comic4_mint">Mint Number:</label>
-                        <input type="number" id="comic4_mint" name="comics[3][mint]" required>
-                    </div>
-                    <div class="comic">
-                        <label for="comic5_rarity">Comic Rarity:</label>
-                        <select id="comic5_rarity" name="comics[4][rarity]" required>
-                            <option value="Lego">Lego</option>
-                            <option value="Epic">Epic</option>
-                            <option value="Rare">Rare</option>
-                            <option value="UC">UC</option>
-                            <option value="Core">Core</option>
-                        </select>
-                        <label for="comic5_mint">Mint Number:</label>
-                        <input type="number" id="comic5_mint" name="comics[4][mint]" required>
-                    </div>
+                    <label for="comic_rarity">Comic Rarity:</label>
+                    <select id="comic_rarity" name="comic_rarity" required>
+                        <option value="Lego">Lego</option>
+                        <option value="Epic">Epic</option>
+                        <option value="Rare">Rare</option>
+                        <option value="UC">UC</option>
+                        <option value="Core">Core</option>
+                    </select>
+                    <label for="comic_mint">Mint Number:</label>
+                    <input type="number" id="comic_mint" name="comic_mint" required>
                 </div>
 
                 <button type="submit">Submit</button>
@@ -112,7 +62,7 @@
                     <img src="dc.jpg" alt="DC Logo">
                 </a>
             </div>
-            <div id="leaderboard">
+            <div id="leaderboard" class="leaderboard">
                 <h3>Current Leaderboard</h3>
                 <p>1. <a href="#">Player 1</a>: 1000 points</p>
                 <p>2. <a href="#">Player 2</a>: 950 points</p>
