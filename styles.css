@@ -48,15 +48,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px; /* Adjust width as needed */
-    margin-bottom: 20px;
     position: absolute;
 }
 
 .external-link img {
-    width: 100%;
+    width: 130%; /* Increased by 30% */
     height: auto;
     border-radius: 8px;
+}
+
+.external-link.left {
+    top: 20px;
+    left: 20px;
+}
+
+.external-link.right {
+    top: 20px;
+    right: 20px;
 }
 
 .banner-image {
