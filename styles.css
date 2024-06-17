@@ -117,6 +117,20 @@ button:hover {
     font-size: 1.2em; /* Increased by 20% */
 }
 
+.rules-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.rules-image img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
 .rules-box {
     background-color: #007AFF; /* Using a color from the palette */
     padding: 20px;
@@ -127,8 +141,13 @@ button:hover {
     text-align: left;
 }
 
-#contest-rules p {
-    margin: 5px 0;
+#contest-rules ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+#contest-rules li {
+    margin: 10px 0;
     font-size: 1em; /* Font size adjusted for readability */
 }
 
