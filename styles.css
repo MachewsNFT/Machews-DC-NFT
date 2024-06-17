@@ -23,16 +23,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    position: absolute;
-    top: 25%;
+    padding: 0 50px;
+    position: relative;
+    top: 12.5%; /* Adjust to center vertically between color sections */
 }
 
 .external-link {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px; /* Adjust width as needed */
+    width: 150px; /* Adjust width as needed */
 }
 
 .external-link img {
@@ -48,10 +48,8 @@ body {
     text-align: center;
     width: 80%;
     max-width: 800px;
-    margin-top: 20px; /* Adjust spacing as needed */
+    margin-top: 40px; /* Adjust spacing as needed */
     position: relative;
-    top: 50%;
-    transform: translateY(-25%);
 }
 
 .banner-image {
