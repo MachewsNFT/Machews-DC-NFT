@@ -11,30 +11,29 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
     color: white;
     font-size: 1.5625em; /* Increased font size by 25% */
-    position: relative;
+}
+
+.banners {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
 }
 
 .external-link {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.external-link.left {
-    left: 10px;
-}
-
-.external-link.right {
-    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
 }
 
 .external-link img {
-    width: 150px; /* Adjust the width as needed */
+    width: 100%;
     height: auto;
     border-radius: 8px;
 }
@@ -46,7 +45,7 @@ body {
     text-align: center;
     width: 80%;
     max-width: 800px;
-    margin: 0 150px; /* Create space for the external links */
+    margin-top: 20px; /* Adjust spacing as needed */
 }
 
 .banner-image {
