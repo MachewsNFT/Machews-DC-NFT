@@ -22,7 +22,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 0 50px;
     position: relative;
     top: 50px; /* Adjust to center vertically between color sections */
@@ -30,15 +30,36 @@ body {
 
 .external-link {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    width: 150px; /* Adjust width as needed */
+    width: 200px; /* Adjust width as needed */
 }
 
 .external-link img {
     width: 100%;
     height: auto;
     border-radius: 8px;
+}
+
+.rules-box {
+    background-color: #007AFF; /* Using a color from the palette */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 200px;
+    text-align: left;
+}
+
+#contest-rules ol {
+    margin: 0;
+    padding-left: 20px;
+}
+
+#contest-rules li {
+    margin: 10px 0;
+    font-size: 1em; /* Font size adjusted for readability */
 }
 
 .container {
@@ -115,40 +136,6 @@ button:hover {
 #leaderboard p {
     margin: 5px 0;
     font-size: 1.2em; /* Increased by 20% */
-}
-
-.rules-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.rules-image img {
-    width: 100%; /* Ensures full width of the container */
-    max-width: 600px; /* Adjust to fit the design */
-    height: auto;
-    border-radius: 8px;
-}
-
-.rules-box {
-    background-color: #007AFF; /* Using a color from the palette */
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
-    width: 80%;
-    max-width: 600px;
-    text-align: left;
-}
-
-#contest-rules ol {
-    margin: 0;
-    padding-left: 20px;
-}
-
-#contest-rules li {
-    margin: 10px 0;
-    font-size: 1em; /* Font size adjusted for readability */
 }
 
 .wiki-logo img {
