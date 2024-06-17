@@ -32,20 +32,66 @@
 
                 <div id="comics">
                     <h3>Comic Rarity and Mint Number</h3>
-                    ${[...Array(5)].map((_, i) => `
                     <div class="comic">
-                        <label for="comic${i + 1}_rarity">Comic Rarity:</label>
-                        <select id="comic${i + 1}_rarity" name="comics[${i}][rarity]" required>
+                        <label for="comic1_rarity">Comic Rarity:</label>
+                        <select id="comic1_rarity" name="comics[0][rarity]" required>
                             <option value="Lego">Lego</option>
                             <option value="Epic">Epic</option>
                             <option value="Rare">Rare</option>
                             <option value="UC">UC</option>
                             <option value="Core">Core</option>
                         </select>
-                        <label for="comic${i + 1}_mint">Mint Number:</label>
-                        <input type="number" id="comic${i + 1}_mint" name="comics[${i}][mint]" required>
+                        <label for="comic1_mint">Mint Number:</label>
+                        <input type="number" id="comic1_mint" name="comics[0][mint]" required>
                     </div>
-                    `).join('')}
+                    <div class="comic">
+                        <label for="comic2_rarity">Comic Rarity:</label>
+                        <select id="comic2_rarity" name="comics[1][rarity]" required>
+                            <option value="Lego">Lego</option>
+                            <option value="Epic">Epic</option>
+                            <option value="Rare">Rare</option>
+                            <option value="UC">UC</option>
+                            <option value="Core">Core</option>
+                        </select>
+                        <label for="comic2_mint">Mint Number:</label>
+                        <input type="number" id="comic2_mint" name="comics[1][mint]" required>
+                    </div>
+                    <div class="comic">
+                        <label for="comic3_rarity">Comic Rarity:</label>
+                        <select id="comic3_rarity" name="comics[2][rarity]" required>
+                            <option value="Lego">Lego</option>
+                            <option value="Epic">Epic</option>
+                            <option value="Rare">Rare</option>
+                            <option value="UC">UC</option>
+                            <option value="Core">Core</option>
+                        </select>
+                        <label for="comic3_mint">Mint Number:</label>
+                        <input type="number" id="comic3_mint" name="comics[2][mint]" required>
+                    </div>
+                    <div class="comic">
+                        <label for="comic4_rarity">Comic Rarity:</label>
+                        <select id="comic4_rarity" name="comics[3][rarity]" required>
+                            <option value="Lego">Lego</option>
+                            <option value="Epic">Epic</option>
+                            <option value="Rare">Rare</option>
+                            <option value="UC">UC</option>
+                            <option value="Core">Core</option>
+                        </select>
+                        <label for="comic4_mint">Mint Number:</label>
+                        <input type="number" id="comic4_mint" name="comics[3][mint]" required>
+                    </div>
+                    <div class="comic">
+                        <label for="comic5_rarity">Comic Rarity:</label>
+                        <select id="comic5_rarity" name="comics[4][rarity]" required>
+                            <option value="Lego">Lego</option>
+                            <option value="Epic">Epic</option>
+                            <option value="Rare">Rare</option>
+                            <option value="UC">UC</option>
+                            <option value="Core">Core</option>
+                        </select>
+                        <label for="comic5_mint">Mint Number:</label>
+                        <input type="number" id="comic5_mint" name="comics[4][mint]" required>
+                    </div>
                 </div>
 
                 <button type="submit">Submit</button>
