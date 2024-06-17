@@ -124,11 +124,8 @@ button:hover {
 }
 
 .bottom-center {
-    position: absolute;
-    bottom: 20px;
     width: 150px; /* Reduce size by half */
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 10px auto;
 }
 
 .bottom-center img {
