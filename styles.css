@@ -124,7 +124,7 @@ button:hover {
 }
 
 .bottom-center {
-    width: 120px; /* Reduced size by 20% */
+    width: 60%; /* Adjust the width to fit within the black block */
     margin: 10px auto;
 }
 
