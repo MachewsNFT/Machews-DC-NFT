@@ -27,4 +27,56 @@ body {
 .form-control input {
     width: 100%;
     padding: 12.5px; /* Increase padding by 25% */
-    border-radius: 6.25px; /* Increase border-radius by 
+    border-radius: 6.25px; /* Increase border-radius by 25% */
+    border: none;
+}
+
+.form-control input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 1.25em; /* Increase font size by 25% */
+}
+
+.form-control input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.leaderboard {
+    margin-top: 25px; /* Increase margin-top by 25% */
+}
+
+.leaderboard a {
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 1.25em; /* Increase font size by 25% */
+}
+
+.leaderboard a:hover {
+    text-decoration: underline;
+}
+
+.countdown {
+    margin-top: 25px; /* Increase margin-top by 25% */
+    font-size: 1.875em; /* Increase font size by 25% */
+}
+
+.banner-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12.5px; /* Increase border-radius by 25% */
+}
+
+.promo-logo {
+    position: absolute;
+    top: 20px; /* Adjust top spacing */
+    right: 20px; /* Adjust right spacing */
+    color: white;
+    font-family: 'Special Elite', cursive;
+    font-size: 1.25em; /* Increase font size by 25% */
+}
+
+.promo-logo img {
+    width: 150px; /* Increase width by 25% */
+    height: auto;
+}
