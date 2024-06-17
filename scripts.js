@@ -5,15 +5,13 @@ document.getElementById('submissionForm').addEventListener('submit', function(ev
     const data = {
         discordHandle: formData.get('discordHandle'),
         showcaseLink: formData.get('showcaseLink'),
-        comics: []
+        comics: [
+            {
+                rarity: formData.get('comic_rarity'),
+                mint: formData.get('comic_mint')
+            }
+        ]
     };
-
-    for (let i = 0; i < 5; i++) {
-        data.comics.push({
-            rarity: formData.get(`comics[${i}][rarity]`),
-            mint: formData.get(`comics[${i}][mint]`)
-        });
-    }
 
     // Calculate total points (example calculation, you need to define your point logic)
     let totalPoints = 0;
@@ -53,4 +51,20 @@ function loadLeaderboard() {
         { discordHandle: 'Player 3', showcaseLink: '#', points: 900 }
     ];
 
-    const leaderboardDiv = document
+    const leaderboardDiv = document.getElementById('leaderboard');
+    leaderboardDiv.innerHTML = '';
+    leaderboard.forEach((entry, index) => {
+        const link = document.createElement('a');
+        link.href = entry.showcaseLink;
+        link.textContent = entry.discordHandle;
+
+        const p = document.createElement('p');
+        p.textContent = `${index + 1}. `;
+        p.appendChild(link);
+        p.append(`: ${entry.points} points`);
+
+        leaderboardDiv.appendChild(p);
+    });
+}
+
+loadLeaderboard();
