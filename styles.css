@@ -1,6 +1,36 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    background-image: url('background.jpg');
+    background: linear-gradient(
+        to bottom,
+        #F9EB00 10%,
+        #F4EB00 10%,
+        #FFEE00 10%,
+        #C5D600 10%,
+        #C5EB00 10%,
+        #F9E400 10%,
+        #C6DC00 10%,
+        #B4D700 10%,
+        #C8DC00 10%,
+        #007AFF 10%,
+        #0064FF 10%,
+        #0032FF 10%,
+        #1964FF 10%,
+        #3264FF 10%,
+        #3264FF 10%,
+        #1932FF 10%,
+        #0032DC 10%,
+        #FF00FF 10%,
+        #FF0064 10%,
+        #FF3200 10%,
+        #FF1932 10%,
+        #FF6400 10%,
+        #FF1900 10%,
+        #006432 10%,
+        #006432 10%,
+        #196432 10%,
+        #009632 10%,
+        #009664 10%
+    );
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -9,7 +39,7 @@ body {
     align-items: center;
     height: 100vh;
     color: white;
-    font-size: 1.25em; /* Increase base font size */
+    font-size: 1.25em;
 }
 
 .container {
@@ -34,7 +64,7 @@ label {
     font-weight: 600;
     display: block;
     margin: 10px 0 5px;
-    font-size: 1em; /* Adjust to base size */
+    font-size: 1em;
 }
 
 input[type="text"],
@@ -46,13 +76,13 @@ select {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    color: black;  /* Ensure text is readable */
-    font-size: 1em; /* Adjust to base size */
+    color: black;
+    font-size: 1em;
 }
 
 form {
     margin-top: 20px;
-    padding: 0 10px;  /* Add padding to form */
+    padding: 0 10px;
 }
 
 button {
@@ -62,8 +92,8 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px;  /* Add margin to separate from form */
-    font-size: 1em; /* Adjust to base size */
+    margin-top: 10px;
+    font-size: 1em;
 }
 
 button:hover {
@@ -72,12 +102,12 @@ button:hover {
 
 #leaderboard a {
     color: yellow;
-    font-size: 1em; /* Adjust to base size */
+    font-size: 1em;
 }
 
 #leaderboard p {
     margin: 5px 0;
-    font-size: 1em; /* Adjust to base size */
+    font-size: 1em;
 }
 
 .wiki-logo img {
