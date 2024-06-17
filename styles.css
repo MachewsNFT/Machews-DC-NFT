@@ -11,29 +11,52 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
     font-size: 1.875em; /* Increased font size by 20% from 1.5625em */
 }
 
-.top-banner {
-    width: 100%;
+.container {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 0 50px;
-    position: relative;
-    top: 50px; /* Adjust to center vertically between color sections */
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.left-sidebar,
+.right-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+}
+
+.left-sidebar {
+    align-items: flex-start;
+}
+
+.right-sidebar {
+    align-items: flex-end;
+}
+
+.main-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 60%;
 }
 
 .external-link {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    width: 200px; /* Adjust width as needed */
+    width: 150px; /* Adjust width as needed */
+    margin-bottom: 20px;
 }
 
 .external-link img {
@@ -43,13 +66,11 @@ body {
 }
 
 .rules-box {
-    background-color: #007AFF; /* Using a color from the palette */
+    background-color: #FF0064; /* Using a different color from the palette */
     padding: 20px;
     border-radius: 8px;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 200px;
     text-align: left;
+    width: 100%;
 }
 
 #contest-rules ol {
@@ -60,17 +81,6 @@ body {
 #contest-rules li {
     margin: 10px 0;
     font-size: 1em; /* Font size adjusted for readability */
-}
-
-.container {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    width: 80%;
-    max-width: 800px;
-    margin-top: 40px; /* Adjust spacing as needed */
-    position: relative;
 }
 
 .banner-image {
@@ -110,36 +120,4 @@ input::placeholder {
 
 form {
     margin-top: 20px;
-    padding: 0 10px;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 24px; /* Increased by 20% */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 1.2em; /* Increased by 20% */
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-#leaderboard a {
-    color: yellow;
-    font-size: 1.2em; /* Increased by 20% */
-}
-
-#leaderboard p {
-    margin: 5px 0;
-    font-size: 1.2em; /* Increased by 20% */
-}
-
-.wiki-logo img {
-    width: 150px;
-    height: auto;
-    margin-top: 20px;
-}
+    padding: 0 ​⬤
