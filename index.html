@@ -23,17 +23,6 @@
 
             <div id="comics">
                 <h3>Comics</h3>
-                ${[...Array(5)].map((_, i) => `
-                <div class="comic">
-                    <label for="comic${i + 1}_rarity">Rarity:</label>
-                    <select id="comic${i + 1}_rarity" name="comics[${i}][rarity]" required>
-                        ${['Lego', 'Epic', 'Rare', 'UC', 'Core'].map(rarity => `<option value="${rarity}">${rarity}</option>`).join('')}
-                    </select>
-
-                    <label for="comic${i + 1}_mint">Mint Number:</label>
-                    <input type="number" id="comic${i + 1}_mint" name="comics[${i}][mint]" required>
-                </div>
-                `).join('')}
             </div>
 
             <button type="submit">Submit</button>
@@ -50,7 +39,7 @@
         <div id="countdown-timer">28d 17h 58m 12s</div>
 
         <a href="https://dc3.wiki" class="wiki-logo">
-            <img src="dc3-wiki-logo.png" alt="DC3 Wiki">
+            <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki">
         </a>
     </div>
 </body>
