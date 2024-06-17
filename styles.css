@@ -9,6 +9,7 @@ body {
     align-items: center;
     height: 100vh;
     color: white;
+    font-size: 1.25em; /* Increase base font size */
 }
 
 .container {
@@ -33,6 +34,7 @@ label {
     font-weight: 600;
     display: block;
     margin: 10px 0 5px;
+    font-size: 1em; /* Adjust to base size */
 }
 
 input[type="text"],
@@ -45,6 +47,7 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
     color: black;  /* Ensure text is readable */
+    font-size: 1em; /* Adjust to base size */
 }
 
 form {
@@ -60,6 +63,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;  /* Add margin to separate from form */
+    font-size: 1em; /* Adjust to base size */
 }
 
 button:hover {
@@ -68,10 +72,12 @@ button:hover {
 
 #leaderboard a {
     color: yellow;
+    font-size: 1em; /* Adjust to base size */
 }
 
 #leaderboard p {
     margin: 5px 0;
+    font-size: 1em; /* Adjust to base size */
 }
 
 .wiki-logo img {
