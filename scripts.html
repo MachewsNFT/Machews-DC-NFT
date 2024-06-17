@@ -1,89 +1,72 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const comicsContainer = document.getElementById('comics');
+document.getElementById('submissionForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+    const data = {
+        discordHandle: formData.get('discordHandle'),
+        showcaseLink: formData.get('showcaseLink'),
+        comics: []
+    };
 
     for (let i = 0; i < 5; i++) {
-        const comicDiv = document.createElement('div');
-        comicDiv.className = 'comic';
-        
-        const rarityLabel = document.createElement('label');
-        rarityLabel.setAttribute('for', `comic${i + 1}_rarity`);
-        rarityLabel.textContent = 'Rarity:';
-        
-        const raritySelect = document.createElement('select');
-        raritySelect.id = `comic${i + 1}_rarity`;
-        raritySelect.name = `comics[${i}][rarity]`;
-        raritySelect.required = true;
-        
-        ['Lego', 'Epic', 'Rare', 'UC', 'Core'].forEach(rarity => {
-            const option = document.createElement('option');
-            option.value = rarity;
-            option.textContent = rarity;
-            raritySelect.appendChild(option);
+        data.comics.push({
+            rarity: formData.get(`comics[${i}][rarity]`),
+            mint: formData.get(`comics[${i}][mint]`)
         });
-
-        const mintLabel = document.createElement('label');
-        mintLabel.setAttribute('for', `comic${i + 1}_mint`);
-        mintLabel.textContent = 'Mint Number:';
-        
-        const mintInput = document.createElement('input');
-        mintInput.type = 'number';
-        mintInput.id = `comic${i + 1}_mint`;
-        mintInput.name = `comics[${i}][mint]`;
-        mintInput.required = true;
-
-        comicDiv.appendChild(rarityLabel);
-        comicDiv.appendChild(raritySelect);
-        comicDiv.appendChild(mintLabel);
-        comicDiv.appendChild(mintInput);
-
-        comicsContainer.appendChild(comicDiv);
     }
-    
-    document.getElementById('submissionForm').addEventListener('submit', function(event) {
-        event.preventDefault();
 
-        const formData = new FormData(this);
-        const data = {
-            discordHandle: formData.get('discordHandle'),
-            showcaseLink: formData.get('showcaseLink'),
-            comics: []
-        };
-
-        for (let i = 0; i < 5; i++) {
-            data.comics.push({
-                rarity: formData.get(`comics[${i}][rarity]`),
-                mint: formData.get(`comics[${i}][mint]`)
-            });
+    // Calculate total points (example calculation, you need to define your point logic)
+    let totalPoints = 0;
+    data.comics.forEach(comic => {
+        switch (comic.rarity) {
+            case 'Legendary':
+                totalPoints += 100;
+                break;
+            case 'Epic':
+                totalPoints += 80;
+                break;
+            case 'Rare':
+                totalPoints += 60;
+                break;
+            case 'Uncommon':
+                totalPoints += 40;
+                break;
+            case 'Core':
+                totalPoints += 20;
+                break;
         }
-
-        console.log('Form Data:', data);
-        alert('Submission received');
-        // Here you can update the leaderboard for demonstration purposes
+        totalPoints += (10000 - comic.mint); // Example mint point calculation
     });
 
-    function loadLeaderboard() {
-        // Simulated leaderboard data
-        const leaderboard = [
-            { discordHandle: 'Player 1', showcaseLink: '#', points: 1000 },
-            { discordHandle: 'Player 2', showcaseLink: '#', points: 950 },
-            { discordHandle: 'Player 3', showcaseLink: '#', points: 900 }
-        ];
+    // Display results
+    document.getElementById('result-discordHandle').innerText = data.discordHandle;
+    document.getElementById('result-points').innerText = totalPoints;
 
-        const leaderboardDiv = document.getElementById('leaderboard');
-        leaderboardDiv.innerHTML = '';
-        leaderboard.forEach((entry, index) => {
-            const link = document.createElement('a');
-            link.href = entry.showcaseLink;
-            link.textContent = entry.discordHandle;
-
-            const p = document.createElement('p');
-            p.textContent = `${index + 1}. `;
-            p.appendChild(link);
-            p.append(`: ${entry.points} points`);
-
-            leaderboardDiv.appendChild(p);
-        });
-    }
-
-    loadLeaderboard();
+    alert('Submission received');
 });
+
+function loadLeaderboard() {
+    // Simulated leaderboard data
+    const leaderboard = [
+        { discordHandle: 'Player 1', showcaseLink: '#', points: 1000 },
+        { discordHandle: 'Player 2', showcaseLink: '#', points: 950 },
+        { discordHandle: 'Player 3', showcaseLink: '#', points: 900 }
+    ];
+
+    const leaderboardDiv = document.getElementById('leaderboard');
+    leaderboardDiv.innerHTML = '';
+    leaderboard.forEach((entry, index) => {
+        const link = document.createElement('a');
+        link.href = entry.showcaseLink;
+        link.textContent = entry.discordHandle;
+
+        const p = document.createElement('p');
+        p.textContent = `${index + 1}. `;
+        p.appendChild(link);
+        p.append(`: ${entry.points} points`);
+
+        leaderboardDiv.appendChild(p);
+    });
+}
+
+loadLeaderboard();
