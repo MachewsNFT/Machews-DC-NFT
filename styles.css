@@ -15,21 +15,22 @@ body {
     align-items: center;
     height: 100vh;
     color: white;
-    font-size: 1.5625em; /* Increased font size by 25% */
+    font-size: 1.875em; /* Increased font size by 20% from 1.5625em */
 }
 
-.banners {
+.top-banner {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 50px;
+    align-items: center;
+    padding: 20px;
 }
 
 .external-link {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
+    width: 200px; /* Adjust width as needed */
 }
 
 .external-link img {
@@ -61,7 +62,7 @@ label {
     font-weight: 600;
     display: block;
     margin: 10px 0 5px;
-    font-size: 1em;
+    font-size: 1.2em; /* Increased by 20% */
 }
 
 input[type="text"],
@@ -69,17 +70,17 @@ input[type="number"],
 input[type="url"],
 select {
     width: calc(100% - 22px);
-    padding: 10px;
+    padding: 12px; /* Increased by 20% */
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     color: black;
-    font-size: 1em;
+    font-size: 1.2em; /* Increased by 20% */
     font-family: 'Open Sans', sans-serif;
 }
 
 input::placeholder {
-    color: black;
+    color: rgba(0, 0, 0, 0.5); /* Make placeholder text more transparent */
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -91,12 +92,12 @@ form {
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 24px; /* Increased by 20% */
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
-    font-size: 1em;
+    font-size: 1.2em; /* Increased by 20% */
 }
 
 button:hover {
@@ -105,12 +106,12 @@ button:hover {
 
 #leaderboard a {
     color: yellow;
-    font-size: 1em;
+    font-size: 1.2em; /* Increased by 20% */
 }
 
 #leaderboard p {
     margin: 5px 0;
-    font-size: 1em;
+    font-size: 1.2em; /* Increased by 20% */
 }
 
 .wiki-logo img {
