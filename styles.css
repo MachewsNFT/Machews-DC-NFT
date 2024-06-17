@@ -95,4 +95,30 @@ input::placeholder {
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 12px 24px; /* Increased
+    padding: 12px 24px; /* Increased by 20% */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2em; /* Increased by 20% */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.bottom-center {
+    margin-top: 20px;
+}
+
+.bottom-center img {
+    width: 64%; /* Reduced by 20% from 80% */
+    height: auto;
+    border: 2px solid gold; /* Add a gold border */
+    border-radius: 8px; /* Optional: keep the border rounded */
+    margin-top: 20px;
+}
+
+#countdown-timer {
+    margin-top: 20px;
+    font-size: 1em; /* Match font size */
+}
