@@ -2,52 +2,19 @@ body {
     font-family: 'Special Elite', cursive;
     background-image: url('background.jpg');
     background-size: cover;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    margin: 50px auto;
-    border-radius: 10px;
-    width: 50%;
     color: white;
 }
 
-.header {
-    position: relative;
-}
-
-.header img {
-    width: 100%;
-    border-radius: 10px 10px 0 0;
-}
-
-.top-right {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.wiki-logo {
-    width: 75px;
-}
-
-.hit-counter {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
-
-.hit-counter img {
-    width: 300px;
+.container {
+    width: 80%;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
 }
 
 h1, h2, h3 {
-    margin: 10px 0;
-    font-size: 1.24em;
+    text-align: center;
 }
 
 form {
@@ -56,50 +23,53 @@ form {
     align-items: center;
 }
 
-form label {
-    font-size: 24px;
+label {
+    margin-top: 10px;
 }
 
-form input {
+input, select {
     width: 80%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 5px;
+    margin-top: 5px;
     border-radius: 5px;
-    border: none;
-    font-size: 24px;
+    border: 1px solid #ccc;
 }
 
-form button {
-    background-color: #4CAF50;
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: green;
     color: white;
-    padding: 15px 32px;
-    text-align: center;
-    font-size: 24px;
-    margin: 10px 0;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-form button:hover {
-    background-color: #45a049;
+button:hover {
+    background-color: darkgreen;
 }
 
-.leaderboard, .countdown {
-    margin: 20px 0;
+#leaderboard, #countdown-timer {
+    text-align: center;
+    margin-top: 20px;
 }
 
-.leaderboard ol {
-    list-style: none;
-    padding: 0;
-    text-align: left;
+.hit-counter, .wiki-logo {
+    position: absolute;
+    top: 10px;
 }
 
-.leaderboard ol li {
-    font-size: 24px;
-    margin: 5px 0;
+.hit-counter {
+    left: 10px;
+    font-size: 20px;
+    color: black;
 }
 
-.countdown p {
-    font-size: 24px;
+.wiki-logo {
+    right: 10px;
+}
+
+.wiki-logo img {
+    width: 100px;
+    height: auto;
 }
