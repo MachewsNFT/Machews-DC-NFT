@@ -37,9 +37,13 @@ body {
 }
 
 .sidebar.right {
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .main-content {
@@ -54,7 +58,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px; /* Adjust width as needed */
+    width: 200px; /* Adjust width as needed */
     margin-bottom: 20px;
 }
 
@@ -84,5 +88,3 @@ input[type="text"],
 input[type="number"],
 input[type="url"],
 select {
-    width: calc(100% - 22px);
-    padding: 12px
