@@ -21,7 +21,7 @@ body {
 .container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center; /* Center items vertically */
     width: 80%;
     max-width: 1400px;
     padding: 20px;
@@ -107,7 +107,7 @@ button:hover {
 }
 
 #leaderboard {
-    margin-top: 40px; /* Move down 40 spaces */
+    margin-top: 0; /* Reset margin-top */
     margin-left: 20px; /* Move right 20 spaces */
     width: 80%;
     background-color: rgba(0, 0, 0, 0.8);
@@ -146,4 +146,11 @@ button:hover {
 #countdown-timer {
     margin-top: 20px;
     font-size: 1em; /* Match font size */
+}
+
+.sidebar.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center items vertically */
 }
