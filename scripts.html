@@ -1,4 +1,4 @@
-document.getElementById('submissionForm').addEventListener('submit', async function(event) {
+document.getElementById('submissionForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
     const formData = new FormData(this);
@@ -8,4 +8,41 @@ document.getElementById('submissionForm').addEventListener('submit', async funct
         comics: []
     };
 
-    for (let i = 0; i <
+    for (let i = 0; i < 5; i++) {
+        data.comics.push({
+            number: formData.get(`comics[${i}][number]`),
+            rarity: formData.get(`comics[${i}][rarity]`),
+            mint: formData.get(`comics[${i}][mint]`)
+        });
+    }
+
+    console.log('Form Data:', data);
+    alert('Submission received');
+    // Here you can update the leaderboard for demonstration purposes
+});
+
+function loadLeaderboard() {
+    // Simulated leaderboard data
+    const leaderboard = [
+        { discordHandle: 'Player 1', showcaseLink: '#', points: 1000 },
+        { discordHandle: 'Player 2', showcaseLink: '#', points: 950 },
+        { discordHandle: 'Player 3', showcaseLink: '#', points: 900 }
+    ];
+
+    const leaderboardDiv = document.getElementById('leaderboard');
+    leaderboardDiv.innerHTML = '';
+    leaderboard.forEach((entry, index) => {
+        const link = document.createElement('a');
+        link.href = entry.showcaseLink;
+        link.textContent = entry.discordHandle;
+
+        const p = document.createElement('p');
+        p.textContent = `${index + 1}. `;
+        p.appendChild(link);
+        p.append(`: ${entry.points} points`);
+
+        leaderboardDiv.appendChild(p);
+    });
+}
+
+loadLeaderboard();
