@@ -95,6 +95,22 @@
             width: 125px; /* Increase width by 25% */
             height: auto;
         }
+
+        .counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .digit {
+            font-family: 'Special Elite', cursive;
+            font-size: 2em;
+            color: green;
+            background-color: black;
+            padding: 5px;
+            margin: 2px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -129,6 +145,11 @@
         </div>
         <div class="hit-counter">
             Hit Counter
+            <div class="counter" id="hit-counter">
+                <span class="digit">0</span>
+                <span class="digit">0</span>
+                <span class="digit">0</span>
+            </div>
         </div>
         <div class="promo-logo">
             <a href="https://dc3.wiki" target="_blank">
@@ -166,6 +187,25 @@
                 document.getElementById("countdown-timer").innerHTML = "EXPIRED";
             }
         }, 1000);
+
+        // Hit Counter Logic (Mock)
+        function updateHitCounter() {
+            var counterElement = document.getElementById('hit-counter');
+            var currentCount = parseInt(counterElement.innerText.replace(/\D/g, '')) || 0;
+            var newCount = currentCount + 1;
+            var newCountString = newCount.toString().padStart(3, '0');
+
+            counterElement.innerHTML = '';
+            for (var digit of newCountString) {
+                var span = document.createElement('span');
+                span.className = 'digit';
+                span.innerText = digit;
+                counterElement.appendChild(span);
+            }
+        }
+
+        // Simulate hit counter increment on page load
+        updateHitCounter();
     </script>
 </body>
 </html>
