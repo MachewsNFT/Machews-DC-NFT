@@ -3,14 +3,20 @@ body {
     background-image: url('background.jpg');
     background-size: cover;
     color: white;
+    transform: scale(0.9); /* Reduces overall page size by 10% */
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     margin: auto;
     background: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;
+}
+
+.banner-image {
+    display: block;
+    margin: 0 auto;
 }
 
 h1, h2, h3 {
@@ -35,6 +41,7 @@ input, select {
     margin-top: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    color: black; /* Ensures input text is visible */
 }
 
 button {
@@ -55,24 +62,17 @@ button:hover {
 #leaderboard, #countdown-timer {
     text-align: center;
     margin-top: 20px;
-}
-
-.hit-counter, .wiki-logo {
-    position: absolute;
-    top: 10px;
-}
-
-.hit-counter {
-    left: 10px;
-    font-size: 20px;
-    color: black;
+    color: black; /* Changed to black for better readability */
+    font-size: 24px; /* Increased font size for readability */
 }
 
 .wiki-logo {
+    position: absolute;
+    bottom: 10px;
     right: 10px;
 }
 
 .wiki-logo img {
-    width: 150px; /* Adjusted to make it 5 times bigger */
+    width: 200px; /* Increased size for better visibility */
     height: auto;
 }
