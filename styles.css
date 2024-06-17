@@ -138,13 +138,13 @@ button:hover {
 }
 
 .external-link.right {
-    right: calc(25% / 2);
+    right: 10%;
     top: 50%;
     transform: translateY(-50%);
 }
 
 .external-link.left {
-    left: calc(25% / 2);
+    left: 10%;
     top: 50%;
     transform: translateY(-50%);
 }
