@@ -123,9 +123,9 @@ button:hover {
 }
 
 .sidebar-left {
-    top: 65%; /* Adjusted position */
+    top: 50%;
     transform: translateY(-50%);
-    left: 40px; /* Move to left margin */
+    left: calc(50% - 400px); /* Move halfway to the left margin */
     width: 20%; /* Adjusted width */
 }
 
