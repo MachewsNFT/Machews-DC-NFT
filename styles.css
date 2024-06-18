@@ -122,14 +122,14 @@ button:hover {
 
 .sidebar-left {
     top: 50%;
-    transform: translate(-50%, -50%);
-    left: 10%;
+    transform: translateY(-50%);
+    left: 5%; /* Move to left margin */
 }
 
 .sidebar-right {
     top: 50%;
-    transform: translate(50%, -50%);
-    right: 10%;
+    transform: translateY(-50%);
+    right: 5%; /* Move to right margin */
 }
 
 .sidebar h3 {
@@ -152,46 +152,4 @@ button:hover {
     .container {
         flex-direction: column;
         width: 100%;
-        padding: 5.5px;
-    }
-
-    .main-content {
-        width: 100%;
-        padding: 5.5px;
-    }
-
-    .logos-row {
-        flex-direction: column;
-    }
-
-    .logo-container {
-        margin-bottom: 11px;
-    }
-
-    .logo-container img {
-        width: 88%;
-    }
-
-    .sidebar-left,
-    .sidebar-right {
-        position: static;
-        transform: none;
-        width: 100%;
-        margin-top: 10px;
-    }
-}
-
-/* Mobile Devices */
-@media (max-width: 480px) {
-    body {
-        font-size: 1.375em; /* Adjusted font size for mobile */
-    }
-
-    .container {
-        width: 100%;
-        padding: 5.5px;
-    }
-
-    .main-content {
-        width: 100%;
-        padding: 
+        padding:
