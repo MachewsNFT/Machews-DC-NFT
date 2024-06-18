@@ -54,4 +54,17 @@ function loadCountdown() {
         const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
         const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math
+        const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+        countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if (remainingTime < 0) {
+            clearInterval(interval);
+            countdownElement.textContent = 'Contest Ended';
+        }
+    }
+
+    const interval = setInterval(updateCountdown, 1000);
+}
+
+loadCountdown();
