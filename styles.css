@@ -20,14 +20,13 @@ body {
 
 .container {
     display: flex;
-    flex-direction: row; /* Adjusted to row to align sidebars on sides */
-    justify-content: center;
-    align-items: flex-start; /* Align items to the top */
+    justify-content: space-between; /* Adjusted to row to align sidebars on sides */
+    align-items: center; /* Center items vertically */
     width: 100%;
     max-width: 1600px;
     padding: 20px;
-    position: relative;
     box-sizing: border-box;
+    position: relative;
 }
 
 .main-content {
@@ -110,27 +109,36 @@ button:hover {
     border-radius: 8px;
 }
 
-.sidebar-left,
-.sidebar-right {
-    background-color: #007AFF;
+.sidebar {
+    background-color: #000; /* Black background */
     padding: 20px;
     border-radius: 8px;
     color: white;
     width: 20%;
     min-width: 200px;
     text-align: center;
-    margin: 0 10px; /* Adjusted margin */
-    box-sizing: border-box;
+    position: absolute;
 }
 
-.sidebar-left h3,
-.sidebar-right h3 {
+.sidebar-left {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 10%;
+}
+
+.sidebar-right {
+    top: 50%;
+    transform: translate(50%, -50%);
+    right: 10%;
+}
+
+.sidebar h3 {
     font-size: 1.5em; /* Adjusted font size */
 }
 
-.sidebar-left #current-showcase,
-.sidebar-right #leaderboard {
-    background-color: #C5D600;
+#current-showcase,
+#leaderboard {
+    background-color: #C5D600; /* DC color palette */
     padding: 10px;
     border-radius: 8px;
     min-height: 200px;
@@ -166,6 +174,8 @@ button:hover {
 
     .sidebar-left,
     .sidebar-right {
+        position: static;
+        transform: none;
         width: 100%;
         margin-top: 10px;
     }
@@ -184,11 +194,4 @@ button:hover {
 
     .main-content {
         width: 100%;
-        padding: 5.5px;
-    }
-
-    .logos-row {
-        flex-direction: column;
-    }
-
-    .
+        padding: 
