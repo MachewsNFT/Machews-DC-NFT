@@ -28,4 +28,4 @@ function updateTotalPoints() {
     totalPoints += parseInt(document.getElementById('epicPoints').textContent);
     totalPoints += parseInt(document.getElementById('rarePoints').textContent);
     totalPoints += parseInt(document.getElementById('ucPoints').textContent);
-   
+    totalPoints += parseInt(document.getElementById('corePoints').textContent
