@@ -17,13 +17,4 @@ document.getElementById('addComic').addEventListener('click', function() {
 
 document.getElementById('submitShowcase').addEventListener('click', function() {
     const discordHandle = document.getElementById('current-showcase-title').textContent;
-    const showcaseLink = document.getElementById('showcaseLink').value;
-    const totalPoints = document.getElementById('totalPoints').textContent;
-
-    if (discordHandle && showcaseLink) {
-        addToLeaderboard(discordHandle, showcaseLink, totalPoints);
-    }
-});
-
-function calculatePoints(rarity, mintNumber) {
-    // Implement your logic for calculating points
+    const showcaseLink = document.get
