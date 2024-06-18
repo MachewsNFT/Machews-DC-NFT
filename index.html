@@ -10,16 +10,11 @@
 </head>
 <body>
     <div class="container">
-        <div class="sidebar sidebar-left">
+        <div class="sidebar sidebar-left" id="current-showcase">
             <h3>Current Showcase</h3>
-            <div id="current-showcase">
-                <!-- Placeholder for current user's showcase info -->
-            </div>
-            <div id="current-points">
-                <h3>Total Points: <span id="total-points">0</span></h3>
-            </div>
+            <!-- Current showcase details will be dynamically inserted here -->
         </div>
-
+        
         <div class="main-content">
             <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
             <h1>Delta Charlie</h1>
@@ -31,55 +26,33 @@
                 
                 <label for="showcaseLink">Showcase Link:</label>
                 <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
-
-                <div id="comics">
-                    <h3>Comic Rarity and Mint Number</h3>
-                    ${[...Array(5)].map((_, i) => `
-                    <div class="comic-entry">
-                        <label for="comic${i + 1}_rarity">Comic Rarity:</label>
-                        <select id="comic${i + 1}_rarity" name="comics[${i}][rarity]" required>
-                            <option value="Lego">Lego</option>
-                            <option value="Epic">Epic</option>
-                            <option value="Rare">Rare</option>
-                            <option value="UC">UC</option>
-                            <option value="Core">Core</option>
-                        </select>
-                        <label for="comic${i + 1}_mint">Mint Number:</label>
-                        <input type="number" id="comic${i + 1}_mint" name="comics[${i}][mint]" required>
-                    </div>
-                    `).join('')}
-                </div>
-
+                
+                <label for="comicRarity">Comic Rarity:</label>
+                <select id="comicRarity" name="comicRarity" required>
+                    <option value="Lego">Lego</option>
+                    <option value="Epic">Epic</option>
+                    <option value="Rare">Rare</option>
+                    <option value="UC">UC</option>
+                    <option value="Core">Core</option>
+                </select>
+                
+                <label for="mintNumber">Mint Number:</label>
+                <input type="number" id="mintNumber" name="mintNumber" required>
+                
                 <button type="submit">Submit</button>
             </form>
 
             <h3>Countdown to End of Contest</h3>
             <div id="countdown-timer">28d 17h 58m 12s</div>
 
-            <div class="logos-row">
-                <div class="logo-container">
-                    <a href="https://www.candy.com/dc/drops/8d77ccf6-9518-489e-9dc4-3141f949f3a6" target="_blank">
-                        <img src="DC3JAL.jpg" alt="Comic Logo">
-                    </a>
-                </div>
-                <div class="logo-container">
-                    <a href="https://dc3.wiki" target="_blank">
-                        <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki">
-                    </a>
-                </div>
-                <div class="logo-container">
-                    <a href="https://www.candy.com/dc/marketplace?collection=%5B%222024+Super+Power+Packs+-+Series+JLA%3A+The+Nail%22%5D" target="_blank">
-                        <img src="dc.jpg" alt="DC Logo">
-                    </a>
-                </div>
-            </div>
+            <a href="https://dc3.wiki" class="wiki-logo">
+                <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki">
+            </a>
         </div>
 
-        <div class="sidebar sidebar-right">
-            <h3>Top 10 Showcases</h3>
-            <div id="leaderboard">
-                <!-- Placeholder for top 10 showcases -->
-            </div>
+        <div class="sidebar sidebar-right" id="leaderboard">
+            <h3>Top 3 Showcases</h3>
+            <!-- Leaderboard details will be dynamically inserted here -->
         </div>
     </div>
 </body>
