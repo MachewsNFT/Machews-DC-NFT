@@ -1,68 +1,196 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delta Charlie DC3 Contest</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="scripts.js" defer></script>
-</head>
-<body>
-    <div class="container">
-        <div class="sidebar left">
-            <div class="external-link left">
-                <a href="https://www.candy.com/dc/drops/8d77ccf6-9518-489e-9dc4-3141f949f3a6" target="_blank">
-                    <img src="DC3JAL.jpg" alt="Comic Logo">
-                </a>
-            </div>
-        </div>
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(
+        to bottom,
+        #F9EB00 25%,
+        #C5D600 25%,
+        #007AFF 25%,
+        #FF0064 25%
+    );
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    font-size: 1.6875em; /* Decreased font size by 10% from 1.875em */
+}
 
-        <div class="main-content">
-            <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
-            <h1>Delta Charlie</h1>
-            <h2>DC3 Super Power Pack Series: JLA The Nail Lowest Mint Complete Set</h2>
-            
-            <form id="submissionForm">
-                <label for="discordHandle">Discord Handle:</label>
-                <input type="text" id="discordHandle" name="discordHandle" placeholder="piedpiper" required>
-                
-                <label for="showcaseLink">Showcase Link:</label>
-                <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: space-between;
+    align-items: center; /* Center items vertically */
+    width: 72%; /* Decreased width by 10% from 80% */
+    max-width: 1260px; /* Decreased max-width by 10% from 1400px */
+    padding: 18px; /* Decreased padding by 10% from 20px */
+    position: relative;
+}
 
-                <div id="comics">
-                    <h3>Comic Rarity and Mint Number</h3>
-                    <label for="comic_rarity">Comic Rarity:</label>
-                    <select id="comic_rarity" name="comic_rarity" required>
-                        <option value="Lego">Lego</option>
-                        <option value="Epic">Epic</option>
-                        <option value="Rare">Rare</option>
-                        <option value="UC">UC</option>
-                        <option value="Core">Core</option>
-                    </select>
-                    <label for="comic_mint">Mint Number:</label>
-                    <input type="number" id="comic_mint" name="comic_mint" required>
-                </div>
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%; /* Decreased width by 10% */
+    max-width: 270px; /* Decreased max-width by 10% from 300px */
+    margin: 9px; /* Decreased margin by 10% from 10px */
+}
 
-                <button type="submit">Submit</button>
-            </form>
+.main-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 18px; /* Decreased padding by 10% from 20px */
+    border-radius: 8px;
+    text-align: center;
+    width: 90%; /* Decreased width by 10% */
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+    margin: 9px; /* Decreased margin by 10% from 10px */
+}
 
-            <h3>Countdown to End of Contest</h3>
-            <div class="bottom-center">
-                <a href="https://dc3.wiki" target="_blank">
-                    <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki">
-                </a>
-            </div>
-            <div id="countdown-timer">28d 17h 58m 12s</div>
-        </div>
+.external-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 270px; /* Decreased max-width by 10% from 300px */
+}
 
-        <div class="sidebar right">
-            <div class="external-link right">
-                <a href="https://www.candy.com/dc/marketplace?collection=%5B%222024+Super+Power+Packs+-+Series+JLA%3A+The+Nail%22%5D" target="_blank">
-                    <img src="dc.jpg" alt="DC Logo">
-                </a>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+.external-link img {
+    width: 110%; /* Adjust size appropriately */
+    height: auto;
+    border-radius: 8px;
+}
+
+.external-link.left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.external-link.right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.banner-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+form {
+    margin-top: 18px; /* Decreased margin-top by 10% from 20px */
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin: 9px 0 4.5px; /* Decreased margin by 10% from 10px 0 5px */
+    font-size: 1.08em; /* Decreased font size by 10% from 1.2em */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"],
+select {
+    width: calc(100% - 19.8px); /* Decreased width by 10% */
+    padding: 10.8px; /* Decreased padding by 10% from 12px */
+    margin-bottom: 9px; /* Decreased margin-bottom by 10% from 10px */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+    font-size: 1.08em; /* Decreased font size by 10% from 1.2em */
+    font-family: 'Open Sans', sans-serif;
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Make placeholder text slightly transparent */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10.8px 21.6px; /* Decreased padding by 10% from 12px 24px */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.08em; /* Decreased font size by 10% from 1.2em */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.bottom-center {
+    margin-top: 18px; /* Decreased margin-top by 10% from 20px */
+    text-align: center;
+}
+
+.bottom-center img {
+    width: 36%; /* Decreased width by 10% from 40% */
+    height: auto;
+    border: 2px solid gold; /* Add a gold border */
+    border-radius: 8px; /* Optional: keep the border rounded */
+    margin-top: 18px; /* Decreased margin-top by 10% from 20px */
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+#countdown-timer {
+    margin-top: 18px; /* Decreased margin-top by 10% from 20px */
+    font-size: 0.9em; /* Decreased font size by 10% from 1em */
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* Adjust width for tablets */
+        padding: 9px; /* Adjust padding for tablets */
+    }
+
+    .main-content {
+        width: 100%; /* Adjust width for tablets */
+        padding: 9px; /* Adjust padding for tablets */
+    }
+
+    .sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .external-link img {
+        width: 100%; /* Ensure images fit within their containers */
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+    body {
+        font-size: 1.35em; /* Adjust font size for mobile devices */
+    }
+
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .external-link img {
+        width: 100%; /* Ensure images fit within their containers */
+    }
+
+    .bottom-center img {
+        width: 72%; /* Adjust image size for smaller screens */
+    }
+}
