@@ -43,28 +43,26 @@ document.getElementById('submissionForm').addEventListener('submit', function(ev
     alert('Submission received');
 });
 
-function loadLeaderboard() {
-    // Simulated leaderboard data
-    const leaderboard = [
-        { discordHandle: 'Player 1', showcaseLink: '#', points: 1000 },
-        { discordHandle: 'Player 2', showcaseLink: '#', points: 950 },
-        { discordHandle: 'Player 3', showcaseLink: '#', points: 900 }
-    ];
+// Countdown Timer
+const countdownTimer = document.getElementById('countdown-timer');
+const endDate = new Date('2024-07-01T00:00:00').getTime(); // Set the end date for the countdown
 
-    const leaderboardDiv = document.getElementById('leaderboard');
-    leaderboardDiv.innerHTML = '';
-    leaderboard.forEach((entry, index) => {
-        const link = document.createElement('a');
-        link.href = entry.showcaseLink;
-        link.textContent = entry.discordHandle;
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = endDate - now;
 
-        const p = document.createElement('p');
-        p.textContent = `${index + 1}. `;
-        p.appendChild(link);
-        p.append(`: ${entry.points} points`);
+    if (distance < 0) {
+        countdownTimer.innerHTML = 'Contest has ended';
+        return;
+    }
 
-        leaderboardDiv.appendChild(p);
-    });
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
-loadLeaderboard();
+setInterval(updateCountdown, 1000);
+updateCountdown();
