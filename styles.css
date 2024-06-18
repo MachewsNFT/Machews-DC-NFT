@@ -87,7 +87,6 @@ button:hover {
 .small-button {
     width: auto;
     padding: 10px 20px;
-    margin-bottom: 20px; /* Add margin-bottom to ensure spacing */
 }
 
 .logos-row {
@@ -104,15 +103,15 @@ button:hover {
 
 .logo-container img {
     width: 80%;
-    max-width: 230px; /* Increased size by 15% */
+    max-width: 200px;
     border-radius: 8px;
     border: 2px solid gold;
 }
 
 .wiki-logo {
     margin-top: 20px;
-    width: 80%; /* Decreased size */
-    max-width: 230px; /* Increased size by 15% */
+    width: 100%; /* Increased size by 25% */
+    max-width: 300px; /* Increased max-width by 25% */
 }
 
 .sidebar {
