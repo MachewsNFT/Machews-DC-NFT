@@ -1,95 +1,46 @@
-document.getElementById('submissionForm').addEventListener('submit', function (event) {
+document.getElementById('submissionForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
     const formData = new FormData(this);
-    const data = {
-        discordHandle: formData.get('discordHandle'),
-        showcaseLink: formData.get('showcaseLink'),
-        comics: []
-    };
+    const discordHandle = formData.get('discordHandle');
+    const showcaseLink = formData.get('showcaseLink');
+    const comicRarity = formData.get('comicRarity');
+    const mintNumber = formData.get('mintNumber');
 
-    for (let i = 0; i < 5; i++) {
-        data.comics.push({
-            rarity: formData.get(`comics[${i}][rarity]`),
-            mint: formData.get(`comics[${i}][mint]`)
-        });
-    }
+    document.getElementById('currentShowcaseHeader').textContent = discordHandle;
+    document.getElementById('current-showcase').innerHTML = `
+        <p>Showcase Link: ${showcaseLink}</p>
+        <p>Comic Rarity: ${comicRarity}</p>
+        <p>Mint Number: ${mintNumber}</p>
+        <p>Total Points: ...</p> <!-- Placeholder for points calculation -->
+    `;
 
-    console.log('Form Data:', data);
+    // Placeholder for leaderboard update logic
     alert('Submission received');
-    // Here you can update the leaderboard for demonstration purposes
 });
 
-function loadLeaderboard() {
-    // Simulated leaderboard data
-    const leaderboard = [
-        { discordHandle: 'Player 1', showcaseLink: '#', points: 1000 },
-        { discordHandle: 'Player 2', showcaseLink: '#', points: 950 },
-        { discordHandle: 'Player 3', showcaseLink: '#', points: 900 }
-    ];
+function loadCountdown() {
+    const countdownElement = document.getElementById('countdown-timer');
+    const endTime = new Date(Date.now() + 28 * 24 * 60 * 60 * 1000); // 28 days from now
 
-    const leaderboardDiv = document.getElementById('leaderboard');
-    leaderboardDiv.innerHTML = '';
-    leaderboard.forEach((entry, index) => {
-        const link = document.createElement('a');
-        link.href = entry.showcaseLink;
-        link.textContent = entry.discordHandle;
+    function updateCountdown() {
+        const now = new Date();
+        const remainingTime = endTime - now;
 
-        const p = document.createElement('p');
-        p.textContent = `${index + 1}. `;
-        p.appendChild(link);
-        p.append(`: ${entry.points} points`);
+        const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
-        leaderboardDiv.appendChild(p);
-    });
-}
+        countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
-loadLeaderboard();
-
-function updateCurrentShowcase(data) {
-    const currentShowcaseDiv = document.getElementById('current-showcase');
-    currentShowcaseDiv.innerHTML = '';
-
-    data.comics.forEach((comic, index) => {
-        const div = document.createElement('div');
-        div.textContent = `Comic ${index + 1}: ${comic.rarity} - Mint ${comic.mint}`;
-        currentShowcaseDiv.appendChild(div);
-    });
-
-    const totalPointsDiv = document.getElementById('total-points');
-    totalPointsDiv.textContent = calculatePoints(data.comics);
-}
-
-function calculatePoints(comics) {
-    let totalPoints = 0;
-
-    comics.forEach((comic) => {
-        let points = 0;
-
-        switch (comic.rarity) {
-            case 'Lego':
-                points += 50;
-                break;
-            case 'Epic':
-                points += 40;
-                break;
-            case 'Rare':
-                points += 30;
-                break;
-            case 'UC':
-                points += 20;
-                break;
-            case 'Core':
-                points += 10;
-                break;
-            default:
-                points += 0;
-                break;
+        if (remainingTime < 0) {
+            clearInterval(interval);
+            countdownElement.textContent = 'Contest Ended';
         }
+    }
 
-        points += 1000 / comic.mint;
-        totalPoints += points;
-    });
-
-    return totalPoints;
+    const interval = setInterval(updateCountdown, 1000);
 }
+
+loadCountdown();
