@@ -17,4 +17,12 @@ document.getElementById('addComic').addEventListener('click', function() {
 
 document.getElementById('submitShowcase').addEventListener('click', function() {
     const discordHandle = document.getElementById('current-showcase-title').textContent;
-    const showcaseLink = document.get
+    const showcaseLink = document.getElementById('showcaseLink').value;
+    const totalPoints = document.getElementById('totalPoints').textContent;
+
+    if (discordHandle && showcaseLink) {
+        addToLeaderboard(discordHandle, showcaseLink, totalPoints);
+    }
+});
+
+function calculatePoints(r
