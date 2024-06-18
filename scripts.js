@@ -1,68 +1,95 @@
-document.getElementById('submissionForm').addEventListener('submit', function(event) {
+document.getElementById('submissionForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
     const formData = new FormData(this);
     const data = {
         discordHandle: formData.get('discordHandle'),
         showcaseLink: formData.get('showcaseLink'),
-        comics: [
-            {
-                rarity: formData.get('comic_rarity'),
-                mint: formData.get('comic_mint')
-            }
-        ]
+        comics: []
     };
 
-    // Calculate total points (example calculation, you need to define your point logic)
-    let totalPoints = 0;
-    data.comics.forEach(comic => {
-        switch (comic.rarity) {
-            case 'Lego':
-                totalPoints += 100;
-                break;
-            case 'Epic':
-                totalPoints += 80;
-                break;
-            case 'Rare':
-                totalPoints += 60;
-                break;
-            case 'UC':
-                totalPoints += 40;
-                break;
-            case 'Core':
-                totalPoints += 20;
-                break;
-        }
-        totalPoints += (10000 - comic.mint); // Example mint point calculation
-    });
-
-    // Display results
-    document.getElementById('result-discordHandle').innerText = data.discordHandle;
-    document.getElementById('result-points').innerText = totalPoints;
-
-    alert('Submission received');
-});
-
-// Countdown Timer
-const countdownTimer = document.getElementById('countdown-timer');
-const endDate = new Date('2024-07-01T00:00:00').getTime(); // Set the end date for the countdown
-
-function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = endDate - now;
-
-    if (distance < 0) {
-        countdownTimer.innerHTML = 'Contest has ended';
-        return;
+    for (let i = 0; i < 5; i++) {
+        data.comics.push({
+            rarity: formData.get(`comics[${i}][rarity]`),
+            mint: formData.get(`comics[${i}][mint]`)
+        });
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    console.log('Form Data:', data);
+    alert('Submission received');
+    // Here you can update the leaderboard for demonstration purposes
+});
 
-    countdownTimer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+function loadLeaderboard() {
+    // Simulated leaderboard data
+    const leaderboard = [
+        { discordHandle: 'Player 1', showcaseLink: '#', points: 1000 },
+        { discordHandle: 'Player 2', showcaseLink: '#', points: 950 },
+        { discordHandle: 'Player 3', showcaseLink: '#', points: 900 }
+    ];
+
+    const leaderboardDiv = document.getElementById('leaderboard');
+    leaderboardDiv.innerHTML = '';
+    leaderboard.forEach((entry, index) => {
+        const link = document.createElement('a');
+        link.href = entry.showcaseLink;
+        link.textContent = entry.discordHandle;
+
+        const p = document.createElement('p');
+        p.textContent = `${index + 1}. `;
+        p.appendChild(link);
+        p.append(`: ${entry.points} points`);
+
+        leaderboardDiv.appendChild(p);
+    });
 }
 
-setInterval(updateCountdown, 1000);
-updateCountdown();
+loadLeaderboard();
+
+function updateCurrentShowcase(data) {
+    const currentShowcaseDiv = document.getElementById('current-showcase');
+    currentShowcaseDiv.innerHTML = '';
+
+    data.comics.forEach((comic, index) => {
+        const div = document.createElement('div');
+        div.textContent = `Comic ${index + 1}: ${comic.rarity} - Mint ${comic.mint}`;
+        currentShowcaseDiv.appendChild(div);
+    });
+
+    const totalPointsDiv = document.getElementById('total-points');
+    totalPointsDiv.textContent = calculatePoints(data.comics);
+}
+
+function calculatePoints(comics) {
+    let totalPoints = 0;
+
+    comics.forEach((comic) => {
+        let points = 0;
+
+        switch (comic.rarity) {
+            case 'Lego':
+                points += 50;
+                break;
+            case 'Epic':
+                points += 40;
+                break;
+            case 'Rare':
+                points += 30;
+                break;
+            case 'UC':
+                points += 20;
+                break;
+            case 'Core':
+                points += 10;
+                break;
+            default:
+                points += 0;
+                break;
+        }
+
+        points += 1000 / comic.mint;
+        totalPoints += points;
+    });
+
+    return totalPoints;
+}
