@@ -10,25 +10,20 @@
 </head>
 <body>
     <div class="container">
-        <div class="sidebar sidebar-left">
-            <h3 id="current-showcase-title">Current Showcase</h3>
-            <div id="current-showcase">
-                Showcase information will appear here.
-            </div>
-        </div>
-        <div class="main-content">
-            <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
-            <h1>Delta Charlie</h1>
-            <h2>DC3 Super Power Pack Series: JLA The Nail Lowest Mint Complete Set</h2>
-            
-            <form id="submissionForm">
-                <label for="discordHandle">Discord Handle:</label>
-                <input type="text" id="discordHandle" name="discordHandle" value="Enter Discord Handle" required>
-                
-                <label for="showcaseLink">Showcase Link:</label>
-                <input type="text" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
-                
-                <label for="comicRarity">Comic Rarity and Mint Number</label>
+        <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
+        <h1>Delta Charlie</h1>
+        <h2>DC3 Super Power Pack Series: JLA The Nail Lowest Mint Complete Set</h2>
+
+        <form id="submissionForm">
+            <label for="discordHandle">Discord Handle:</label>
+            <input type="text" id="discordHandle" name="discordHandle" placeholder="Enter Discord Handle" required>
+
+            <label for="showcaseLink">Showcase Link:</label>
+            <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
+
+            <div id="comics">
+                <h3>Comic Rarity and Mint Number</h3>
+                <label for="comicRarity">Comic Rarity:</label>
                 <select id="comicRarity" name="comicRarity" required>
                     <option value="Lego">Lego</option>
                     <option value="Epic">Epic</option>
@@ -36,32 +31,34 @@
                     <option value="UC">UC</option>
                     <option value="Core">Core</option>
                 </select>
-                
+
                 <label for="mintNumber">Mint Number:</label>
                 <input type="number" id="mintNumber" name="mintNumber" required>
-                
-                <button type="submit">Add</button>
-            </form>
-
-            <div class="logos-row">
-                <div class="logo-container">
-                    <img src="DC3JAL.jpg" alt="DC3 JAL">
-                </div>
-                <div class="logo-container">
-                    <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki">
-                </div>
-                <div class="logo-container">
-                    <img src="dc.jpg" alt="DC">
-                </div>
             </div>
 
-            <div id="countdown-timer">27d 23h 59m 41s</div>
+            <button type="submit">Add</button>
+        </form>
+
+        <div class="logos-row">
+            <div class="logo-container">
+                <img src="DC3JAL.jpg" alt="DC3JAL">
+            </div>
+            <div class="logo-container">
+                <img src="dc.jpg" alt="DC">
+            </div>
         </div>
-        <div class="sidebar sidebar-right">
-            <h3>Top 3 Showcases</h3>
-            <div id="leaderboard">
-                <p>Showcase leaderboard will appear here.</p>
-            </div>
+        <div id="countdown-timer">27d 23h 59m 41s</div>
+    </div>
+
+    <div class="sidebar sidebar-left">
+        <h3 id="current-showcase-title">Current Showcase</h3>
+        <div id="current-showcase-content">Showcase information will appear here.</div>
+    </div>
+
+    <div class="sidebar sidebar-right">
+        <h3>Top 3 Showcases</h3>
+        <div id="leaderboard">
+            <!-- Leaderboard entries will be populated here -->
         </div>
     </div>
 </body>
