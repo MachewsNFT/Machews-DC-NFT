@@ -56,6 +56,22 @@ input, select, button {
     border-radius: 4px;
 }
 
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.form-group label {
+    width: 45%;
+}
+
+.form-group select,
+.form-group input {
+    width: 45%;
+    margin: 0;
+}
+
 button {
     background-color: #4CAF50;
     color: white;
@@ -85,6 +101,12 @@ button:hover {
     max-width: 200px;
     border-radius: 8px;
     border: 2px solid gold;
+}
+
+.wiki-logo {
+    margin-top: 20px;
+    width: 100%; /* Increased size */
+    max-width: 240px; /* Increased max-width */
 }
 
 .sidebar {
@@ -123,5 +145,16 @@ button:hover {
         transform: none;
         width: 100%;
         margin: 10px 0;
+    }
+
+    .form-group {
+        flex-direction: column;
+    }
+
+    .form-group label,
+    .form-group select,
+    .form-group input {
+        width: 100%;
+        margin-bottom: 10px;
     }
 }
