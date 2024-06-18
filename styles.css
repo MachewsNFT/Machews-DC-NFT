@@ -107,6 +107,7 @@ button:hover {
     width: 55%; /* Increased width by 10% */
     height: auto;
     border-radius: 8px;
+    border: 2px solid gold; /* Added gold border */
 }
 
 .sidebar {
@@ -118,23 +119,22 @@ button:hover {
     min-width: 250px; /* Increased min-width */
     text-align: center;
     position: absolute;
-    border: 2px solid #FFD700; /* Add a gold border */
+    border: 2px solid #007AFF; /* Added border with DC color palette */
 }
 
 .sidebar-left {
-    top: 50%;
+    top: 65%; /* Adjusted position */
     transform: translateY(-50%);
-    left: 20%; /* Move to left margin */
+    left: 40px; /* Move to left margin */
     width: 20%; /* Adjusted width */
-    border: 2px solid #FFD700; /* Add a gold border */
 }
 
 .sidebar-right {
-    top: 50%;
+    top: 65%; /* Adjusted position */
     transform: translateY(-50%);
-    right: 20%; /* Move to right margin */
+    right: 40px; /* Move to right margin */
     width: 20%; /* Adjusted width */
-    border: 2px solid #FFD700; /* Add a gold border */
+    margin-right: 40px; /* Move laterally to the right */
 }
 
 .sidebar h3 {
@@ -148,15 +148,6 @@ button:hover {
     border-radius: 8px;
     min-height: 200px;
     color: black;
-    border: 2px solid #FFD700; /* Add a gold border */
-}
-
-.wiki-logo img {
-    width: 80%;
-    height: auto;
-    margin-top: 20px;
-    border: 2px solid #FFD700; /* Add a gold border */
-    border-radius: 8px;
 }
 
 /* Media Queries for Responsive Design */
