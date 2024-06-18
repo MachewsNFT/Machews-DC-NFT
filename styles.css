@@ -139,6 +139,12 @@ button:hover {
     font-size: 1.4em; /* Increased font size by 20% */
 }
 
+#countdown-timer {
+    font-size: 2em;
+    color: #FFD700;
+    margin-top: 20px;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .container {
