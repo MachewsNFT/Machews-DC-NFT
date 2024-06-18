@@ -18,14 +18,12 @@
 
         <main>
             <form id="submissionForm">
-                <div class="form-group">
-                    <label for="discordHandle">Discord Handle:</label>
-                    <input type="text" id="discordHandle" name="discordHandle" placeholder="Enter your handle" required>
-                    
-                    <label for="showcaseLink">Showcase Link:</label>
-                    <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
-                </div>
-
+                <label for="discordHandle">Discord Handle:</label>
+                <input type="text" id="discordHandle" name="discordHandle" placeholder="Enter your handle" required>
+                
+                <label for="showcaseLink">Showcase Link:</label>
+                <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
+                
                 <div class="form-group">
                     <label for="comicRarity">Comic Rarity:</label>
                     <select id="comicRarity" name="comicRarity" required>
@@ -40,12 +38,10 @@
                     <label for="mintNumber">Mint Number:</label>
                     <input type="number" id="mintNumber" name="mintNumber" placeholder="Enter mint number" required>
                 </div>
-
-                <button type="button" id="addComic" class="small-button">Add</button>
             </form>
 
-            <div id="current-showcase-title">Current Showcase</div>
-            <div id="countdown-timer">27d 23h 59m 41s</div>
+            <button type="button" id="addComic" class="small-button">Add</button>
+
         </main>
 
         <section class="logos-row">
@@ -60,6 +56,8 @@
             </div>
         </section>
 
+        <div id="countdown-timer">27d 23h 59m 41s</div>
+
         <aside class="sidebar sidebar-left" id="current-showcase">
             <h3 id="current-showcase-title">Current Showcase</h3>
             <div id="showcase-info">
@@ -70,7 +68,6 @@
                 <p>Core: <span id="corePoints">0</span></p>
                 <p>Total Points: <span id="totalPoints">0</span></p>
             </div>
-            <button type="button" id="submitShowcase">Submit Showcase</button>
         </aside>
 
         <aside class="sidebar sidebar-right" id="leaderboard">
