@@ -118,21 +118,23 @@ button:hover {
     min-width: 250px; /* Increased min-width */
     text-align: center;
     position: absolute;
+    border: 2px solid #FFD700; /* Add a gold border */
 }
 
 .sidebar-left {
     top: 50%;
     transform: translateY(-50%);
-    left: 5%; /* Move to left margin */
+    left: 20%; /* Move to left margin */
     width: 20%; /* Adjusted width */
+    border: 2px solid #FFD700; /* Add a gold border */
 }
 
 .sidebar-right {
     top: 50%;
     transform: translateY(-50%);
-    right: 5%; /* Move to right margin */
+    right: 20%; /* Move to right margin */
     width: 20%; /* Adjusted width */
-    margin-right: 20px; /* Move laterally to the right */
+    border: 2px solid #FFD700; /* Add a gold border */
 }
 
 .sidebar h3 {
@@ -146,6 +148,15 @@ button:hover {
     border-radius: 8px;
     min-height: 200px;
     color: black;
+    border: 2px solid #FFD700; /* Add a gold border */
+}
+
+.wiki-logo img {
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
+    border: 2px solid #FFD700; /* Add a gold border */
+    border-radius: 8px;
 }
 
 /* Media Queries for Responsive Design */
