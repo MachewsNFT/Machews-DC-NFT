@@ -24,6 +24,4 @@ function calculatePoints(rarity, mintNumber) {
 
 function updateTotalPoints() {
     let totalPoints = 0;
-    totalPoints += parseInt(document.getElementById('legoPoints').textContent);
-    totalPoints += parseInt(document.getElementById('epicPoints').textContent);
-   
+    totalPoints += parseInt(document.getElementById('
