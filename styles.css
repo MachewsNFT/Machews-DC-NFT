@@ -111,8 +111,8 @@ button:hover {
 
 .wiki-logo {
     margin-top: 20px;
-    width: 80%; /* Decreased size */
-    max-width: 300px; /* Increased size */
+    width: 100%; /* Increased size */
+    max-width: 400px; /* Increased size */
 }
 
 .sidebar {
