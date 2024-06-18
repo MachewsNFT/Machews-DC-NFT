@@ -132,6 +132,7 @@ button:hover {
     transform: translateY(-50%);
     right: 5%; /* Move to right margin */
     width: 20%; /* Adjusted width */
+    margin-right: 20px; /* Move laterally to the right */
 }
 
 .sidebar h3 {
