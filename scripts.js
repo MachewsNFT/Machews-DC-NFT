@@ -12,10 +12,9 @@ document.getElementById('addComic').addEventListener('click', function() {
         updateTotalPoints();
 
         document.getElementById('current-showcase-title').textContent = discordHandle;
-    }
 
-    const totalPoints = document.getElementById('totalPoints').textContent;
-    addToLeaderboard(discordHandle, showcaseLink, totalPoints);
+        addToLeaderboard(discordHandle, showcaseLink, document.getElementById('totalPoints').textContent);
+    }
 });
 
 function calculatePoints(rarity, mintNumber) {
@@ -29,4 +28,4 @@ function updateTotalPoints() {
     totalPoints += parseInt(document.getElementById('epicPoints').textContent);
     totalPoints += parseInt(document.getElementById('rarePoints').textContent);
     totalPoints += parseInt(document.getElementById('ucPoints').textContent);
-    totalPoints += parseInt
+   
