@@ -20,6 +20,7 @@ body {
 
 .container {
     display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
     justify-content: space-between;
     align-items: center; /* Center items vertically */
     width: 80%;
@@ -32,7 +33,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 25%;
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
 }
 
 .main-content {
@@ -40,16 +43,17 @@ body {
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    width: 50%;
+    width: 100%;
     box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+    margin: 10px;
 }
 
 .external-link {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    width: 300px; /* Adjust width as needed */
+    width: 100%;
+    max-width: 300px;
 }
 
 .external-link img {
@@ -59,11 +63,11 @@ body {
 }
 
 .external-link.left {
-    left: 20px; /* Align to the left */
+    align-self: flex-start;
 }
 
 .external-link.right {
-    right: 20px; /* Align to the right */
+    align-self: flex-end;
 }
 
 .banner-image {
@@ -110,25 +114,4 @@ button {
     font-size: 1.2em; /* Increased by 20% */
 }
 
-button:hover {
-    background-color: #45a049;
-}
-
-.bottom-center {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.bottom-center img {
-    width: 40%; /* Further reduced to ensure it fits within the box */
-    height: auto;
-    border: 2px solid gold; /* Add a gold border */
-    border-radius: 8px; /* Optional: keep the border rounded */
-    margin-top: 20px;
-    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
-}
-
-#countdown-timer {
-    margin-top: 20px;
-    font-size: 1em; /* Match font size */
-}
+button:hover
