@@ -57,7 +57,13 @@ select {
 }
 
 input::placeholder {
-    color: rgba(0, 0, 0, 0.5); /* Make placeholder text slightly transparent */
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+}
+
+form {
+    margin-top: 24px; /* Increased margin by 20% */
+    padding: 0 12px; /* Increased padding by 20% */
 }
 
 button {
@@ -74,64 +80,54 @@ button:hover {
     background-color: #45a049;
 }
 
-.logos-row {
-    display: flex;
-    justify-content: space-evenly; /* Space logos evenly */
-    align-items: center;
-    margin-top: 12px; /* Increased margin by 20% */
-    width: 100%;
+#leaderboard {
+    color: yellow;
+    font-size: 1.2em; /* Increased font size by 20% */
 }
 
-.logo-container {
+#leaderboard p {
+    margin: 5px 0;
+}
+
+.wiki-logo img {
+    width: 120px;
+    height: auto;
+    margin-top: 20px;
+    border: 3px solid gold;
+}
+
+.logos-row {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    padding: 0 6px; /* Increased padding by 20% */
+    justify-content: space-around;
+    margin-top: 24px; /* Increased margin by 20% */
 }
 
 .logo-container img {
-    width: 48%; /* Decreased width by 20% */
+    width: 120px;
     height: auto;
-    border-radius: 8px;
-    border: 2px solid gold; /* Added gold border */
+    border-radius: 4px;
+    margin: 0 20px;
 }
 
 .sidebar {
-    background-color: #000; /* Black background */
-    padding: 24px; /* Increased padding by 20% */
-    border-radius: 8px;
-    color: white;
-    width: 30%; /* Increased width by 20% */
-    min-width: 300px; /* Increased min-width by 20% */
-    text-align: center;
     position: absolute;
-    border: 2px solid #007AFF; /* Added border with DC color palette */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    padding: 16px;
+    background-color: black;
+    border: 3px solid gold;
+    text-align: center;
 }
 
 .sidebar-left {
-    top: 50%;
-    transform: translateY(-50%);
-    left: calc(20% - 600px); /* Move further to the left by 20% */
+    left: 20px;
 }
 
 .sidebar-right {
-    top: 50%;
-    transform: translateY(-50%);
-    right: calc(20% - 600px); /* Move further to the right by 20% */
-    margin-right: 60px; /* Move laterally to the right by 20% */
+    right: 20px;
 }
 
-.sidebar h3 {
-    font-size: 1.8em; /* Increased font size by 20% */
-}
-
-#current-showcase,
-#leaderboard {
+#current-showcase-title {
     font-size: 1.2em; /* Increased font size by 20% */
-}
-
-#countdown-timer {
-    font-size: 1.2em; /* Increased font size by 20% */
-    margin-top: 12px; /* Increased margin by 20% */
 }
