@@ -104,7 +104,7 @@ button:hover {
 
 .logo-container img {
     width: 80%;
-    max-width: 230px; /* Increased size by 15% */
+    max-width: 250px; /* Same size for dc.jpg and DC3JAL.jpg */
     border-radius: 8px;
     border: 2px solid gold;
 }
@@ -112,7 +112,7 @@ button:hover {
 .wiki-logo {
     margin-top: 20px;
     width: 80%; /* Decreased size */
-    max-width: 230px; /* Increased size by 15% */
+    max-width: 300px; /* Increased size */
 }
 
 .sidebar {
