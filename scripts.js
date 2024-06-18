@@ -1,57 +1,33 @@
-document.getElementById('submissionForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
+document.getElementById('addComic').addEventListener('click', function() {
     const discordHandle = document.getElementById('discordHandle').value;
-    const showcaseLink = document.getElementById('showcaseLink').value;
     const comicRarity = document.getElementById('comicRarity').value;
     const mintNumber = document.getElementById('mintNumber').value;
 
-    const currentShowcaseTitle = document.getElementById('current-showcase-title');
-    const currentShowcaseContent = document.getElementById('showcase-info');
+    if (discordHandle && comicRarity && mintNumber) {
+        let points = calculatePoints(comicRarity, mintNumber);
+        let currentPoints = document.getElementById(comicRarity.toLowerCase() + 'Points');
+        currentPoints.textContent = points;
 
-    if (discordHandle && showcaseLink && comicRarity && mintNumber) {
-        currentShowcaseTitle.textContent = discordHandle;
-        
-        const comicInfo = document.createElement('p');
-        comicInfo.textContent = `Rarity: ${comicRarity}, Mint Number: ${mintNumber}`;
-        currentShowcaseContent.appendChild(comicInfo);
+        updateTotalPoints();
 
-        // Here you can handle the leaderboard update
+        document.getElementById('current-showcase-title').textContent = discordHandle;
     }
-
-    console.log('Form Data:', { discordHandle, showcaseLink, comicRarity, mintNumber });
-    alert('Submission received');
 });
 
-function loadLeaderboard() {
-    // Simulated leaderboard data
-    const leaderboard = [
-        { discordHandle: 'Player 1', showcaseLink: '#', points: 1000 },
-        { discordHandle: 'Player 2', showcaseLink: '#', points: 950 },
-        { discordHandle: 'Player 3', showcaseLink: '#', points: 900 },
-        { discordHandle: 'Player 4', showcaseLink: '#', points: 850 },
-        { discordHandle: 'Player 5', showcaseLink: '#', points: 800 },
-        { discordHandle: 'Player 6', showcaseLink: '#', points: 750 },
-        { discordHandle: 'Player 7', showcaseLink: '#', points: 700 },
-        { discordHandle: 'Player 8', showcaseLink: '#', points: 650 },
-        { discordHandle: 'Player 9', showcaseLink: '#', points: 600 },
-        { discordHandle: 'Player 10', showcaseLink: '#', points: 550 }
-    ];
+document.getElementById('submitShowcase').addEventListener('click', function() {
+    const discordHandle = document.getElementById('current-showcase-title').textContent;
+    const showcaseLink = document.getElementById('showcaseLink').value;
+    const totalPoints = document.getElementById('totalPoints').textContent;
 
-    const leaderboardDiv = document.getElementById('leaderboard-info');
-    leaderboardDiv.innerHTML = '';
-    leaderboard.forEach((entry, index) => {
-        const link = document.createElement('a');
-        link.href = entry.showcaseLink;
-        link.textContent = entry.discordHandle;
+    if (discordHandle && showcaseLink) {
+        addToLeaderboard(discordHandle, showcaseLink, totalPoints);
+    }
+});
 
-        const p = document.createElement('p');
-        p.textContent = `${index + 1}. `;
-        p.appendChild(link);
-        p.append(`: ${entry.points} points`);
+document.getElementById('submissionForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+});
 
-        leaderboardDiv.appendChild(p);
-    });
-}
-
-loadLeaderboard();
+function calculatePoints(rarity, mintNumber) {
+    // Implement your logic for calculating points
+    return parseInt(mintNumber); //
