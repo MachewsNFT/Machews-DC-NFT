@@ -10,6 +10,12 @@
 </head>
 <body>
     <div class="container">
+        <div class="sidebar sidebar-left">
+            <h3 id="current-showcase-title">Current Showcase</h3>
+            <div id="current-showcase">
+                Showcase information will appear here.
+            </div>
+        </div>
         <div class="main-content">
             <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
             <h1>Delta Charlie</h1>
@@ -17,23 +23,24 @@
             
             <form id="submissionForm">
                 <label for="discordHandle">Discord Handle:</label>
-                <input type="text" id="discordHandle" name="discordHandle" placeholder="Enter your Discord Handle" required>
+                <input type="text" id="discordHandle" name="discordHandle" value="Enter Discord Handle" required>
                 
                 <label for="showcaseLink">Showcase Link:</label>
-                <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
+                <input type="text" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
                 
                 <label for="comicRarity">Comic Rarity and Mint Number</label>
                 <select id="comicRarity" name="comicRarity" required>
-                    <option value="">Select Rarity</option>
                     <option value="Lego">Lego</option>
                     <option value="Epic">Epic</option>
                     <option value="Rare">Rare</option>
                     <option value="UC">UC</option>
                     <option value="Core">Core</option>
                 </select>
-                <input type="number" id="mintNumber" name="mintNumber" placeholder="Mint Number" required>
                 
-                <button type="submit">Submit</button>
+                <label for="mintNumber">Mint Number:</label>
+                <input type="number" id="mintNumber" name="mintNumber" required>
+                
+                <button type="submit">Add</button>
             </form>
 
             <div class="logos-row">
@@ -41,27 +48,19 @@
                     <img src="DC3JAL.jpg" alt="DC3 JAL">
                 </div>
                 <div class="logo-container">
-                    <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki" class="wiki-logo">
+                    <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki">
                 </div>
                 <div class="logo-container">
-                    <img src="dc.jpg" alt="DC Logo">
+                    <img src="dc.jpg" alt="DC">
                 </div>
             </div>
 
-            <div id="countdown-timer">28d 17h 58m 12s</div>
+            <div id="countdown-timer">27d 23h 59m 41s</div>
         </div>
-
-        <div class="sidebar sidebar-left">
-            <h3 id="currentShowcaseHeader">Current Showcase</h3>
-            <div id="current-showcase">
-                <p>Showcase information will appear here.</p>
-            </div>
-        </div>
-
         <div class="sidebar sidebar-right">
             <h3>Top 3 Showcases</h3>
             <div id="leaderboard">
-                <!-- Leaderboard will be populated here -->
+                <p>Showcase leaderboard will appear here.</p>
             </div>
         </div>
     </div>
