@@ -18,14 +18,12 @@
 
         <main>
             <form id="submissionForm">
-                <div class="form-group">
-                    <label for="discordHandle">Discord Handle:</label>
-                    <input type="text" id="discordHandle" name="discordHandle" placeholder="Enter your handle" required>
-                    
-                    <label for="showcaseLink">Showcase Link:</label>
-                    <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
-                </div>
-
+                <label for="discordHandle">Discord Handle:</label>
+                <input type="text" id="discordHandle" name="discordHandle" placeholder="Enter your handle" required>
+                
+                <label for="showcaseLink">Showcase Link:</label>
+                <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
+                
                 <div class="form-group">
                     <label for="comicRarity">Comic Rarity:</label>
                     <select id="comicRarity" name="comicRarity" required>
@@ -41,7 +39,7 @@
                     <input type="number" id="mintNumber" name="mintNumber" placeholder="Enter mint number" required>
                 </div>
 
-                <button type="button" id="addComic" class="small-button">Add</button>
+                <button type="button" id="addComic">Add</button>
             </form>
 
             <div id="countdown-timer">27d 23h 59m 41s</div>
