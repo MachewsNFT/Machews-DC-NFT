@@ -20,12 +20,14 @@ body {
 
 .container {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items vertically */
-    width: 88%; /* Increased width by 10% */
-    max-width: 1320px; /* Increased max-width by 10% */
-    padding: 11px; /* Increased padding by 10% */
+    flex-direction: row; /* Adjusted to row to align sidebars on sides */
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    width: 100%;
+    max-width: 1600px;
+    padding: 20px;
     position: relative;
+    box-sizing: border-box;
 }
 
 .main-content {
@@ -33,7 +35,7 @@ body {
     padding: 11px; /* Increased padding by 10% */
     border-radius: 8px;
     text-align: center;
-    width: 100%;
+    width: 60%; /* Adjusted width */
     box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
 }
 
@@ -108,11 +110,39 @@ button:hover {
     border-radius: 8px;
 }
 
+.sidebar-left,
+.sidebar-right {
+    background-color: #007AFF;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    width: 20%;
+    min-width: 200px;
+    text-align: center;
+    margin: 0 10px; /* Adjusted margin */
+    box-sizing: border-box;
+}
+
+.sidebar-left h3,
+.sidebar-right h3 {
+    font-size: 1.5em; /* Adjusted font size */
+}
+
+.sidebar-left #current-showcase,
+.sidebar-right #leaderboard {
+    background-color: #C5D600;
+    padding: 10px;
+    border-radius: 8px;
+    min-height: 200px;
+    color: black;
+}
+
 /* Media Queries for Responsive Design */
 
 /* Tablets */
 @media (max-width: 768px) {
     .container {
+        flex-direction: column;
         width: 100%;
         padding: 5.5px;
     }
@@ -132,6 +162,12 @@ button:hover {
 
     .logo-container img {
         width: 88%;
+    }
+
+    .sidebar-left,
+    .sidebar-right {
+        width: 100%;
+        margin-top: 10px;
     }
 }
 
@@ -155,11 +191,4 @@ button:hover {
         flex-direction: column;
     }
 
-    .logo-container {
-        margin-bottom: 11px;
-    }
-
-    .logo-container img {
-        width: 88%;
-    }
-}
+    .
