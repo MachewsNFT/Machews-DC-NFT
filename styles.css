@@ -59,14 +59,14 @@ body {
 }
 
 .external-link.left {
-    top: calc(20% + 30px); /* Move down 30% */
-    left: calc(20px + 30%); /* Move left by an additional amount */
+    top: calc(30% + 20px); /* Move down 30% */
+    left: calc(-40px); /* Move right by two lengths */
     transform: scale(1.3); /* Increase size by 30% */
 }
 
 .external-link.right {
-    top: calc(20% + 30px); /* Move down 30% */
-    right: calc(20px + 30%); /* Move right by an additional amount */
+    top: calc(30% + 20px); /* Move down 30% */
+    right: calc(-40px); /* Move left by two lengths */
     transform: scale(1.3); /* Increase size by 30% */
 }
 
