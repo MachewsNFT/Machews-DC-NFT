@@ -53,21 +53,17 @@ body {
 }
 
 .external-link img {
-    width: 100%;
+    width: 125%; /* Increase size by 25% */
     height: auto;
     border-radius: 8px;
 }
 
 .external-link.left {
-    top: calc(20% + 30px); /* Move down 30% */
-    left: calc(60px + 30%); /* Move left more */
-    transform: scale(1.3); /* Increase size by 30% */
+    left: 20px; /* Align to the left */
 }
 
 .external-link.right {
-    top: calc(20% + 30px); /* Move down 30% */
-    right: calc(60px + 30%); /* Move right more */
-    transform: scale(1.3); /* Increase size by 30% */
+    right: 20px; /* Align to the right */
 }
 
 .banner-image {
