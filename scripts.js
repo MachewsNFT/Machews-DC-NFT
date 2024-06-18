@@ -41,4 +41,17 @@ function loadLeaderboard() {
     const leaderboardDiv = document.getElementById('leaderboard-info');
     leaderboardDiv.innerHTML = '';
     leaderboard.forEach((entry, index) => {
-        const link = document.createElement('a
+        const link = document.createElement('a');
+        link.href = entry.showcaseLink;
+        link.textContent = entry.discordHandle;
+
+        const p = document.createElement('p');
+        p.textContent = `${index + 1}. `;
+        p.appendChild(link);
+        p.append(`: ${entry.points} points`);
+
+        leaderboardDiv.appendChild(p);
+    });
+}
+
+loadLeaderboard();
