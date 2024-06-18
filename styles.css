@@ -1,65 +1,164 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delta Charlie DC3 Contest</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="scripts.js" defer></script>
-</head>
-<body>
-    <div class="container">
-        <div class="main-content">
-            <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
-            <h1>Delta Charlie</h1>
-            <h2>DC3 Super Power Pack Series: JLA The Nail Lowest Mint Complete Set</h2>
-            
-            <form id="submissionForm">
-                <label for="discordHandle">Discord Handle:</label>
-                <input type="text" id="discordHandle" name="discordHandle" placeholder="piedpiper" required>
-                
-                <label for="showcaseLink">Showcase Link:</label>
-                <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(
+        to bottom,
+        #F9EB00 25%,
+        #C5D600 25%,
+        #007AFF 25%,
+        #FF0064 25%
+    );
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    font-size: 1.875em; /* Increased font size by 20% from 1.5625em */
+}
 
-                <div id="comics">
-                    <h3>Comic Rarity and Mint Number</h3>
-                    <label for="comic_rarity">Comic Rarity:</label>
-                    <select id="comic_rarity" name="comic_rarity" required>
-                        <option value="Lego">Lego</option>
-                        <option value="Epic">Epic</option>
-                        <option value="Rare">Rare</option>
-                        <option value="UC">UC</option>
-                        <option value="Core">Core</option>
-                    </select>
-                    <label for="comic_mint">Mint Number:</label>
-                    <input type="number" id="comic_mint" name="comic_mint" required>
-                </div>
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items vertically */
+    width: 80%;
+    max-width: 1400px;
+    padding: 20px;
+    position: relative;
+}
 
-                <button type="submit">Submit</button>
-            </form>
+.main-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
 
-            <h3>Countdown to End of Contest</h3>
-            <div id="countdown-timer">28d 17h 58m 12s</div>
+.banner-image {
+    width: 100%;
+    border-radius: 8px;
+}
 
-            <div class="logos-row">
-                <div class="logo-container">
-                    <a href="https://www.candy.com/dc/drops/8d77ccf6-9518-489e-9dc4-3141f949f3a6" target="_blank">
-                        <img src="DC3JAL.jpg" alt="Comic Logo">
-                    </a>
-                </div>
-                <div class="logo-container">
-                    <a href="https://dc3.wiki" target="_blank">
-                        <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki">
-                    </a>
-                </div>
-                <div class="logo-container">
-                    <a href="https://www.candy.com/dc/marketplace?collection=%5B%222024+Super+Power+Packs+-+Series+JLA%3A+The+Nail%22%5D" target="_blank">
-                        <img src="dc.jpg" alt="DC Logo">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1.2em; /* Increased by 20% */
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"],
+select {
+    width: calc(100% - 22px);
+    padding: 12px; /* Increased by 20% */
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+    font-size: 1.2em; /* Increased by 20% */
+    font-family: 'Open Sans', sans-serif;
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Make placeholder text slightly transparent */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px; /* Increased by 20% */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2em; /* Increased by 20% */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.logos-row {
+    display: flex;
+    justify-content: space-evenly; /* Space logos evenly */
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 0 10px;
+}
+
+.logo-container img {
+    width: 60%; /* Adjust as necessary */
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .logos-row {
+        flex-direction: column;
+    }
+
+    .logo-container {
+        margin-bottom: 10px;
+    }
+
+    .logo-container img {
+        width: 80%;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+    body {
+        font-size: 1.5em;
+    }
+
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .logos-row {
+        flex-direction: column;
+    }
+
+    .logo-container {
+        margin-bottom: 10px;
+    }
+
+    .logo-container img {
+        width: 80%;
+    }
+}
