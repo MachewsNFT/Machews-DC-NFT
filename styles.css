@@ -19,16 +19,16 @@ body {
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
-    padding: 20px;
     background-color: rgba(0, 0, 0, 0.8);
+    padding: 28px; /* Increased padding by 20% */
     border-radius: 8px;
-    box-sizing: border-box;
     text-align: center;
+    width: 80%;
+    max-width: 960px; /* Increased max-width by 20% */
+    position: relative;
 }
 
-header, main, .logos-row, .sidebar {
+header, main, .logos-row {
     margin-bottom: 20px;
 }
 
@@ -94,21 +94,33 @@ button:hover {
     text-align: center;
     border: 2px solid #007AFF;
     color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 240px; /* Adjusted width */
 }
 
 .sidebar-left {
-    float: left;
-    width: 25%;
+    left: -270px; /* Adjusted to move to the left */
 }
 
 .sidebar-right {
-    float: right;
-    width: 25%;
+    right: -270px; /* Adjusted to move to the right */
 }
 
+#current-showcase-title, #leaderboard h3 {
+    font-size: 1.4em; /* Increased font size by 20% */
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
     .sidebar-left, .sidebar-right {
-        float: none;
+        position: static;
+        transform: none;
         width: 100%;
         margin: 10px 0;
     }
