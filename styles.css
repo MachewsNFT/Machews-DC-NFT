@@ -62,14 +62,12 @@ input, select, button {
     width: 100%;
 }
 
-.form-group label,
-.form-group input[type="text"],
-.form-group input[type="url"] {
+.form-group label {
     width: 45%;
 }
 
 .form-group select,
-.form-group input[type="number"] {
+.form-group input {
     width: 45%;
     margin: 0;
 }
@@ -88,8 +86,7 @@ button:hover {
 
 .small-button {
     width: auto;
-    padding: 5px 10px; /* Adjusted padding to make button smaller */
-    font-size: 0.9em; /* Slightly smaller font size */
+    padding: 10px 20px;
 }
 
 .logos-row {
