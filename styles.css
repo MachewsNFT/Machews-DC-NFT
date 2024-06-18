@@ -74,12 +74,6 @@ input, select, button {
     margin: 0;
 }
 
-.center-button {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
 button {
     background-color: #4CAF50;
     color: white;
@@ -170,9 +164,5 @@ button:hover {
     .form-group input {
         width: 100%;
         margin-bottom: 10px;
-    }
-
-    .center-button {
-        justify-content: flex-start;
     }
 }
