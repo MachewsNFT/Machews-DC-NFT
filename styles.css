@@ -1,3 +1,23 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(
+        to bottom,
+        #F9EB00 25%,
+        #C5D600 25%,
+        #007AFF 25%,
+        #FF0064 25%
+    );
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    font-size: 1.875em; /* Increased font size by 20% from 1.5625em */
+}
+
 .container {
     display: flex;
     justify-content: space-between;
