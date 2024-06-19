@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const addButton = document.getElementById('addButton');
     const submitButton = document.getElementById('submitButton');
     const clearButton = document.getElementById('clearButton');
-    const printButton = document.getElementById('printButton');
 
     let totalPoints = 0;
     let leaderboard = [];
@@ -65,19 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    if (printButton) {
-        printButton.addEventListener('click', function() {
-            const discordHandle = document.getElementById('current-showcase-title').textContent;
-            const totalPoints = document.getElementById('totalPoints').textContent;
-
-            if (discordHandle && totalPoints) {
-                printRaffleTicket(discordHandle, totalPoints);
-            } else {
-                alert("Please add comics to the showcase first.");
-            }
-        });
-    }
-
     function calculatePoints(rarity, mintNumber) {
         let points = parseInt(mintNumber);
         switch (rarity) {
@@ -137,30 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function clearLeaderboard() {
         const leaderboardInfo = document.getElementById('leaderboard-info');
         leaderboardInfo.innerHTML = '';
-    }
-
-    function printRaffleTicket(discordHandle, totalPoints) {
-        const printWindow = window.open('', '_blank');
-        printWindow.document.write(`
-            <html>
-                <head>
-                    <title>Raffle Ticket</title>
-                    <style>
-                        body { font-family: 'Open Sans', sans-serif; text-align: center; margin-top: 50px; }
-                        .ticket { border: 2px solid black; padding: 20px; display: inline-block; }
-                    </style>
-                </head>
-                <body>
-                    <div class="ticket">
-                        <h1>Raffle Ticket</h1>
-                        <p><strong>Discord Handle:</strong> ${discordHandle}</p>
-                        <p><strong>Total Points:</strong> ${totalPoints}</p>
-                    </div>
-                </body>
-            </html>
-        `);
-        printWindow.document.close();
-        printWindow.print();
     }
 
     function loadLeaderboard() {
