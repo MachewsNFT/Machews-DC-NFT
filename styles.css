@@ -106,7 +106,7 @@ button:hover {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 480px; /* Adjust this value to move it vertically */
+    top: 360px; /* Adjust this value to move it vertically */
 }
 
 .logos-row {
@@ -145,6 +145,7 @@ button:hover {
     top: 50%;
     transform: translateY(-50%);
     width: 240px; /* Adjusted width */
+    height: auto; /* Ensures the sidebar height is dynamic */
 }
 
 .sidebar-left {
