@@ -80,9 +80,7 @@
         <aside class="sidebar sidebar-right" id="leaderboard">
             <h3>Leaderboard</h3>
             <div id="leaderboard-info">
-                ${[...Array(10)].map((_, i) => `
-                    ${i + 1}. <a href="#" target="_blank">Player ${i + 1}</a>: 0 points
-                `).join('')}
+                <!-- Leaderboard entries will be populated here -->
                 <button type="button" id="clearLeaderboard" class="small-button">Clear</button>
             </div>
         </aside>
