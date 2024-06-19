@@ -98,10 +98,7 @@ button:hover {
 .small-button {
     width: auto;
     padding: 10px 20px;
-    position: absolute;
-    right: -270px; /* Move to the right */
-    top: 50%;
-    transform: translateY(-50%);
+    margin-bottom: 20px; /* Space above the wiki logo */
 }
 
 .logos-row {
@@ -181,6 +178,6 @@ button:hover {
     .small-button {
         position: static; /* Reset position in mobile view */
         transform: none;
-        margin: 0 auto;
+        margin: 0 auto 20px auto; /* Adjust margin for mobile view */
     }
 }
