@@ -1,5 +1,5 @@
 body {
-    font-family: 'Justice League', 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background: linear-gradient(
         to bottom,
         #F9EB00 25%,
@@ -143,11 +143,11 @@ button:hover {
 }
 
 .sidebar-left {
-    left: -270px; /* Adjusted to move to the left */
+    left: -370px; /* Adjusted to move to the left */
 }
 
 .sidebar-right {
-    right: -270px; /* Adjusted to move to the right */
+    right: -370px; /* Adjusted to move to the right */
 }
 
 #current-showcase-title, #leaderboard h3 {
