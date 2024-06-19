@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (discordHandle && showcaseLink) {
             addToLeaderboard(discordHandle, showcaseLink, totalPoints);
+            saveLeaderboard();
         }
     });
 
@@ -123,29 +124,39 @@ document.addEventListener('DOMContentLoaded', function() {
     function clearLeaderboard() {
         const leaderboardInfo = document.getElementById('leaderboard-info');
         leaderboardInfo.innerHTML = '';
+        localStorage.removeItem('leaderboard');
+    }
+
+    function saveLeaderboard() {
+        const leaderboardInfo = document.getElementById('leaderboard-info').innerHTML;
+        localStorage.setItem('leaderboard', leaderboardInfo);
     }
 
     function loadLeaderboard() {
-        const leaderboard = [
-            { discordHandle: 'Player 1', showcaseLink: '#', points: 1000 },
-            { discordHandle: 'Player 2', showcaseLink: '#', points: 950 },
-            { discordHandle: 'Player 3', showcaseLink: '#', points: 900 }
-        ];
+        const leaderboardInfo = document.getElementById('leaderboard-info');
+        const savedLeaderboard = localStorage.getItem('leaderboard');
+        if (savedLeaderboard) {
+            leaderboardInfo.innerHTML = savedLeaderboard;
+        } else {
+            const defaultLeaderboard = [
+                { discordHandle: 'Player 1', showcaseLink: '#', points: 1000 },
+                { discordHandle: 'Player 2', showcaseLink: '#', points: 950 },
+                { discordHandle: 'Player 3', showcaseLink: '#', points: 900 }
+            ];
+            leaderboardInfo.innerHTML = '';
+            defaultLeaderboard.forEach((entry, index) => {
+                const link = document.createElement('a');
+                link.href = entry.showcaseLink;
+                link.textContent = entry.discordHandle;
 
-        const leaderboardDiv = document.getElementById('leaderboard-info');
-        leaderboardDiv.innerHTML = '';
-        leaderboard.forEach((entry, index) => {
-            const link = document.createElement('a');
-            link.href = entry.showcaseLink;
-            link.textContent = entry.discordHandle;
+                const p = document.createElement('p');
+                p.textContent = `${index + 1}. `;
+                p.appendChild(link);
+                p.append(`: ${entry.points} points`);
 
-            const p = document.createElement('p');
-            p.textContent = `${index + 1}. `;
-            p.appendChild(link);
-            p.append(`: ${entry.points} points`);
-
-            leaderboardDiv.appendChild(p);
-        });
+                leaderboardInfo.appendChild(p);
+            });
+        }
     }
 
     loadLeaderboard();
