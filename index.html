@@ -11,10 +11,10 @@
 <body>
     <div class="container">
         <header>
-            <h1>Delta Charlie</h1>
+            <h1 style="font-family: 'Justice League';">Delta Charlie</h1>
             <div id="countdown-timer" class="countdown-timer"></div>
             <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
-            <h2>JLA The Nail Lowest Mint Set Contest</h2>
+            <h2 style="font-family: 'Justice League';">JLA The Nail Lowest Mint Set Contest</h2>
         </header>
 
         <main>
@@ -41,19 +41,20 @@
                     <label for="mintNumber">Mint Number:</label>
                     <input type="number" id="mintNumber" name="mintNumber" placeholder="Enter mint number" required>
                 </div>
-            </form>
 
-            <button type="button" id="addButton" class="small-button">Add</button>
+                <button type="button" id="addButton" class="small-button">Add</button>
+                <button type="button" id="submitShowcase" class="small-button">Submit</button>
+            </form>
 
             <div class="logos-row">
                 <div class="logo-container">
-                    <img src="DC3JAL.jpg" alt="DC3JAL Logo">
+                    <a href="https://www.candy.com/dc/drops/8d77ccf6-9518-489e-9dc4-3141f949f3a6"><img src="DC3JAL.jpg" alt="DC3JAL Logo"></a>
                 </div>
                 <div class="logo-container">
-                    <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki Logo" class="wiki-logo">
+                    <a href="https://dc3.wiki"><img src="dc3_wiki_logo.jpg" alt="DC3 Wiki Logo" class="wiki-logo"></a>
                 </div>
                 <div class="logo-container">
-                    <img src="dc.jpg" alt="DC Logo">
+                    <a href="https://www.candy.com/dc/marketplace?collection=%5B%222024+Super+Power+Packs+-+Series+JLA%3A+The+Nail%22%5D"><img src="dc.jpg" alt="DC Logo"></a>
                 </div>
             </div>
         </main>
@@ -68,15 +69,12 @@
                 <p>Core: <span id="corePoints">0</span></p>
                 <p>Total Points: <span id="totalPoints">0</span></p>
             </div>
-            <button type="button" id="submitShowcase" class="small-button">Submit</button>
         </aside>
 
         <aside class="sidebar sidebar-right" id="leaderboard">
             <h3>Leaderboard</h3>
             <div id="leaderboard-info">
-                ${[...Array(10)].map((_, i) => `
-                    <p>${i + 1}. <a id="player${i + 1}" href="#">Player ${i + 1}</a>: <span id="player${i + 1}Points">0</span> points</p>
-                `).join('')}
+                <!-- Leaderboard entries will be populated here -->
             </div>
         </aside>
     </div>
