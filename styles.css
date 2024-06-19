@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Justice League';
+    src: url('path_to_justice_league_font/Justice League.ttf') format('truetype');
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     background: linear-gradient(
@@ -98,10 +103,6 @@ button:hover {
 .small-button {
     width: auto;
     padding: 10px 20px;
-    position: absolute;
-    right: -270px; /* Move to the right */
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .logos-row {
@@ -152,15 +153,6 @@ button:hover {
 
 #current-showcase-title, #leaderboard h3 {
     font-size: 1.4em; /* Increased font size by 20% */
-}
-
-#leaderboard-info p {
-    color: #F9EB00; /* Adjust color to stand out */
-    font-size: 1.8em; /* Increased font size */
-    margin: 10px 0;
-}
-#leaderboard-info a {
-    color: #F9EB00; /* Adjust color to stand out */
 }
 
 /* Media Queries */
