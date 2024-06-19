@@ -74,9 +74,6 @@
             <h3>Leaderboard</h3>
             <div id="leaderboard-info">
                 <!-- Leaderboard entries will be populated here -->
-                ${[...Array(10)].map((_, i) => `
-                    <p>${i + 1}. <span id="player${i + 1}">Player ${i + 1}</span>: <span id="player${i + 1}Points">0</span> points</p>
-                `).join('')}
             </div>
         </aside>
     </div>
