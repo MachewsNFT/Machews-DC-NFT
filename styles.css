@@ -98,6 +98,10 @@ button:hover {
 .small-button {
     width: auto;
     padding: 10px 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 70%; /* Adjusted position */
 }
 
 .logos-row {
@@ -139,22 +143,15 @@ button:hover {
 }
 
 .sidebar-left {
-    left: -350px; /* Adjusted to move to the left */
+    left: -270px; /* Adjusted to move to the left */
 }
 
 .sidebar-right {
-    right: -350px; /* Adjusted to move to the right */
+    right: -270px; /* Adjusted to move to the right */
 }
 
 #current-showcase-title, #leaderboard h3 {
     font-size: 1.4em; /* Increased font size by 20% */
-}
-
-#leaderboard .small-button {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 /* Media Queries */
