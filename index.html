@@ -74,11 +74,11 @@
         <aside class="sidebar sidebar-right" id="leaderboard">
             <h3>Leaderboard</h3>
             <div id="leaderboard-info">
-                ${[...Array(10)].map((_, i) => `
-                <p>${i + 1}. Player ${i + 1}: 0 points</p>
-                `).join('')}
+                <!-- Leaderboard entries will be populated here -->
             </div>
         </aside>
+        
+        <button type="button" id="clearButton" class="small-button">Clear Leaderboard</button> <!-- New Clear Button -->
     </div>
 </body>
 </html>
