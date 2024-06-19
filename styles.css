@@ -185,3 +185,7 @@ button:hover {
 
     .small-button {
         position: static; /* Reset position in mobile view */
+        transform: none;
+        margin: 0 auto;
+    }
+}
