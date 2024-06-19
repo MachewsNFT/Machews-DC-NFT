@@ -106,7 +106,7 @@ button:hover {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 10px; /* Adjust this value to move it vertically */
+    top: 140px; /* Adjust this value to move it vertically */
 }
 
 .logos-row {
@@ -148,11 +148,11 @@ button:hover {
 }
 
 .sidebar-left {
-    left: 20px; /* Adjusted to move 20px from the left margin */
+    left: 80px; /* Adjusted to move 60px from the left margin */
 }
 
 .sidebar-right {
-    right: 20px; /* Adjusted to move 20px from the right margin */
+    right: 80px; /* Adjusted to move 60px from the right margin */
 }
 
 #current-showcase-title, #leaderboard h3 {
@@ -186,6 +186,4 @@ button:hover {
     .small-button {
         position: static; /* Reset position in mobile view */
         transform: none;
-        margin: 0 auto;
-    }
-}
+        margin: 
