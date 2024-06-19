@@ -126,4 +126,17 @@ document.addEventListener('DOMContentLoaded', function() {
             leaderboardDiv.appendChild(p);
         });
     }
+
+    // Add hyperlinks to the logos
+    document.querySelector('img[alt="DC3JAL Logo"]').addEventListener('click', function() {
+        window.open('https://example.com/dc3jal', '_blank');
+    });
+
+    document.querySelector('img[alt="DC3 Wiki Logo"]').addEventListener('click', function() {
+        window.open('https://example.com/dc3wiki', '_blank');
+    });
+
+    document.querySelector('img[alt="DC Logo"]').addEventListener('click', function() {
+        window.open('https://example.com/dc', '_blank');
+    });
 });
