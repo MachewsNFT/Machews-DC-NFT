@@ -98,7 +98,10 @@ button:hover {
 .small-button {
     width: auto;
     padding: 10px 20px;
-    margin-bottom: 20px; /* Space above the wiki logo */
+    position: absolute;
+    right: -270px; /* Move to the right */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .logos-row {
@@ -140,15 +143,24 @@ button:hover {
 }
 
 .sidebar-left {
-    left: -370px; /* Adjusted to move to the left */
+    left: -270px; /* Adjusted to move to the left */
 }
 
 .sidebar-right {
-    right: -370px; /* Adjusted to move to the right */
+    right: -270px; /* Adjusted to move to the right */
 }
 
 #current-showcase-title, #leaderboard h3 {
     font-size: 1.4em; /* Increased font size by 20% */
+}
+
+#leaderboard-info p {
+    color: #F9EB00; /* Adjust color to stand out */
+    font-size: 1.8em; /* Increased font size */
+    margin: 10px 0;
+}
+#leaderboard-info a {
+    color: #F9EB00; /* Adjust color to stand out */
 }
 
 /* Media Queries */
@@ -178,6 +190,6 @@ button:hover {
     .small-button {
         position: static; /* Reset position in mobile view */
         transform: none;
-        margin: 0 auto 20px auto; /* Adjust margin for mobile view */
+        margin: 0 auto;
     }
 }
