@@ -98,9 +98,7 @@ button:hover {
 .small-button {
     width: auto;
     padding: 10px 20px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-bottom: 10px;
 }
 
 .clear-button {
@@ -194,12 +192,6 @@ button:hover {
     }
 
     .small-button {
-        position: static; /* Reset position in mobile view */
-        transform: none;
-        margin: 0 auto;
-    }
-
-    .clear-button {
         position: static; /* Reset position in mobile view */
         transform: none;
         margin: 0 auto;
