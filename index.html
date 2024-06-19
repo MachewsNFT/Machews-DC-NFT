@@ -7,20 +7,14 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="scripts.js" defer></script>
-    <style>
-        @font-face {
-            font-family: 'Justice League';
-            src: url('JusticeLeague.ttf') format('truetype');
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1 style="font-family: 'Justice League', sans-serif;">Delta Charlie</h1>
+            <h1>Delta Charlie</h1>
             <div id="countdown-timer" class="countdown-timer"></div>
             <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
-            <h2 style="font-family: 'Justice League', sans-serif;">JLA The Nail Lowest Mint Set Contest</h2>
+            <h2>JLA The Nail Lowest Mint Set Contest</h2>
         </header>
 
         <main>
@@ -80,6 +74,9 @@
             <h3>Leaderboard</h3>
             <div id="leaderboard-info">
                 <!-- Leaderboard entries will be populated here -->
+                ${[...Array(10)].map((_, i) => `
+                    <p>${i + 1}. <span id="player${i + 1}">Player ${i + 1}</span>: <span id="player${i + 1}Points">0</span> points</p>
+                `).join('')}
             </div>
         </aside>
     </div>
