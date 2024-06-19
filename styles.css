@@ -37,6 +37,18 @@ header img {
     border-radius: 8px;
 }
 
+.name-tape {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.name-tape img {
+    max-height: 50px; /* Adjust as necessary */
+    margin-right: 10px;
+}
+
 .countdown-timer {
     font-size: 1.6em; /* Increased font size */
     color: yellow; /* Changed color */
@@ -44,6 +56,34 @@ header img {
     padding: 10px;
     border-radius: 8px;
     margin-bottom: 10px;
+}
+
+.ticker-container {
+    width: 100%;
+    overflow: hidden;
+    background: black;
+    color: yellow;
+    padding: 10px 0;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ticker-wrap {
+    display: flex;
+    width: 100%;
+}
+
+.ticker {
+    display: flex;
+    animation: ticker 20s linear infinite;
+    white-space: nowrap;
+}
+
+@keyframes ticker {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
 form {
@@ -184,3 +224,4 @@ button:hover {
         margin: 0 auto;
     }
 }
+``
