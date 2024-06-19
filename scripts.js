@@ -1,101 +1,199 @@
-document.getElementById('addButton').addEventListener('click', function () {
-    const discordHandle = document.getElementById('discordHandle').value;
-    const showcaseLink = document.getElementById('showcaseLink').value;
-    const comicRarity = document.getElementById('comicRarity').value;
-    const mintNumber = document.getElementById('mintNumber').value;
+dbody {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(
+        to bottom,
+        #F9EB00 25%,
+        #C5D600 25%,
+        #007AFF 25%,
+        #FF0064 25%
+    );
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    font-size: 1.4em; /* Increased font size by 20% */
+}
 
-    if (discordHandle && comicRarity && mintNumber) {
-        let points = calculatePoints(comicRarity, mintNumber);
-        let currentPoints = document.getElementById(comicRarity.toLowerCase() + 'Points');
-        currentPoints.textContent = points;
+.container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 28px; /* Increased padding by 20% */
+    border-radius: 8px;
+    text-align: center;
+    width: 80%;
+    max-width: 960px; /* Increased max-width by 20% */
+    position: relative;
+}
 
-        updateTotalPoints();
+header, main, .logos-row {
+    margin-bottom: 20px;
+}
 
-        document.getElementById('current-showcase-title').textContent = discordHandle;
+header img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.countdown-timer {
+    font-size: 1.6em; /* Increased font size */
+    color: yellow; /* Changed color */
+    background-color: black;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0;
+}
+
+label {
+    margin: 10px 0 5px;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    border-radius: 4px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.form-group label,
+.form-group input[type="text"],
+.form-group input[type="url"] {
+    width: 45%;
+}
+
+.form-group select,
+.form-group input[type="number"] {
+    width: 45%;
+    margin: 0;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.small-button {
+    width: auto;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+.clear-button {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin-top: 20px;
+}
+
+.clear-button:hover {
+    background-color: #CC0000;
+}
+
+.logos-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.logo-container img {
+    width: 80%;
+    max-width: 200px;
+    border-radius: 8px;
+    border: 2px solid gold;
+}
+
+.wiki-logo {
+    margin-top: 20px;
+    width: 100%; /* Increased size */
+    max-width: 240px; /* Increased max-width */
+}
+
+.sidebar {
+    background-color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #007AFF;
+    color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 240px; /* Adjusted width */
+}
+
+.sidebar-left {
+    left: -270px; /* Adjusted to move to the left */
+}
+
+.sidebar-right {
+    right: -270px; /* Adjusted to move to the right */
+}
+
+#current-showcase-title, #leaderboard h3 {
+    font-size: 1.4em; /* Increased font size by 20% */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
     }
-});
 
-document.getElementById('submitShowcase').addEventListener('click', function () {
-    const discordHandle = document.getElementById('current-showcase-title').textContent;
-    const showcaseLink = document.getElementById('showcaseLink').value;
-    const totalPoints = document.getElementById('totalPoints').textContent;
-
-    if (discordHandle && showcaseLink) {
-        addToLeaderboard(discordHandle, showcaseLink, totalPoints);
-        showRaffleTicket(discordHandle, totalPoints);
+    .sidebar-left, .sidebar-right {
+        position: static;
+        transform: none;
+        width: 100%;
+        margin: 10px 0;
     }
-});
 
-function calculatePoints(rarity, mintNumber) {
-    // Implement your logic for calculating points
-    return parseInt(mintNumber); // Example logic, replace with your own
-}
-
-function updateTotalPoints() {
-    const legoPoints = parseInt(document.getElementById('legoPoints').textContent) || 0;
-    const epicPoints = parseInt(document.getElementById('epicPoints').textContent) || 0;
-    const rarePoints = parseInt(document.getElementById('rarePoints').textContent) || 0;
-    const ucPoints = parseInt(document.getElementById('ucPoints').textContent) || 0;
-    const corePoints = parseInt(document.getElementById('corePoints').textContent) || 0;
-
-    const totalPoints = legoPoints + epicPoints + rarePoints + ucPoints + corePoints;
-    document.getElementById('totalPoints').textContent = totalPoints;
-}
-
-function addToLeaderboard(discordHandle, showcaseLink, totalPoints) {
-    const leaderboard = document.getElementById('leaderboard-info');
-    const entry = document.createElement('p');
-    entry.innerHTML = `<a href="${showcaseLink}" target="_blank">${discordHandle}</a>: ${totalPoints} points`;
-    leaderboard.appendChild(entry);
-
-    // Sort leaderboard
-    const entries = Array.from(leaderboard.getElementsByTagName('p'));
-    entries.sort((a, b) => {
-        const pointsA = parseInt(a.textContent.split(': ')[1]);
-        const pointsB = parseInt(b.textContent.split(': ')[1]);
-        return pointsB - pointsA;
-    });
-
-    // Clear and re-add sorted entries
-    leaderboard.innerHTML = '';
-    entries.forEach((entry, index) => {
-        if (index < 10) { // Only display top 10
-            leaderboard.appendChild(entry);
-        }
-    });
-}
-
-function showRaffleTicket(discordHandle, totalPoints) {
-    alert(`Raffle Ticket\n\nDiscord Handle: ${discordHandle}\nTotal Points: ${totalPoints}`);
-}
-
-// Clear leaderboard function
-document.getElementById('clearLeaderboard').addEventListener('click', function () {
-    const code = prompt('Enter the code to clear the leaderboard:');
-    if (code === '6969') {
-        document.getElementById('leaderboard-info').innerHTML = '';
-    } else {
-        alert('Incorrect code.');
+    .form-group {
+        flex-direction: column;
     }
-});
 
-// Countdown timer function
-function countdown() {
-    const endDate = new Date('July 17, 2024 12:00:00').getTime();
-    const now = new Date().getTime();
-    const timeLeft = endDate - now;
+    .form-group label,
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-    document.getElementById('countdown-timer').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-    if (timeLeft < 0) {
-        clearInterval(x);
-        document.getElementById('countdown-timer').textContent = 'EXPIRED';
+    .small-button {
+        position: static; /* Reset position in mobile view */
+        transform: none;
+        margin: 0 auto;
     }
 }
-
-const x = setInterval(countdown, 1000);
