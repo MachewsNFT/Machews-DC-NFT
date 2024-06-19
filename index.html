@@ -11,11 +11,22 @@
 <body>
     <div class="container">
         <header>
-            <h1>Delta Charlie</h1>
+            <div class="name-tape">
+                <img src="nametape.jpg" alt="Name Tape">
+                <h1>Delta Charlie</h1>
+            </div>
             <div id="countdown-timer" class="countdown-timer"></div>
             <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
             <h2>JLA The Nail Lowest Mint Set Contest</h2>
         </header>
+
+        <div class="ticker-container">
+            <div class="ticker-wrap">
+                <div class="ticker">
+                    <div id="ticker-content"></div>
+                </div>
+            </div>
+        </div>
 
         <main>
             <form id="submissionForm">
@@ -59,7 +70,7 @@
         </main>
 
         <aside class="sidebar sidebar-left" id="current-showcase">
-            <h3 id="current-showcase-title">Current Showcase</h3>
+            <h3 id="current-showcase-title"></h3>
             <div id="showcase-info">
                 <p>Lego: <span id="legoPoints">0</span></p>
                 <p>Epic: <span id="epicPoints">0</span></p>
@@ -67,13 +78,6 @@
                 <p>UC: <span id="ucPoints">0</span></p>
                 <p>Core: <span id="corePoints">0</span></p>
                 <p>Total Points: <span id="totalPoints">0</span></p>
-            </div>
-        </aside>
-
-        <aside class="sidebar sidebar-right" id="leaderboard">
-            <h3>Leaderboard</h3>
-            <div id="leaderboard-info">
-                <!-- Leaderboard entries will be populated here -->
             </div>
         </aside>
     </div>
