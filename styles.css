@@ -98,6 +98,10 @@ button:hover {
 .small-button {
     width: auto;
     padding: 10px 20px;
+    position: absolute;
+    right: -270px; /* Move to the right */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .logos-row {
@@ -122,7 +126,7 @@ button:hover {
 .wiki-logo {
     margin-top: 20px;
     width: 100%; /* Increased size */
-    max-width: 240px; /* Increased max-width */
+    max-width: 320px; /* Increased max-width by one-third */
 }
 
 .sidebar {
@@ -139,11 +143,11 @@ button:hover {
 }
 
 .sidebar-left {
-    left: -340px; /* Adjusted to move to the left */
+    left: -540px; /* Adjusted to move to the left */
 }
 
 .sidebar-right {
-    right: -340px; /* Adjusted to move to the right */
+    right: -540px; /* Adjusted to move to the right */
 }
 
 #current-showcase-title, #leaderboard h3 {
