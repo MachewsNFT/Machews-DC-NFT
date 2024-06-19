@@ -129,14 +129,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add hyperlinks to the logos
     document.querySelector('img[alt="DC3JAL Logo"]').addEventListener('click', function() {
-        window.open('https://example.com/dc3jal', '_blank');
+        window.open('https://www.candy.com/dc/drops/8d77ccf6-9518-489e-9dc4-3141f949f3a6', '_blank');
     });
 
     document.querySelector('img[alt="DC3 Wiki Logo"]').addEventListener('click', function() {
-        window.open('https://example.com/dc3wiki', '_blank');
+        window.open('https://dc3.wiki', '_blank');
     });
 
     document.querySelector('img[alt="DC Logo"]').addEventListener('click', function() {
-        window.open('https://example.com/dc', '_blank');
+        window.open('https://www.candy.com/dc/marketplace?collection=%5B%222024+Super+Power+Packs+-+Series+JLA%3A+The+Nail%22%5D', '_blank');
     });
 });
