@@ -106,7 +106,7 @@ button:hover {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 140px; /* Adjust this value to move it vertically */
+    top: 160px; /* Adjust this value to move it vertically */
 }
 
 .logos-row {
@@ -185,5 +185,3 @@ button:hover {
 
     .small-button {
         position: static; /* Reset position in mobile view */
-        transform: none;
-        margin: 
