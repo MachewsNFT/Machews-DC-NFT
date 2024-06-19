@@ -1,4 +1,4 @@
-document.getElementById('addButton').addEventListener('click', function() {
+\document.getElementById('addButton').addEventListener('click', function() {
     const discordHandle = document.getElementById('discordHandle').value;
     const showcaseLink = document.getElementById('showcaseLink').value;
     const comicRarity = document.getElementById('comicRarity').value;
