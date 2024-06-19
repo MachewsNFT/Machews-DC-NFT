@@ -44,18 +44,24 @@
             </form>
 
             <button type="button" id="addButton" class="small-button">Add</button>
+
             <div class="logos-row">
                 <div class="logo-container">
-                    <img src="DC3JAL.jpg" alt="DC3JAL Logo">
+                    <a href="https://www.candy.com/dc/marketplace?collection=%5B%222024+Super+Power+Packs+-+Series+JLA%3A+The+Nail%22%5D">
+                        <img src="DC3JAL.jpg" alt="DC3JAL Logo">
+                    </a>
                 </div>
                 <div class="logo-container">
-                    <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki Logo" class="wiki-logo">
+                    <a href="https://dc3.wiki">
+                        <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki Logo" class="wiki-logo">
+                    </a>
                 </div>
                 <div class="logo-container">
-                    <img src="dc.jpg" alt="DC Logo">
+                    <a href="https://www.dccomics.com">
+                        <img src="dc.jpg" alt="DC Logo">
+                    </a>
                 </div>
             </div>
-            <button type="button" id="printButton" class="small-button">Print Score</button>
         </main>
 
         <aside class="sidebar sidebar-left" id="current-showcase">
@@ -67,27 +73,20 @@
                 <p>UC: <span id="ucPoints">0</span></p>
                 <p>Core: <span id="corePoints">0</span></p>
                 <p>Total Points: <span id="totalPoints">0</span></p>
+                <button type="button" id="submitButton" class="small-button">LFG</button>
             </div>
-            <button type="button" id="submitButton" class="small-button">LFG</button>
         </aside>
 
         <aside class="sidebar sidebar-right" id="leaderboard">
             <h3>Leaderboard</h3>
             <div id="leaderboard-info">
                 <!-- Leaderboard entries will be populated here -->
+                ${[...Array(10)].map((_, i) => `
+                ${i + 1}. <a href="#">Player ${i + 1}</a>: 0 points
+                `).join('')}
             </div>
             <button type="button" id="clearButton" class="small-button">Clear</button>
         </aside>
-
-        <!-- Raffle Ticket Modal -->
-        <div id="raffleTicketModal" class="raffle-ticket-modal">
-            <div class="raffle-ticket-content">
-                <span class="close">&times;</span>
-                <h2>Raffle Ticket</h2>
-                <p>Discord Handle: <span id="raffleDiscordHandle"></span></p>
-                <p>Total Points: <span id="raffleTotalPoints"></span></p>
-            </div>
-        </div>
     </div>
 </body>
 </html>
