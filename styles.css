@@ -103,6 +103,10 @@ button:hover {
 .small-button {
     width: auto;
     padding: 10px 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px; /* Adjust this value to move it vertically */
 }
 
 .logos-row {
