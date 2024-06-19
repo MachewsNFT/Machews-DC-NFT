@@ -1,87 +1,96 @@
-document.addEventListener('DOMContentLoaded', function () {
-    function calculatePoints(rarity, mintNumber) {
-        let points = 0;
-        switch (rarity) {
-            case "Lego":
-                points = 5;
-                break;
-            case "Epic":
-                points = 4;
-                break;
-            case "Rare":
-                points = 3;
-                break;
-            case "UC":
-                points = 2;
-                break;
-            case "Core":
-                points = 1;
-                break;
-        }
-        return points + parseInt(mintNumber);
+document.getElementById('addButton').addEventListener('click', function() {
+    const discordHandle = document.getElementById('discordHandle').value;
+    const showcaseLink = document.getElementById('showcaseLink').value;
+    const comicRarity = document.getElementById('comicRarity').value;
+    const mintNumber = document.getElementById('mintNumber').value;
+
+    if (discordHandle && comicRarity && mintNumber) {
+        let points = calculatePoints(comicRarity, mintNumber);
+        updateCurrentShowcase(comicRarity, points);
+        updateTotalPoints();
+        document.getElementById('current-showcase-title').textContent = discordHandle;
+
+        addToLeaderboard(discordHandle, showcaseLink, calculateTotalPoints());
+    }
+});
+
+function calculatePoints(rarity, mintNumber) {
+    // Implement your logic for calculating points
+    return parseInt(mintNumber); // Example logic, replace with your own
+}
+
+function updateCurrentShowcase(rarity, points) {
+    let currentPoints = document.getElementById(rarity.toLowerCase() + 'Points');
+    currentPoints.textContent = points;
+}
+
+function updateTotalPoints() {
+    let legoPoints = parseInt(document.getElementById('legoPoints').textContent);
+    let epicPoints = parseInt(document.getElementById('epicPoints').textContent);
+    let rarePoints = parseInt(document.getElementById('rarePoints').textContent);
+    let ucPoints = parseInt(document.getElementById('ucPoints').textContent);
+    let corePoints = parseInt(document.getElementById('corePoints').textContent);
+
+    let totalPoints = legoPoints + epicPoints + rarePoints + ucPoints + corePoints;
+    document.getElementById('totalPoints').textContent = totalPoints;
+}
+
+function addToLeaderboard(discordHandle, showcaseLink, totalPoints) {
+    // Simulated leaderboard update
+    let leaderboard = [];
+    for (let i = 1; i <= 10; i++) {
+        let player = {
+            discordHandle: `Player ${i}`,
+            showcaseLink: '#',
+            points: Math.floor(Math.random() * 1000) // Random points for demonstration
+        };
+        leaderboard.push(player);
     }
 
-    function updateShowcase(discordHandle, showcaseLink, rarity, mintNumber) {
-        const showcaseTitle = document.getElementById('current-showcase-title');
-        const showcaseInfo = document.getElementById('showcase-info');
-
-        showcaseTitle.textContent = discordHandle;
-        document.getElementById('showcaseLink').value = showcaseLink;
-
-        const points = calculatePoints(rarity, mintNumber);
-        document.getElementById(rarity.toLowerCase() + 'Points').textContent = points;
-
-        let totalPoints = 0;
-        document.querySelectorAll('#showcase-info span').forEach(span => {
-            totalPoints += parseInt(span.textContent);
-        });
-        document.getElementById('totalPoints').textContent = totalPoints;
-    }
-
-    function addToLeaderboard(discordHandle, showcaseLink, totalPoints) {
-        const leaderboardInfo = document.getElementById('leaderboard-info');
-        const entry = document.createElement('div');
-        entry.innerHTML = `<a href="${showcaseLink}" target="_blank">${discordHandle}</a>: ${totalPoints} points`;
-        leaderboardInfo.appendChild(entry);
-    }
-
-    document.getElementById('addButton').addEventListener('click', function () {
-        const discordHandle = document.getElementById('discordHandle').value;
-        const showcaseLink = document.getElementById('showcaseLink').value;
-        const comicRarity = document.getElementById('comicRarity').value;
-        const mintNumber = document.getElementById('mintNumber').value;
-
-        if (discordHandle && showcaseLink && comicRarity && mintNumber) {
-            updateShowcase(discordHandle, showcaseLink, comicRarity, mintNumber);
-
-            let totalPoints = 0;
-            document.querySelectorAll('#showcase-info span').forEach(span => {
-                totalPoints += parseInt(span.textContent);
-            });
-            addToLeaderboard(discordHandle, showcaseLink, totalPoints);
-        }
+    // Add the current submission to the leaderboard
+    leaderboard.push({
+        discordHandle: discordHandle,
+        showcaseLink: showcaseLink,
+        points: totalPoints
     });
 
-    // Countdown Timer
-    function updateTimer() {
-        const countdown = document.getElementById('countdown-timer');
-        const endTime = new Date('2024-07-16T12:00:00').getTime();
-        const now = new Date().getTime();
-        const timeLeft = endTime - now;
+    // Sort the leaderboard by points in descending order
+    leaderboard.sort((a, b) => b.points - a.points);
 
-        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    // Update the leaderboard display
+    const leaderboardDiv = document.getElementById('leaderboard-info');
+    leaderboardDiv.innerHTML = '';
+    leaderboard.slice(0, 10).forEach((entry, index) => {
+        const link = document.createElement('a');
+        link.href = entry.showcaseLink;
+        link.textContent = entry.discordHandle;
 
-        countdown.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        const p = document.createElement('p');
+        p.textContent = `${index + 1}. `;
+        p.appendChild(link);
+        p.append(`: ${entry.points} points`);
 
-        if (timeLeft < 0) {
-            clearInterval(timerInterval);
-            countdown.textContent = "Contest has ended";
-        }
+        leaderboardDiv.appendChild(p);
+    });
+}
+
+// Countdown timer
+const countdownTimer = document.getElementById('countdown-timer');
+const targetDate = new Date().getTime() + (28 * 24 * 60 * 60 * 1000); // 28 days from now
+
+const interval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+        clearInterval(interval);
+        countdownTimer.textContent = "Contest Ended";
+    } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownTimer.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
-
-    const timerInterval = setInterval(updateTimer, 1000);
-    updateTimer();
-});
+}, 1000);
