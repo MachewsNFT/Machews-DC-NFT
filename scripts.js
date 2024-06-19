@@ -34,6 +34,15 @@ document.getElementById('clearButton').addEventListener('click', function() {
     }
 });
 
+document.getElementById('printButton').addEventListener('click', function() {
+    const discordHandle = document.getElementById('current-showcase-title').textContent;
+    const totalPoints = document.getElementById('totalPoints').textContent;
+
+    if (discordHandle && totalPoints) {
+        printRaffleTicket(discordHandle, totalPoints);
+    }
+});
+
 function calculatePoints(rarity, mintNumber) {
     // Implement your logic for calculating points
     return parseInt(mintNumber); // Example logic, replace with your own
@@ -80,6 +89,41 @@ function addToLeaderboard(discordHandle, showcaseLink, totalPoints) {
 function clearLeaderboard() {
     const leaderboardInfo = document.getElementById('leaderboard-info');
     leaderboardInfo.innerHTML = '';
+}
+
+function printRaffleTicket(discordHandle, totalPoints) {
+    const ticketWindow = window.open('', '_blank');
+    ticketWindow.document.write(`
+        <html>
+        <head>
+            <title>Raffle Ticket</title>
+            <style>
+                body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    margin: 0;
+                    font-family: 'Open Sans', sans-serif;
+                }
+                .ticket {
+                    border: 2px solid black;
+                    padding: 20px;
+                    text-align: center;
+                    font-size: 1.2em;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="ticket">
+                <p><strong>Discord Handle:</strong> ${discordHandle}</p>
+                <p><strong>Total Points:</strong> ${totalPoints}</p>
+            </div>
+        </body>
+        </html>
+    `);
+    ticketWindow.document.close();
+    ticketWindow.print();
 }
 
 function loadLeaderboard() {
