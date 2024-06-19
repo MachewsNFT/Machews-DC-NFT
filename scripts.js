@@ -12,11 +12,13 @@ document.getElementById('addButton').addEventListener('click', function() {
         updateTotalPoints();
 
         document.getElementById('current-showcase-title').textContent = discordHandle;
+
+        // Update leaderboard
+        addToLeaderboard(discordHandle, showcaseLink, document.getElementById('totalPoints').textContent);
     }
 });
 
 function calculatePoints(rarity, mintNumber) {
-    // Example points calculation logic
     let basePoints = {
         Lego: 100,
         Epic: 80,
@@ -36,6 +38,13 @@ function updateTotalPoints() {
 
     const totalPoints = legoPoints + epicPoints + rarePoints + ucPoints + corePoints;
     document.getElementById('totalPoints').textContent = totalPoints;
+}
+
+function addToLeaderboard(discordHandle, showcaseLink, totalPoints) {
+    const leaderboard = document.getElementById('leaderboard-info');
+    const newEntry = document.createElement('p');
+    newEntry.innerHTML = `${discordHandle} - <a href="${showcaseLink}" target="_blank">${showcaseLink}</a> - ${totalPoints} points`;
+    leaderboard.appendChild(newEntry);
 }
 
 // Countdown timer
