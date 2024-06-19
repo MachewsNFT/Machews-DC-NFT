@@ -98,6 +98,10 @@ button:hover {
 .small-button {
     width: auto;
     padding: 10px 20px;
+    position: absolute;
+    right: -270px; /* Move to the right */
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .logos-row {
@@ -172,5 +176,11 @@ button:hover {
     .form-group select {
         width: 100%;
         margin-bottom: 10px;
+    }
+
+    .small-button {
+        position: static; /* Reset position in mobile view */
+        transform: none;
+        margin: 0 auto;
     }
 }
