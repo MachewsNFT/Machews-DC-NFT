@@ -150,17 +150,17 @@ button:hover {
     border: 2px solid #007AFF;
     color: white;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 0; /* Align with the top of the container */
     width: 260px; /* Made larger */
+    height: 100%; /* Ensure full height */
 }
 
 .sidebar-left {
-    left: -350px; /* Adjusted to move to the left */
+    left: -290px; /* Adjusted to move to the left */
 }
 
 .sidebar-right {
-    right: -350px; /* Adjusted to move to the right */
+    right: -290px; /* Adjusted to move to the right */
 }
 
 #current-showcase-title, #leaderboard h3 {
