@@ -43,25 +43,19 @@
                 </div>
             </form>
 
+            <button type="button" id="addButton" class="small-button">Add</button>
+
             <div class="logos-row">
                 <div class="logo-container">
-                    <a href="https://www.candy.com/dc/drops/8d77ccf6-9518-489e-9dc4-3141f949f3a6" target="_blank">
-                        <img src="DC3JAL.jpg" alt="DC3JAL Logo">
-                    </a>
+                    <img src="DC3JAL.jpg" alt="DC3JAL Logo">
                 </div>
                 <div class="logo-container">
-                    <a href="https://www.dc3.wiki" target="_blank">
-                        <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki Logo" class="wiki-logo">
-                    </a>
+                    <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki Logo" class="wiki-logo">
                 </div>
                 <div class="logo-container">
-                    <a href="https://www.candy.com/dc/marketplace?collection=%5B%222024+Super+Power+Packs+-+Series+JLA%3A+The+Nail%22%5D" target="_blank">
-                        <img src="dc.jpg" alt="DC Logo">
-                    </a>
+                    <img src="dc.jpg" alt="DC Logo">
                 </div>
             </div>
-
-            <button type="button" id="addButton" class="small-button">Add</button>
         </main>
 
         <aside class="sidebar sidebar-left" id="current-showcase">
@@ -74,12 +68,15 @@
                 <p>Core: <span id="corePoints">0</span></p>
                 <p>Total Points: <span id="totalPoints">0</span></p>
             </div>
+            <button type="button" id="submitShowcase" class="small-button">Submit</button>
         </aside>
 
         <aside class="sidebar sidebar-right" id="leaderboard">
             <h3>Leaderboard</h3>
             <div id="leaderboard-info">
-                <!-- Leaderboard entries will be populated here -->
+                ${[...Array(10)].map((_, i) => `
+                    <p>${i + 1}. <a id="player${i + 1}" href="#">Player ${i + 1}</a>: <span id="player${i + 1}Points">0</span> points</p>
+                `).join('')}
             </div>
         </aside>
     </div>
