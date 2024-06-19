@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const leaderboardInfo = document.getElementById('leaderboard-info');
     const addButton = document.getElementById('addButton');
     const submitButton = document.getElementById('submitButton');
-    const clearButton = document.getElementById('clearButton'); // New clear button
+    const clearButton = document.getElementById('clearButton'); // Clear button reference
 
     let totalPoints = 0;
     let leaderboard = [];
