@@ -153,7 +153,7 @@ button:hover {
 }
 
 .sidebar-right {
-    right: 80px; /* Adjusted to move 60px from the right margin */
+    right: 140px; /* Adjusted to move 60px further right */
 }
 
 #current-showcase-title, #leaderboard h3 {
