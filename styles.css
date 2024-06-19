@@ -99,9 +99,24 @@ button:hover {
     width: auto;
     padding: 10px 20px;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 70%; /* Adjusted position */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.clear-button {
+    width: auto;
+    padding: 10px 20px;
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin-top: 20px;
+}
+
+.clear-button:hover {
+    background-color: #CC0000;
 }
 
 .logos-row {
@@ -179,6 +194,12 @@ button:hover {
     }
 
     .small-button {
+        position: static; /* Reset position in mobile view */
+        transform: none;
+        margin: 0 auto;
+    }
+
+    .clear-button {
         position: static; /* Reset position in mobile view */
         transform: none;
         margin: 0 auto;
