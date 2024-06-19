@@ -1,76 +1,84 @@
-document.getElementById('addButton').addEventListener('click', function() {
-    const discordHandle = document.getElementById('discordHandle').value;
-    const showcaseLink = document.getElementById('showcaseLink').value;
-    const comicRarity = document.getElementById('comicRarity').value;
-    const mintNumber = document.getElementById('mintNumber').value;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delta Charlie DC3 Contest</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="name-tape">
+                <img src="nametape.jpg" alt="Name Tape">
+                <h1>Delta Charlie</h1>
+            </div>
+            <div id="countdown-timer" class="countdown-timer"></div>
+            <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
+            <h2>JLA The Nail Lowest Mint Set Contest</h2>
+        </header>
 
-    if (discordHandle && comicRarity && mintNumber) {
-        let points = calculatePoints(comicRarity, mintNumber);
-        let currentPoints = document.getElementById(comicRarity.toLowerCase() + 'Points');
-        currentPoints.textContent = points;
+        <main>
+            <form id="submissionForm">
+                <div class="form-group">
+                    <label for="discordHandle">Discord Handle:</label>
+                    <input type="text" id="discordHandle" name="discordHandle" placeholder="Enter your handle" required>
+                    
+                    <label for="showcaseLink">Showcase Link:</label>
+                    <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
+                </div>
 
-        updateTotalPoints();
+                <div class="form-group">
+                    <label for="comicRarity">Comic Rarity:</label>
+                    <select id="comicRarity" name="comicRarity" required>
+                        <option value="">Select Rarity</option>
+                        <option value="Lego">Lego</option>
+                        <option value="Epic">Epic</option>
+                        <option value="Rare">Rare</option>
+                        <option value="UC">UC</option>
+                        <option value="Core">Core</option>
+                    </select>
 
-        document.getElementById('current-showcase-title').textContent = discordHandle;
+                    <label for="mintNumber">Mint Number:</label>
+                    <input type="number" id="mintNumber" name="mintNumber" placeholder="Enter mint number" required>
+                </div>
+            </form>
 
-        // Update leaderboard
-        addToLeaderboard(discordHandle, showcaseLink, document.getElementById('totalPoints').textContent);
-    }
-});
+            <div class="logos-row">
+                <div class="logo-container">
+                    <img src="DC3JAL.jpg" alt="DC3JAL Logo">
+                </div>
+                <div class="logo-container">
+                    <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki Logo" class="wiki-logo">
+                </div>
+                <div class="logo-container">
+                    <img src="dc.jpg" alt="DC Logo">
+                </div>
+            </div>
 
-function calculatePoints(rarity, mintNumber) {
-    let basePoints = {
-        Lego: 100,
-        Epic: 80,
-        Rare: 60,
-        UC: 40,
-        Core: 20
-    };
-    return basePoints[rarity] / mintNumber; // Simplified calculation
-}
+            <button type="button" id="addButton" class="small-button">Add</button>
+        </main>
 
-function updateTotalPoints() {
-    const legoPoints = parseFloat(document.getElementById('legoPoints').textContent) || 0;
-    const epicPoints = parseFloat(document.getElementById('epicPoints').textContent) || 0;
-    const rarePoints = parseFloat(document.getElementById('rarePoints').textContent) || 0;
-    const ucPoints = parseFloat(document.getElementById('ucPoints').textContent) || 0;
-    const corePoints = parseFloat(document.getElementById('corePoints').textContent) || 0;
+        <aside class="sidebar sidebar-left" id="current-showcase">
+            <h3 id="current-showcase-title">Current Showcase</h3>
+            <div id="showcase-info">
+                <p>Lego: <span id="legoPoints">0</span></p>
+                <p>Epic: <span id="epicPoints">0</span></p>
+                <p>Rare: <span id="rarePoints">0</span></p>
+                <p>UC: <span id="ucPoints">0</span></p>
+                <p>Core: <span id="corePoints">0</span></p>
+                <p>Total Points: <span id="totalPoints">0</span></p>
+            </div>
+        </aside>
 
-    const totalPoints = legoPoints + epicPoints + rarePoints + ucPoints + corePoints;
-    document.getElementById('totalPoints').textContent = totalPoints;
-}
-
-function addToLeaderboard(discordHandle, showcaseLink, totalPoints) {
-    const leaderboard = document.getElementById('leaderboard-info');
-    const newEntry = document.createElement('p');
-    newEntry.innerHTML = `${discordHandle} - <a href="${showcaseLink}" target="_blank">${showcaseLink}</a> - ${totalPoints} points`;
-    leaderboard.appendChild(newEntry);
-}
-
-// Countdown timer
-function startCountdown() {
-    const countdownElement = document.getElementById('countdown-timer');
-    const endDate = new Date(Date.now() + 27 * 24 * 60 * 60 * 1000 + 23 * 60 * 60 * 1000 + 59 * 60 * 1000 + 41 * 1000);
-
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = endDate - now;
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-
-        if (distance < 0) {
-            clearInterval(countdownInterval);
-            countdownElement.textContent = "EXPIRED";
-        }
-    }
-
-    updateCountdown();
-    const countdownInterval = setInterval(updateCountdown, 1000);
-}
-
-startCountdown();
+        <aside class="sidebar sidebar-right" id="leaderboard">
+            <h3>Leaderboard</h3>
+            <div id="leaderboard-info">
+                <!-- Leaderboard entries will be populated here -->
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
