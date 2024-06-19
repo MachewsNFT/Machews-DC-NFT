@@ -1,186 +1,76 @@
-body {
-    font-family: 'Open Sans', sans-serif;
-    background: linear-gradient(
-        to bottom,
-        #F9EB00 25%,
-        #C5D600 25%,
-        #007AFF 25%,
-        #FF0064 25%
-    );
-    background-size: cover;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: white;
-    font-size: 1.4em; /* Increased font size by 20% */
+document.getElementById('addButton').addEventListener('click', function() {
+    const discordHandle = document.getElementById('discordHandle').value;
+    const showcaseLink = document.getElementById('showcaseLink').value;
+    const comicRarity = document.getElementById('comicRarity').value;
+    const mintNumber = document.getElementById('mintNumber').value;
+
+    if (discordHandle && comicRarity && mintNumber) {
+        let points = calculatePoints(comicRarity, mintNumber);
+        let currentPoints = document.getElementById(comicRarity.toLowerCase() + 'Points');
+        currentPoints.textContent = points;
+
+        updateTotalPoints();
+
+        document.getElementById('current-showcase-title').textContent = discordHandle;
+
+        // Update leaderboard
+        addToLeaderboard(discordHandle, showcaseLink, document.getElementById('totalPoints').textContent);
+    }
+});
+
+function calculatePoints(rarity, mintNumber) {
+    let basePoints = {
+        Lego: 100,
+        Epic: 80,
+        Rare: 60,
+        UC: 40,
+        Core: 20
+    };
+    return basePoints[rarity] / mintNumber; // Simplified calculation
 }
 
-.container {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 28px; /* Increased padding by 20% */
-    border-radius: 8px;
-    text-align: center;
-    width: 80%;
-    max-width: 960px; /* Increased max-width by 20% */
-    position: relative;
+function updateTotalPoints() {
+    const legoPoints = parseFloat(document.getElementById('legoPoints').textContent) || 0;
+    const epicPoints = parseFloat(document.getElementById('epicPoints').textContent) || 0;
+    const rarePoints = parseFloat(document.getElementById('rarePoints').textContent) || 0;
+    const ucPoints = parseFloat(document.getElementById('ucPoints').textContent) || 0;
+    const corePoints = parseFloat(document.getElementById('corePoints').textContent) || 0;
+
+    const totalPoints = legoPoints + epicPoints + rarePoints + ucPoints + corePoints;
+    document.getElementById('totalPoints').textContent = totalPoints;
 }
 
-header, main, .logos-row {
-    margin-bottom: 20px;
+function addToLeaderboard(discordHandle, showcaseLink, totalPoints) {
+    const leaderboard = document.getElementById('leaderboard-info');
+    const newEntry = document.createElement('p');
+    newEntry.innerHTML = `${discordHandle} - <a href="${showcaseLink}" target="_blank">${showcaseLink}</a> - ${totalPoints} points`;
+    leaderboard.appendChild(newEntry);
 }
 
-header img {
-    width: 100%;
-    border-radius: 8px;
-}
+// Countdown timer
+function startCountdown() {
+    const countdownElement = document.getElementById('countdown-timer');
+    const endDate = new Date(Date.now() + 27 * 24 * 60 * 60 * 1000 + 23 * 60 * 60 * 1000 + 59 * 60 * 1000 + 41 * 1000);
 
-.countdown-timer {
-    font-size: 1.6em; /* Increased font size */
-    color: yellow; /* Changed color */
-    background-color: black;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate - now;
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 20px 0;
-}
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-label {
-    margin: 10px 0 5px;
-}
+        countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
-input, select, button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    font-size: 1em;
-    border-radius: 4px;
-}
-
-.form-group {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.form-group label,
-.form-group input[type="text"],
-.form-group input[type="url"] {
-    width: 45%;
-}
-
-.form-group select,
-.form-group input[type="number"] {
-    width: 45%;
-    margin: 0;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-.small-button {
-    width: auto;
-    padding: 10px 20px;
-    position: absolute;
-    left: 270px; /* Move to the right */
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.logos-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.logo-container {
-    flex: 1;
-    padding: 10px;
-    text-align: center;
-}
-
-.logo-container img {
-    width: 80%;
-    max-width: 200px;
-    border-radius: 8px;
-    border: 2px solid gold;
-}
-
-.wiki-logo {
-    margin-top: 20px;
-    width: 100%; /* Increased size */
-    max-width: 240px; /* Increased max-width */
-}
-
-.sidebar {
-    background-color: #000;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    border: 2px solid #007AFF;
-    color: white;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 240px; /* Adjusted width */
-}
-
-.sidebar-left {
-    left: -270px; /* Adjusted to move to the left */
-}
-
-.sidebar-right {
-    right: -270px; /* Adjusted to move to the right */
-}
-
-#current-showcase-title, #leaderboard h3 {
-    font-size: 1.4em; /* Increased font size by 20% */
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .container {
-        width: 100%;
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            countdownElement.textContent = "EXPIRED";
+        }
     }
 
-    .sidebar-left, .sidebar-right {
-        position: static;
-        transform: none;
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .form-group {
-        flex-direction: column;
-    }
-
-    .form-group label,
-    .form-group input,
-    .form-group select {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .small-button {
-        position: static; /* Reset position in mobile view */
-        transform: none;
-        margin: 0 auto;
-    }
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
 }
+
+startCountdown();
