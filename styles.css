@@ -96,6 +96,18 @@ button:hover {
 .small-button {
     width: auto;
     padding: 10px 20px;
+    margin-left: 10px; /* Add space between the button and the countdown timer */
+}
+
+#timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#countdown-timer {
+    font-size: 1em; /* Adjusted font size for countdown timer */
     position: absolute;
     top: 50px;
     left: 50%;
@@ -169,6 +181,10 @@ button:hover {
     margin-top: 20px;
 }
 
+#addButton {
+    margin-top: 20px;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .container {
@@ -195,6 +211,12 @@ button:hover {
     }
 
     .small-button {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+    }
+
+    #countdown-timer {
         position: static;
         transform: none;
         margin: 0 auto;
