@@ -114,8 +114,8 @@ button:hover {
 
 .wiki-logo {
     margin-top: 20px;
-    width: 130%; /* Increased size by 30% */
-    max-width: 260px; /* Increased max-width by 30% */
+    width: 160%; /* Doubled increase size */
+    max-width: 400px; /* Doubled increase max-width */
 }
 
 .sidebar {
@@ -128,15 +128,15 @@ button:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 60%; /* Doubled width */
+    width: 40%; /* Increased width to be double */
 }
 
 .sidebar-left {
-    left: -80%; /* Doubled to move further left */
+    left: -60%; /* Moved further left */
 }
 
 .sidebar-right {
-    right: -80%; /* Doubled to move further right */
+    right: -60%; /* Moved further right */
 }
 
 #current-showcase-title, #leaderboard h3 {
