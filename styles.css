@@ -1,5 +1,10 @@
+@font-face {
+    font-family: 'Justice League';
+    src: url('path/to/justice-league-font.ttf') format('truetype');
+}
+
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Justice League', sans-serif; /* Changed font family */
     background: linear-gradient(
         to bottom,
         #F9EB00 25%,
@@ -15,7 +20,7 @@ body {
     align-items: center;
     min-height: 100vh;
     color: white;
-    font-size: 1.4em; /* Increased font size by 20% */
+    font-size: 2em; /* Increased font size proportionally */
 }
 
 .container {
@@ -140,7 +145,7 @@ button:hover {
 }
 
 #current-showcase-title, #leaderboard h3 {
-    font-size: 1.4em; /* Increased font size by 20% */
+    font-size: 2.8em; /* Increased font size proportionally */
 }
 
 .clear-button {
