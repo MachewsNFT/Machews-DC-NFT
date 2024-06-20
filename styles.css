@@ -37,15 +37,6 @@ header img {
     border-radius: 8px;
 }
 
-.countdown-timer {
-    font-size: 1.6em; /* Increased font size */
-    color: yellow; /* Changed color */
-    background-color: black;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
 form {
     display: flex;
     flex-direction: column;
@@ -135,15 +126,15 @@ button:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 240px; /* Adjusted width */
+    width: 260px; /* Adjusted width */
 }
 
 .sidebar-left {
-    left: -270px; /* Adjusted to move to the left */
+    left: -350px; /* Adjusted to move to the left */
 }
 
 .sidebar-right {
-    right: -270px; /* Adjusted to move to the right */
+    right: -350px; /* Adjusted to move to the right */
 }
 
 #current-showcase-title, #leaderboard h3 {
@@ -172,11 +163,5 @@ button:hover {
     .form-group select {
         width: 100%;
         margin-bottom: 10px;
-    }
-
-    .small-button {
-        position: static; /* Reset position in mobile view */
-        transform: none;
-        margin: 0 auto;
     }
 }
