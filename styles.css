@@ -183,6 +183,7 @@ button:hover {
     margin-top: 20px; /* Ensure proper spacing */
     width: 80%;
     max-width: 200px;
+    height: auto;
     border-radius: 8px;
     border: 2px solid gold;
     display: block;
@@ -195,13 +196,8 @@ button:hover {
 }
 
 .leaderboard-logo {
-    width: 100%;
-    max-width: 150px;
-    margin: 20px auto; /* Center the logo above the clear button */
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .container {
-        width: 100%;
-        margin:
+    width: 80%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px
