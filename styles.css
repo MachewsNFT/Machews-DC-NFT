@@ -47,7 +47,14 @@ header h2 {
 }
 
 #countdown-timer {
-    font-size: 1.2em; /* Adjusted font size for countdown timer */
+    font-size: 1.5em; /* Increased font size for countdown timer */
+    color: #FFD700; /* Highlight color for the countdown timer */
+    margin-bottom: 20px;
+}
+
+.main-banner {
+    width: 40%; /* Reduced banner size back to original */
+    border-radius: 8px;
     margin-bottom: 20px;
 }
 
@@ -127,8 +134,8 @@ button:hover {
 
 .wiki-logo {
     margin-top: 20px;
-    width: 160%; /* Doubled increase size */
-    max-width: 400px; /* Doubled increase max-width */
+    width: 100%; /* Reduced size back to original */
+    max-width: 240px; /* Reduced max-width back to original */
 }
 
 .sidebar {
@@ -214,4 +221,8 @@ button:hover {
     }
 
     #countdown-timer {
-        position:
+        position: static;
+        transform: none;
+        margin: 0 auto;
+    }
+}
