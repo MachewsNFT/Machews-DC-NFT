@@ -128,15 +128,15 @@ button:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 30%; /* Adjusted width to be 50% larger */
+    width: 60%; /* Doubled width */
 }
 
 .sidebar-left {
-    left: -40%; /* Adjusted to move to the left */
+    left: -80%; /* Doubled to move further left */
 }
 
 .sidebar-right {
-    right: -40%; /* Adjusted to move to the right */
+    right: -80%; /* Doubled to move further right */
 }
 
 #current-showcase-title, #leaderboard h3 {
