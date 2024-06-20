@@ -110,7 +110,7 @@ button:hover {
 .large-button {
     width: 100%; /* Make the button stretch across the main content box */
     padding: 10px 20px;
-    margin-top: 20px; /* Positioned below rarity and mint number fields */
+    margin-top: 23px; /* Move the add button down by 3px */
 }
 
 .logos-row {
@@ -157,7 +157,7 @@ button:hover {
 }
 
 .sidebar-right {
-    right: -20%; /* Adjusted position for 40% wider */
+    right: -35%; /* Adjusted position to be equidistant */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -191,7 +191,7 @@ button:hover {
 }
 
 .clear-button {
-    margin-top: 20px;
+    margin-top: 22px; /* Move the clear button down by 2px */
 }
 
 .leaderboard-logo {
