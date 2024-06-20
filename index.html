@@ -11,10 +11,9 @@
 <body>
     <div class="container">
         <header>
-            <h1>Delta Charlie</h1>
-            <div id="countdown-timer" class="countdown-timer"></div>
             <img src="comicbanner.jpg" alt="Comic Banner" class="banner-image">
-            <h2>JLA The Nail Lowest Mint Set Contest</h2>
+            <h1>Delta Charlie</h1>
+            <h2>DC3 Super Power Pack Series: JLA The Nail Lowest Mint Complete Set</h2>
         </header>
 
         <main>
@@ -41,28 +40,24 @@
                     <label for="mintNumber">Mint Number:</label>
                     <input type="number" id="mintNumber" name="mintNumber" placeholder="Enter mint number" required>
                 </div>
+
+                <button type="button" id="addButton" class="small-button">Add</button>
             </form>
 
-            <button type="button" id="addButton" class="small-button">Add</button>
-
-            <div class="logos-row">
-                <div class="logo-container">
-                    <a href="https://www.candy.com/dc/drops/8d77ccf6-9518-489e-9dc4-3141f949f3a6">
-                        <img src="DC3JAL.jpg" alt="DC3JAL Logo">
-                    </a>
-                </div>
-                <div class="logo-container">
-                    <a href="https://dc3.wiki">
-                        <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki Logo" class="wiki-logo">
-                    </a>
-                </div>
-                <div class="logo-container">
-                    <a href="https://www.candy.com/dc/marketplace?collection=%5B%222024+Super+Power+Packs+-+Series+JLA%3A+The+Nail%22%5D">
-                        <img src="dc.jpg" alt="DC Logo">
-                    </a>
-                </div>
-            </div>
+            <div id="countdown-timer">27d 23h 59m 41s</div>
         </main>
+
+        <section class="logos-row">
+            <div class="logo-container">
+                <img src="DC3JAL.jpg" alt="DC3JAL Logo">
+            </div>
+            <div class="logo-container">
+                <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki Logo" class="wiki-logo">
+            </div>
+            <div class="logo-container">
+                <img src="dc.jpg" alt="DC Logo">
+            </div>
+        </section>
 
         <aside class="sidebar sidebar-left" id="current-showcase">
             <h3 id="current-showcase-title">Current Showcase</h3>
@@ -73,8 +68,8 @@
                 <p>UC: <span id="ucPoints">0</span></p>
                 <p>Core: <span id="corePoints">0</span></p>
                 <p>Total Points: <span id="totalPoints">0</span></p>
-                <button type="button" id="submitShowcase" class="small-button">LFG</button>
             </div>
+            <button type="button" id="submitButton" class="small-button">LFG</button>
         </aside>
 
         <aside class="sidebar sidebar-right" id="leaderboard">
@@ -82,8 +77,8 @@
             <div id="leaderboard-info">
                 <!-- Leaderboard entries will be populated here -->
             </div>
+            <button type="button" id="clearButton" class="clear-button">Clear</button>
         </aside>
-        <button type="button" id="clearButton" class="small-button">Clear</button>
     </div>
 </body>
 </html>
