@@ -107,8 +107,8 @@ button:hover {
     background-color: #45a049;
 }
 
-.small-button {
-    width: auto;
+.large-button {
+    width: 100%; /* Make the button stretch across the main content box */
     padding: 10px 20px;
     margin-top: 20px; /* Positioned below rarity and mint number fields */
 }
@@ -157,7 +157,7 @@ button:hover {
 }
 
 .sidebar-right {
-    right: -35%; /* Adjusted position */
+    right: -20%; /* Adjusted position for 40% wider */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -210,3 +210,15 @@ button:hover {
         width: 100%;
         margin: 0;
     }
+
+    .sidebar-left, .sidebar-right {
+        width: 100%;
+        position: static;
+        transform: none;
+        margin: 20px 0;
+    }
+
+    .large-button {
+        width: 100%; /* Ensure the buttons stretch across the width on smaller screens */
+    }
+}
