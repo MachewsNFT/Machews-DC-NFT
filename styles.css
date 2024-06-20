@@ -154,7 +154,15 @@ button:hover {
 }
 
 #showcase-info, #leaderboard-info {
-    font-size: 0.8em; /* Reduced font size to fit text */
+    font-size: 1.2em; /* Increased font size for text inside boxes */
+}
+
+#showcase-info p {
+    margin: 10px 0;
+}
+
+#submitButton {
+    margin-top: 20px; /* Added margin to position the button at the bottom */
 }
 
 .clear-button {
