@@ -23,9 +23,16 @@ body {
     padding: 28px; /* Increased padding by 20% */
     border-radius: 8px;
     text-align: center;
-    width: 80%;
+    width: 60%; /* Adjusted width to fit the sidebars */
     max-width: 960px; /* Increased max-width by 20% */
     position: relative;
+    margin: 0 20%; /* Added margin to center the container */
+}
+
+.main-banner {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 header, main, .logos-row {
@@ -126,15 +133,15 @@ button:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 260px; /* Adjusted width */
+    width: 20%; /* Adjusted width */
 }
 
 .sidebar-left {
-    left: -350px; /* Adjusted to move to the left */
+    left: -22%; /* Adjusted to move to the left */
 }
 
 .sidebar-right {
-    right: -350px; /* Adjusted to move to the right */
+    right: -22%; /* Adjusted to move to the right */
 }
 
 #current-showcase-title, #leaderboard h3 {
@@ -145,6 +152,7 @@ button:hover {
 @media (max-width: 768px) {
     .container {
         width: 100%;
+        margin: 0;
     }
 
     .sidebar-left, .sidebar-right {
