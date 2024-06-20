@@ -34,13 +34,20 @@ body {
     margin: 0 auto; /* Center the container */
 }
 
-.main-banner {
-    width: 100%;
-    border-radius: 8px;
+header {
     margin-bottom: 20px;
 }
 
-header, main, .logos-row {
+header h1 {
+    font-size: 2.5em; /* Adjusted font size for Delta Charlie Comics */
+}
+
+header h2 {
+    font-size: 1.8em; /* Adjusted font size for the challenge title */
+}
+
+#countdown-timer {
+    font-size: 1.2em; /* Adjusted font size for countdown timer */
     margin-bottom: 20px;
 }
 
@@ -96,18 +103,7 @@ button:hover {
 .small-button {
     width: auto;
     padding: 10px 20px;
-    margin-left: 10px; /* Add space between the button and the countdown timer */
-}
-
-#timer-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-#countdown-timer {
-    font-size: 1em; /* Adjusted font size for countdown timer */
+    margin-top: 20px; /* Positioned below rarity and mint number fields */
 }
 
 .logos-row {
@@ -218,8 +214,4 @@ button:hover {
     }
 
     #countdown-timer {
-        position: static;
-        transform: none;
-        margin: 0 auto;
-    }
-}
+        position:
