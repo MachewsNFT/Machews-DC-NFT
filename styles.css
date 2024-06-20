@@ -28,7 +28,7 @@ body {
     padding: 28px; /* Increased padding by 20% */
     border-radius: 8px;
     text-align: center;
-    width: 50%; /* Adjusted width to fit the sidebars */
+    width: 80%; /* Adjusted width to fit the sidebars */
     max-width: 960px; /* Increased max-width by 20% */
     position: relative;
     margin: 0 auto; /* Center the container */
@@ -53,7 +53,7 @@ header h2 {
 }
 
 .main-banner {
-    width: 40%; /* Reduced banner size back to original */
+    width: 100%;
     border-radius: 8px;
     margin-bottom: 20px;
 }
@@ -127,15 +127,15 @@ button:hover {
 
 .logo-container img {
     width: 80%;
-    max-width: 200px;
+    max-width: 240px;
     border-radius: 8px;
     border: 2px solid gold;
 }
 
 .wiki-logo {
     margin-top: 20px;
-    width: 100%; /* Reduced size back to original */
-    max-width: 240px; /* Reduced max-width back to original */
+    width: 100%; 
+    max-width: 240px;
 }
 
 .sidebar {
@@ -148,16 +148,16 @@ button:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 40%; /* Increased width to be double */
-    height: 80%; /* Increased height */
+    width: 30%; /* Adjusted width */
+    height: auto;
 }
 
 .sidebar-left {
-    left: -60%; /* Moved further left */
+    left: -35%; /* Adjusted position */
 }
 
 .sidebar-right {
-    right: -60%; /* Moved further right */
+    right: -35%; /* Adjusted position */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -181,7 +181,7 @@ button:hover {
 
 .showcase-logo {
     margin-top: 20px; /* Ensure proper spacing */
-    width: 80%;
+    width: 100%;
     max-width: 200px;
     border-radius: 8px;
     border: 2px solid gold;
@@ -196,12 +196,17 @@ button:hover {
 
 .leaderboard-logo {
     width: 100%;
-    max-width: 150px;
-    margin: 20px auto; /* Center the logo above the clear button */
+    max-width: 200px;
+    border-radius: 8px;
+    border: 2px solid gold;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
     .container {
         width: 100%;
-        margin: 0
+        margin: 0;
+    }
