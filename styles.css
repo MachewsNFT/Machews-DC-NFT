@@ -23,10 +23,10 @@ body {
     padding: 28px; /* Increased padding by 20% */
     border-radius: 8px;
     text-align: center;
-    width: 60%; /* Adjusted width to fit the sidebars */
+    width: 50%; /* Adjusted width to fit the sidebars */
     max-width: 960px; /* Increased max-width by 20% */
     position: relative;
-    margin: 0 20%; /* Added margin to center the container */
+    margin: 0 auto; /* Center the container */
 }
 
 .main-banner {
@@ -37,11 +37,6 @@ body {
 
 header, main, .logos-row {
     margin-bottom: 20px;
-}
-
-header img {
-    width: 100%;
-    border-radius: 8px;
 }
 
 form {
@@ -133,19 +128,23 @@ button:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 20%; /* Adjusted width */
+    width: 30%; /* Adjusted width to be 50% larger */
 }
 
 .sidebar-left {
-    left: -22%; /* Adjusted to move to the left */
+    left: -40%; /* Adjusted to move to the left */
 }
 
 .sidebar-right {
-    right: -22%; /* Adjusted to move to the right */
+    right: -40%; /* Adjusted to move to the right */
 }
 
 #current-showcase-title, #leaderboard h3 {
     font-size: 1.4em; /* Increased font size by 20% */
+}
+
+.clear-button {
+    margin-top: 20px;
 }
 
 /* Media Queries */
