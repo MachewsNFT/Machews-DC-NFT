@@ -179,6 +179,14 @@ button:hover {
     margin-top: 20px; /* Added margin to position the button at the bottom */
 }
 
+.showcase-logo {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 200px;
+    border-radius: 8px;
+    border: 2px solid gold;
+}
+
 .clear-button {
     margin-top: 20px;
 }
