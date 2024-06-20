@@ -180,7 +180,7 @@ button:hover {
 }
 
 .showcase-logo {
-    margin-top: 20px;
+    margin-top: 20px; /* Ensure proper spacing */
     width: 80%;
     max-width: 200px;
     border-radius: 8px;
@@ -191,46 +191,6 @@ button:hover {
     margin-top: 20px;
 }
 
-#leaderboard img {
+.leaderboard-logo {
     width: 100%;
-    max-width: 150px;
-    margin: 20px auto; /* Center the logo above the clear button */
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .container {
-        width: 100%;
-        margin: 0;
-    }
-
-    .sidebar-left, .sidebar-right {
-        position: static;
-        transform: none;
-        width: 100%;
-        margin: 10px 0;
-    }
-
-    .form-group {
-        flex-direction: column;
-    }
-
-    .form-group label,
-    .form-group input,
-    .form-group select {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .small-button {
-        position: static;
-        transform: none;
-        margin: 0 auto;
-    }
-
-    #countdown-timer {
-        position: static;
-        transform: none;
-        margin: 0 auto;
-    }
-}
+    max​
