@@ -120,7 +120,7 @@ button:hover {
 .wiki-logo {
     margin-top: 20px;
     width: 100%; /* Increased size */
-    max-width: 312px; /* Increased max-width by 30% */
+    max-width: 260px; /* Increased max-width by 30% */
 }
 
 .sidebar {
