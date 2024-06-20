@@ -96,6 +96,10 @@ button:hover {
 .small-button {
     width: auto;
     padding: 10px 20px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .logos-row {
@@ -134,6 +138,7 @@ button:hover {
     top: 50%;
     transform: translateY(-50%);
     width: 40%; /* Increased width to be double */
+    height: 80%; /* Increased height */
 }
 
 .sidebar-left {
@@ -145,7 +150,11 @@ button:hover {
 }
 
 #current-showcase-title, #leaderboard h3 {
-    font-size: 2.8em; /* Increased font size proportionally */
+    font-size: 1.5em; /* Reduced font size */
+}
+
+#showcase-info, #leaderboard-info {
+    font-size: 0.8em; /* Reduced font size to fit text */
 }
 
 .clear-button {
@@ -175,5 +184,11 @@ button:hover {
     .form-group select {
         width: 100%;
         margin-bottom: 10px;
+    }
+
+    .small-button {
+        position: static;
+        transform: none;
+        margin: 0 auto;
     }
 }
