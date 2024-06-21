@@ -161,6 +161,8 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    top: 50%; /* Align top with the showcase box */
+    height: 100%; /* Align bottom with the showcase box */
 }
 
 #current-showcase-title, #leaderboard h3 {
