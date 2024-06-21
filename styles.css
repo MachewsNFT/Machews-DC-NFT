@@ -148,16 +148,16 @@ button:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 30%; /* Adjusted width */
+    width: 25%; /* Adjusted width */
     height: auto;
 }
 
 .sidebar-left {
-    left: -35%; /* Adjusted position */
+    left: -30%; /* Adjusted position */
 }
 
 .sidebar-right {
-    right: -35%; /* Adjusted position to be equidistant */
+    right: -30%; /* Adjusted position to be equidistant */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -175,6 +175,10 @@ button:hover {
 
 #showcase-info p {
     margin: 10px 0;
+}
+
+#leaderboard-info p {
+    color: #FFD700; /* Set the text color for players in the leaderboard to gold */
 }
 
 #submitButton {
