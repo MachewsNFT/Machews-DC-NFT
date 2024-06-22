@@ -149,7 +149,7 @@ button:hover {
     top: 50%;
     transform: translateY(-50%);
     width: 40%; /* Increased width to be double */
-    height: 80%; /* Increased height */
+    height: auto; /* Adjusted height to fit content */
 }
 
 .sidebar-left {
@@ -161,6 +161,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: gold; /* Change color of all text in the leaderboard box to gold */
 }
 
 #current-showcase-title, #leaderboard h3 {
