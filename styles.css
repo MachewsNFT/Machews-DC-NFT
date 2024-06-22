@@ -161,6 +161,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: gold; /* Change color of all text in the leaderboard box to gold */
 }
 
 #current-showcase-title, #leaderboard h3 {
