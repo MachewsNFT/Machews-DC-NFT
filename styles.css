@@ -86,12 +86,12 @@ input, select, button {
 .form-group label,
 .form-group input[type="text"],
 .form-group input[type="url"] {
-    width: 45%;
+    width: 48%; /* Make input boxes wider */
 }
 
 .form-group select,
 .form-group input[type="number"] {
-    width: 45%;
+    width: 48%; /* Make input boxes wider */
     margin: 0;
 }
 
@@ -242,28 +242,9 @@ footer {
 /* Ensure the input boxes for Discord Handle and Showcase Link are the same size */
 input[type="text"],
 input[type="url"] {
-    width: calc(50% - 10px);
-    margin-right: 10px;
-}
-
-input[type="url"] {
-    margin-right: 0;
-}
-
-.form-group {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.form-group input,
-.form-group select {
-    flex: 1;
-    margin-right: 10px;
-}
-
-.form-group input:last-child,
-.form-group select:last-child {
-    margin-right: 0;
+    width: 100%; /* Make the input boxes wider */
+    padding: 12px; /* Increase padding for better readability */
+    margin-bottom: 10px; /* Add margin for spacing */
 }
 
 /* Media Queries */
