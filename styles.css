@@ -35,21 +35,23 @@ body {
 }
 
 header {
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced margin */
 }
 
 header h1 {
     font-size: 2.5em; /* Adjusted font size for Delta Charlie Comics */
+    margin: 10px 0; /* Added margin to control spacing */
 }
 
 header h2 {
     font-size: 1.8em; /* Adjusted font size for the challenge title */
+    margin: 10px 0; /* Added margin to control spacing */
 }
 
 #countdown-timer {
     font-size: 1.5em; /* Increased font size for countdown timer */
     color: #FFD700; /* Highlight color for the countdown timer */
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced margin */
 }
 
 .main-banner {
