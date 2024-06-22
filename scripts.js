@@ -29,13 +29,16 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     function calculatePoints(mintNumber, totalSupply, isMatchingEdition, isLastMint) {
-        let basePoints = totalSupply - mintNumber + 1;
+        let basePoints;
 
-        if (isMatchingEdition) {
-            basePoints *= 2;
-        }
-        if (isLastMint) {
-            basePoints /= 2;
+        if (mintNumber === 1) {
+            basePoints = totalSupply;
+        } else if (isMatchingEdition) {
+            basePoints = totalSupply * 2;
+        } else if (isLastMint) {
+            basePoints = totalSupply / 2;
+        } else {
+            basePoints = totalSupply - mintNumber + 1;
         }
 
         return Math.round(basePoints);
