@@ -13,13 +13,13 @@ body {
 
 .container {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 28px; /* Increased padding by 20% */
+    padding: 28px;
     border-radius: 8px;
     text-align: center;
-    width: 80%; /* Adjusted width to fit the sidebars */
-    max-width: 960px; /* Increased max-width by 20% */
+    width: 80%;
+    max-width: 960px;
     position: relative;
-    margin: 0 auto; /* Center the container */
+    margin: 0 auto;
 }
 
 header {
@@ -27,16 +27,16 @@ header {
 }
 
 header h1 {
-    font-size: 2.5em; /* Adjusted font size for Delta Charlie Comics */
+    font-size: 2.5em;
 }
 
 header h2 {
-    font-size: 1.8em; /* Adjusted font size for the challenge title */
+    font-size: 1.8em;
 }
 
 #countdown-timer {
-    font-size: 1.5em; /* Increased font size for countdown timer */
-    color: #FFD700; /* Highlight color for the countdown timer */
+    font-size: 1.5em;
+    color: #FFD700;
     margin-bottom: 20px;
 }
 
@@ -96,9 +96,9 @@ button:hover {
 }
 
 .large-button {
-    width: 100%; /* Make the button stretch across the main content box */
+    width: 100%;
     padding: 10px 20px;
-    margin-top: 23px; /* Move the add button down by 3px */
+    margin-top: 23px;
 }
 
 .logos-row {
@@ -127,7 +127,7 @@ button:hover {
 
 .wiki-logo {
     margin-top: 20px;
-    width: 100%; 
+    width: 100%;
     max-width: 240px;
 }
 
@@ -153,15 +153,15 @@ button:hover {
 
 #current-showcase {
     height: auto;
-    padding-bottom: 40px; /* Add padding to position the image */
+    padding-bottom: 40px;
 }
 
 #current-showcase-title, #leaderboard h3 {
-    font-size: 1.5em; /* Reduced font size */
+    font-size: 1.5em;
 }
 
 #showcase-info, #leaderboard-info {
-    font-size: 1.2em; /* Increased font size for text inside boxes */
+    font-size: 1.2em;
 }
 
 #showcase-info p, #leaderboard-info p {
@@ -175,23 +175,23 @@ button:hover {
 }
 
 #leaderboard-info p {
-    color: #FFD700; /* Set the text color for players in the leaderboard to gold */
+    color: #FFD700;
 }
 
 #leaderboard-list {
     list-style-type: none;
     padding: 0;
-    margin: 0 0 20px 0; /* Ensure space between the list and the button */
-    color: #FFD700; /* Set the text color for leaderboard items to gold */
+    margin: 0 0 20px 0;
+    color: #FFD700;
 }
 
 #leaderboard-list li {
-    margin-bottom: 10px; /* Add some space between list items */
+    margin-bottom: 10px;
 }
 
 #submitButton, #clearButton {
-    margin-top: 20px; /* Ensure the button is above the image */
-    margin-bottom: 20px; /* Position one space above the image */
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .leaderboard-logo {
@@ -202,7 +202,7 @@ button:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px; /* Position one space from the bottom */
+    margin-bottom: 20px;
 }
 
 .raffle-container {
@@ -218,7 +218,7 @@ button:hover {
 
 .raffle-text {
     position: absolute;
-    color: white; /* Adjust color as needed */
+    color: white;
     text-shadow: 1px 1px 2px black;
 }
 
@@ -297,6 +297,6 @@ button:hover {
     }
 
     .large-button {
-        width: 100%; /* Ensure the buttons stretch across the width on smaller screens */
+        width: 100%;
     }
 }
