@@ -13,13 +13,13 @@ body {
 
 .container {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 28px;
+    padding: 28px; /* Increased padding by 20% */
     border-radius: 8px;
     text-align: center;
-    width: 80%;
-    max-width: 960px;
+    width: 80%; /* Adjusted width to fit the sidebars */
+    max-width: 960px; /* Increased max-width by 20% */
     position: relative;
-    margin: 0 auto;
+    margin: 0 auto; /* Center the container */
 }
 
 header {
@@ -27,16 +27,16 @@ header {
 }
 
 header h1 {
-    font-size: 2.5em;
+    font-size: 2.5em; /* Adjusted font size for Delta Charlie Comics */
 }
 
 header h2 {
-    font-size: 1.8em;
+    font-size: 1.8em; /* Adjusted font size for the challenge title */
 }
 
 #countdown-timer {
-    font-size: 1.5em;
-    color: #FFD700;
+    font-size: 1.5em; /* Increased font size for countdown timer */
+    color: #FFD700; /* Highlight color for the countdown timer */
     margin-bottom: 20px;
 }
 
@@ -96,9 +96,9 @@ button:hover {
 }
 
 .large-button {
-    width: 100%;
+    width: 100%; /* Make the button stretch across the main content box */
     padding: 10px 20px;
-    margin-top: 23px;
+    margin-top: 23px; /* Move the add button down by 3px */
 }
 
 .logos-row {
@@ -127,7 +127,7 @@ button:hover {
 
 .wiki-logo {
     margin-top: 20px;
-    width: 100%;
+    width: 100%; 
     max-width: 240px;
 }
 
@@ -153,15 +153,15 @@ button:hover {
 
 #current-showcase {
     height: auto;
-    padding-bottom: 40px;
+    padding-bottom: 40px; /* Add padding to position the image */
 }
 
 #current-showcase-title, #leaderboard h3 {
-    font-size: 1.5em;
+    font-size: 1.5em; /* Reduced font size */
 }
 
 #showcase-info, #leaderboard-info {
-    font-size: 1.2em;
+    font-size: 1.2em; /* Increased font size for text inside boxes */
 }
 
 #showcase-info p, #leaderboard-info p {
@@ -175,23 +175,23 @@ button:hover {
 }
 
 #leaderboard-info p {
-    color: #FFD700;
+    color: #FFD700; /* Set the text color for players in the leaderboard to gold */
 }
 
 #leaderboard-list {
     list-style-type: none;
     padding: 0;
-    margin: 0 0 20px 0;
-    color: #FFD700;
+    margin: 0 0 20px 0; /* Ensure space between the list and the button */
+    color: #FFD700; /* Set the text color for leaderboard items to gold */
 }
 
 #leaderboard-list li {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Add some space between list items */
 }
 
 #submitButton, #clearButton {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 20px; /* Ensure the button is above the image */
+    margin-bottom: 20px; /* Position one space above the image */
 }
 
 .leaderboard-logo {
@@ -202,13 +202,13 @@ button:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Position one space from the bottom */
 }
 
 .raffle-container {
     position: relative;
-    width: 50%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 800px;
     margin-top: 20px;
 }
 
@@ -218,7 +218,7 @@ button:hover {
 
 .raffle-text {
     position: absolute;
-    color: white;
+    color: white; /* Adjust color as needed */
     text-shadow: 1px 1px 2px black;
 }
 
@@ -235,51 +235,51 @@ button:hover {
 }
 
 #admit-one-top {
-    top: 5%;
-    left: 5%;
-    font-size: 1em;
-}
-
-#admit-one-bottom {
-    bottom: 5%;
-    left: 5%;
-    font-size: 1em;
-}
-
-#ticket-circus {
-    top: 15%;
+    top: 10%;
     left: 10%;
     font-size: 2em;
 }
 
+#admit-one-bottom {
+    bottom: 10%;
+    left: 10%;
+    font-size: 2em;
+}
+
+#ticket-circus {
+    top: 30%;
+    left: 20%;
+    font-size: 4em;
+}
+
 #score {
-    top: 5%;
-    right: 5%;
-    font-size: 1em;
+    top: 10%;
+    right: 10%;
+    font-size: 2em;
 }
 
 #time {
-    top: 5%;
-    right: 10%;
-    font-size: 1em;
+    top: 10%;
+    right: 20%;
+    font-size: 2em;
 }
 
 #one-person {
-    top: 10%;
-    right: 5%;
-    font-size: 0.75em;
+    top: 20%;
+    right: 10%;
+    font-size: 1.5em;
 }
 
 #date {
-    top: 15%;
-    right: 5%;
-    font-size: 1em;
+    top: 30%;
+    right: 10%;
+    font-size: 2em;
 }
 
 #discord-handle {
-    bottom: 5%;
-    left: 15%;
-    font-size: 1em;
+    bottom: 10%;
+    left: 30%;
+    font-size: 2em;
 }
 
 /* Media Queries */
@@ -297,6 +297,6 @@ button:hover {
     }
 
     .large-button {
-        width: 100%;
+        width: 100%; /* Ensure the buttons stretch across the width on smaller screens */
     }
 }
