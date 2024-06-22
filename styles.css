@@ -146,24 +146,24 @@ button:hover {
     border: 2px solid #007AFF;
     color: white;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     width: 25%; /* Adjusted width */
     height: auto;
+    box-sizing: border-box;
 }
 
 .sidebar-left {
     left: -30%; /* Adjusted position */
+    top: 0; /* Align top with the showcase box */
+    bottom: 0; /* Align bottom with the showcase box */
 }
 
 .sidebar-right {
     right: -30%; /* Adjusted position to match showcase box */
-    width: 25%; /* Match the width of the showcase box */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%; /* Adjust height to match showcase box */
-    box-sizing: border-box;
+    top: 0; /* Align top with the showcase box */
+    bottom: 0; /* Align bottom with the showcase box */
 }
 
 #current-showcase-title, #leaderboard h3 {
@@ -209,6 +209,11 @@ button:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Ensure sidebar-right matches the height of sidebar-left */
+.sidebar-left, .sidebar-right {
+    height: calc(100% - 40px); /* Adjust height to match the showcase box */
 }
 
 /* Media Queries */
