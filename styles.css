@@ -239,6 +239,33 @@ footer {
     margin-top: 20px;
 }
 
+/* Ensure the input boxes for Discord Handle and Showcase Link are the same size */
+input[type="text"],
+input[type="url"] {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+}
+
+input[type="url"] {
+    margin-right: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-group input,
+.form-group select {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-group input:last-child,
+.form-group select:last-child {
+    margin-right: 0;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .container {
@@ -255,5 +282,21 @@ footer {
 
     .large-button {
         width: 100%; /* Ensure the buttons stretch across the width on smaller screens */
+    }
+
+    .form-group {
+        flex-direction: column;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .form-group input:last-child,
+    .form-group select:last-child {
+        margin-bottom: 0;
     }
 }
