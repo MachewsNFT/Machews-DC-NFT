@@ -168,11 +168,6 @@ button:hover {
     justify-content: flex-start;
 }
 
-#current-showcase {
-    height: auto; /* Adjust height for the smaller box */
-    padding-bottom: 40px; /* Add padding to position the image */
-}
-
 #current-showcase-title, #leaderboard h3 {
     font-size: 1.5em; /* Reduced font size */
 }
@@ -220,6 +215,22 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px; /* Position one space from the bottom */
+}
+
+#points-info {
+    background-color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #007AFF;
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
 }
 
 /* Media Queries */
