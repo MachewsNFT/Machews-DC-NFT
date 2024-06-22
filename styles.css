@@ -233,6 +233,12 @@ footer {
     padding: 20px 0;
 }
 
+#raffle-ticket-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .container {
