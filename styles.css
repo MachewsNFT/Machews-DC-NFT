@@ -157,7 +157,8 @@ button:hover {
 }
 
 .sidebar-right {
-    right: -30%; /* Adjusted position to be equidistant */
+    right: -30%; /* Adjusted position to match showcase box */
+    width: 25%; /* Match the width of the showcase box */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
