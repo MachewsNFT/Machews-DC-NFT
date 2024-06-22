@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: 'Justice League', sans-serif; /* Changed font family */
+    font-family: 'Justice League', sans-serif;
     background: linear-gradient(
         to bottom,
         #F9EB00 25%,
@@ -20,18 +20,18 @@ body {
     align-items: center;
     min-height: 100vh;
     color: white;
-    font-size: 2em; /* Increased font size proportionally */
+    font-size: 2em;
 }
 
 .container {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 28px; /* Increased padding by 20% */
+    padding: 28px;
     border-radius: 8px;
     text-align: center;
-    width: 50%; /* Adjusted width to fit the sidebars */
-    max-width: 960px; /* Increased max-width by 20% */
+    width: 50%;
+    max-width: 960px;
     position: relative;
-    margin: 0 auto; /* Center the container */
+    margin: 0 auto;
 }
 
 header {
@@ -39,21 +39,21 @@ header {
 }
 
 header h1 {
-    font-size: 2.5em; /* Adjusted font size for Delta Charlie Comics */
+    font-size: 2.5em;
 }
 
 header h2 {
-    font-size: 1.8em; /* Adjusted font size for the challenge title */
+    font-size: 1.8em;
 }
 
 #countdown-timer {
-    font-size: 1.5em; /* Increased font size for countdown timer */
-    color: #FFD700; /* Highlight color for the countdown timer */
+    font-size: 1.5em;
+    color: #FFD700;
     margin-bottom: 20px;
 }
 
 .main-banner {
-    width: 40%; /* Reduced banner size back to original */
+    width: 100%;
     border-radius: 8px;
     margin-bottom: 20px;
 }
@@ -81,7 +81,7 @@ input, select, button {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    flex-direction: column; /* Align labels vertically */
+    flex-direction: column;
 }
 
 .form-group label {
@@ -110,7 +110,7 @@ button:hover {
 .large-button {
     width: 100%;
     padding: 10px 20px;
-    margin-top: 20px; /* Positioned below rarity and mint number fields */
+    margin-top: 20px;
 }
 
 .logos-row {
@@ -148,27 +148,28 @@ button:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 40%; /* Increased width to be double */
-    height: 80%; /* Increased height */
+    width: 40%;
+    height: auto;
 }
 
 .sidebar-left {
-    left: -60%; /* Moved further left */
+    left: -60%;
 }
 
 .sidebar-right {
-    right: -60%; /* Moved further right */
+    right: -60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: gold;
 }
 
 #current-showcase-title, #leaderboard h3 {
-    font-size: 1.5em; /* Reduced font size */
+    font-size: 1.5em;
 }
 
 #showcase-info, #leaderboard-info {
-    font-size: 1.2em; /* Increased font size for text inside boxes */
+    font-size: 1.2em;
 }
 
 #showcase-info p {
@@ -176,11 +177,11 @@ button:hover {
 }
 
 #submitButton {
-    margin-top: 20px; /* Added margin to position the button at the bottom */
+    margin-top: 20px;
 }
 
 .showcase-logo {
-    margin-top: 20px; /* Ensure proper spacing */
+    margin-top: 20px;
     width: 80%;
     max-width: 200px;
     border-radius: 8px;
@@ -197,7 +198,7 @@ button:hover {
 .leaderboard-logo {
     width: 100%;
     max-width: 150px;
-    margin: 20px auto; /* Center the logo above the clear button */
+    margin: 20px auto;
 }
 
 /* Change color of leaderboard links */
