@@ -152,7 +152,7 @@ button:hover {
     color: white;
     position: absolute;
     width: 50%; /* Double the width */
-    height: 50%; /* Half the height */
+    height: auto; /* Adjust height for the smaller box */
     box-sizing: border-box;
     top: 0; /* Align top with the showcase box */
 }
@@ -211,7 +211,7 @@ button:hover {
     margin-bottom: 20px; /* Position one space above the image */
 }
 
-.showcase-logo, .leaderboard-logo {
+.leaderboard-logo {
     width: 100%;
     max-width: 200px;
     border-radius: 8px;
