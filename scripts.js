@@ -21,19 +21,19 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const editionMap = {
-        'Legendary': 1,
+        'Legendary': 2,
         'Epic': 1,
         'Rare': 3,
         'Uncommon': 2,
         'Core': 1
     };
 
-    function calculatePoints(mintNumber, totalSupply, isMatchingEdition, isLastMint) {
+    function calculatePoints(mintNumber, totalSupply, editionNumber, isLastMint) {
         let basePoints;
 
         if (mintNumber === 1) {
             basePoints = totalSupply;
-        } else if (isMatchingEdition) {
+        } else if (mintNumber === editionNumber) {
             basePoints = totalSupply * 2;
         } else if (isLastMint) {
             basePoints = totalSupply / 2;
@@ -70,11 +70,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (discordHandle && showcaseLink && comicRarity && mintNumber) {
             const totalSupply = totalSupplyMap[comicRarity];
             const editionNumber = editionMap[comicRarity];
-
-            const isMatchingEdition = (editionNumber === mintNumber);
             const isLastMint = (mintNumber === totalSupply);
 
-            let points = calculatePoints(mintNumber, totalSupply, isMatchingEdition, isLastMint);
+            let points = calculatePoints(mintNumber, totalSupply, editionNumber, isLastMint);
             if (mintNumber === 1 && mintNumber === editionNumber) {
                 points += 1000; // Bonus points for mint #1 matching the edition number
             }
