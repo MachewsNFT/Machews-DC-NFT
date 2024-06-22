@@ -16,7 +16,6 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -36,11 +35,7 @@ body {
 }
 
 header {
-    margin-bottom: 0; /* Remove margin to eliminate space between elements */
-}
-
-header h1, header h2, #countdown-timer {
-    margin: 0; /* Remove margin to eliminate space between elements */
+    margin-bottom: 20px;
 }
 
 header h1 {
@@ -54,10 +49,11 @@ header h2 {
 #countdown-timer {
     font-size: 1.5em;
     color: #FFD700;
+    margin-bottom: 20px;
 }
 
 .main-banner {
-    width: 100%;
+    width: 40%;
     border-radius: 8px;
     margin-bottom: 20px;
 }
@@ -153,7 +149,7 @@ button:hover {
     top: 50%;
     transform: translateY(-50%);
     width: 40%;
-    height: auto;
+    height: 80%;
 }
 
 .sidebar-left {
@@ -165,22 +161,6 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: gold;
-    height: auto;
-}
-
-#leaderboard {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-#leaderboard h3, #leaderboard-info, .clear-button {
-    margin: 10px 0;
-}
-
-#leaderboard-info {
-    padding-left: 3ch;
 }
 
 #current-showcase-title, #leaderboard h3 {
@@ -220,29 +200,51 @@ button:hover {
     margin: 20px auto;
 }
 
-footer {
-    width: 100%;
-    text-align: center;
-    margin-top: auto;
-    padding: 10px 0;
-}
-
-#disclaimer {
-    font-size: 0.5em;
-    color: #CCCCCC;
-}
-
-/* Change color of leaderboard links */
 #leaderboard-list li a {
     color: gold;
     text-decoration: none;
 }
 
-#current-showcase {
-    height: auto;
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.raffle-ticket {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    font-size: 1.2em;
+}
+
+.raffle-ticket h2 {
+    margin-top: 0;
+}
+
+.raffle-ticket button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.raffle-ticket button:hover {
+    background-color: #45a049;
 }
 
 /* Media Queries */
@@ -268,4 +270,15 @@ footer {
         width: 100%;
         margin-bottom: 10px;
     }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 0.8em;
 }
