@@ -185,6 +185,17 @@ button:hover {
     color: #FFD700; /* Set the text color for players in the leaderboard to gold */
 }
 
+#leaderboard-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0; /* Ensure space between the list and the button */
+    color: #FFD700; /* Set the text color for leaderboard items to gold */
+}
+
+#leaderboard-list li {
+    margin-bottom: 10px; /* Add some space between list items */
+}
+
 #submitButton, #clearButton {
     margin-top: 20px; /* Ensure the button is above the image */
     margin-bottom: 20px; /* Position one space above the image */
