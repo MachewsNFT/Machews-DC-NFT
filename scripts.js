@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateCurrentShowcase() {
         document.getElementById('current-showcase-title').textContent = currentShowcase.discordHandle || 'Current Showcase';
-        document.getElementById('legoPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Lego')?.points || 0;
+        document.getElementById('legoPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Legendary')?.points || 0;
         document.getElementById('epicPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Epic')?.points || 0;
         document.getElementById('rarePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Rare')?.points || 0;
         document.getElementById('ucPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Uncommon')?.points || 0;
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const discordHandle = document.getElementById('discordHandle').value;
         const showcaseLink = document.getElementById('showcaseLink').value;
         const comicRarity = document.getElementById('comicRarity').value;
-        const mintNumber = document.getElementById('mintNumber').value;
+        const mintNumber = parseInt(document.getElementById('mintNumber').value);
 
         if (discordHandle && showcaseLink && comicRarity && mintNumber) {
             const totalSupplyMap = {
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             const totalSupply = totalSupplyMap[comicRarity];
 
-            const isMatchingEdition = (comicRarity === 'Legendary' && mintNumber == 2); // Example for matching edition condition
-            const isLastMint = (mintNumber == totalSupply);
+            const isMatchingEdition = (comicRarity === 'Legendary' && mintNumber === 2);
+            const isLastMint = (mintNumber === totalSupply);
 
             const points = calculatePoints(mintNumber, totalSupply, isMatchingEdition, isLastMint);
 
@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const existingComic = currentShowcase.comics.find(c => c.rarity === comicRarity);
             if (existingComic) {
                 existingComic.points = points;
+                existingComic.mintNumber = mintNumber;
             } else {
                 currentShowcase.comics.push({ rarity: comicRarity, mintNumber, points });
             }
