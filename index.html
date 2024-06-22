@@ -71,7 +71,7 @@
                 <p>Core: <span id="corePoints">0"></span></p>
                 <p>Total Points: <span id="totalPoints">0"></span></p>
             </div>
-            <button type="button" id="submitButton" class="large-button">LFG</button>
+            <button type="button" id="submitButton" class="large-button" onclick="showRaffleTicket()">LFG</button>
         </aside>
 
         <aside class="sidebar sidebar-right" id="leaderboard">
@@ -94,7 +94,7 @@
             <button type="button" id="clearButton" class="large-button">Clear</button>
         </aside>
 
-        <div class="raffle-container">
+        <div class="raffle-container" id="raffleContainer" style="display: none;">
             <img src="raffle.jpg" alt="Raffle Ticket" class="raffle-ticket">
             <div class="raffle-text sancreek" id="admit-one-top">ADMIT ONE</div>
             <div class="raffle-text sancreek" id="admit-one-bottom">ADMIT ONE</div>
