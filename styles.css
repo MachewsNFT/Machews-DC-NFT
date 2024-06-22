@@ -162,6 +162,17 @@ button:hover {
     flex-direction: column;
     justify-content: space-between;
     color: gold;
+    height: auto;
+}
+
+#leaderboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#leaderboard h3, #leaderboard-info, .clear-button {
+    margin: 10px 0;
 }
 
 #current-showcase-title, #leaderboard h3 {
