@@ -160,7 +160,7 @@ button:hover {
     right: -60%; /* Adjusted position to match showcase box */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 #current-showcase-title, #leaderboard h3 {
@@ -179,8 +179,9 @@ button:hover {
     color: #FFD700; /* Set the text color for players in the leaderboard to gold */
 }
 
-#submitButton {
-    margin-top: 20px; /* Added margin to position the button at the bottom */
+#submitButton, #clearButton {
+    margin-top: 20px; /* Ensure the button is above the image */
+    margin-bottom: 20px; /* Position one space above the image */
 }
 
 .showcase-logo, .leaderboard-logo {
@@ -192,12 +193,6 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px; /* Position one space from the bottom */
-}
-
-.clear-button, .large-button {
-    width: 100%;
-    margin-top: 20px; /* Ensure the button is above the image */
-    margin-bottom: 20px; /* Position one space above the image */
 }
 
 /* Media Queries */
