@@ -100,6 +100,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentShowcase.totalPoints += 2000; // Ultimate Set bonus
             }
 
+            // Check for Perfect Set (all five matching mint numbers)
+            if (currentShowcase.comics.length === 5 && new Set(matchingMints).size === 1) {
+                currentShowcase.totalPoints += 5000; // Perfect Set bonus
+            }
+
             updateCurrentShowcase();
         }
     }
