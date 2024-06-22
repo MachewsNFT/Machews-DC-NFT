@@ -40,16 +40,18 @@ header {
 
 header h1 {
     font-size: 2.5em;
+    margin: 0;
 }
 
 header h2 {
     font-size: 1.8em;
+    margin: 0;
 }
 
 #countdown-timer {
     font-size: 1.5em;
     color: #FFD700;
-    margin-bottom: 20px;
+    margin: 0;
 }
 
 .main-banner {
@@ -173,6 +175,10 @@ button:hover {
 
 #leaderboard h3, #leaderboard-info, .clear-button {
     margin: 10px 0;
+}
+
+#leaderboard-info {
+    padding-left: 3ch; /* Move the numbering to the right */
 }
 
 #current-showcase-title, #leaderboard h3 {
