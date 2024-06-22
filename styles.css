@@ -218,6 +218,13 @@ button:hover {
     text-decoration: none;
 }
 
+#current-showcase {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .container {
