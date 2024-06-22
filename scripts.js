@@ -49,13 +49,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('rarePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Rare')?.points || 0;
         document.getElementById('ucPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'UC')?.points || 0;
         document.getElementById('corePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Core')?.points || 0;
-        document.getElementById('totalPoints').textContent = currentShowcase.totalPoints || 0;
+        document.getElementById('totalPoints').textContent = currentShowcase.totalPoints;
     }
 
     function updateLeaderboard() {
         const leaderboardInfo = document.getElementById('leaderboard-info');
         leaderboardInfo.innerHTML = leaderboard.slice(0, 10).map((entry, index) => `
-            <li>${index + 1}. <a href="${entry.showcaseLink}" target="_blank">${entry.discordHandle}</a>: ${entry.totalPoints} points</li>
+            <p>${index + 1}. <a href="${entry.showcaseLink}" target="_blank">${entry.discordHandle}</a>: ${entry.totalPoints} points</p>
         `).join('');
     }
 
@@ -63,14 +63,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const discordHandle = document.getElementById('discordHandle').value;
         const showcaseLink = document.getElementById('showcaseLink').value;
         const comicRarity = document.getElementById('comicRarity').value;
-        const mintNumber = parseInt(document.getElementById('mintNumber').value);
+        const mintNumber = document.getElementById('mintNumber').value;
+        const editionMap = {
+            'Lego': 2,
+            'Epic': 1,
+            'Rare': 3,
+            'UC': 2,
+            'Core': 1
+        };
+        const edition = editionMap[comicRarity];
 
         if (discordHandle && showcaseLink && comicRarity && mintNumber) {
-            const edition = comicRarity === 'Lego' ? 2 :
-                            comicRarity === 'Epic' ? 1 :
-                            comicRarity === 'Rare' ? 3 :
-                            comicRarity === 'UC' ? 2 : 1;
-
             const points = calculatePoints(comicRarity, mintNumber, edition);
 
             currentShowcase.discordHandle = discordHandle;
@@ -84,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             currentShowcase.totalPoints = currentShowcase.comics.reduce((total, comic) => total + comic.points, 0);
+
             updateCurrentShowcase();
         }
     }
@@ -94,8 +98,10 @@ document.addEventListener('DOMContentLoaded', function () {
             leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
             updateLeaderboard();
 
+            // Generate raffle ticket
             showRaffleTicket(currentShowcase.discordHandle, currentShowcase.totalPoints);
 
+            // Reset current showcase
             currentShowcase = {
                 discordHandle: '',
                 showcaseLink: '',
@@ -108,29 +114,44 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function showRaffleTicket(discordHandle, totalPoints) {
-        const currentDate = new Date().toLocaleString();
-        const raffleTicket = `
-            <div class="raffle-ticket">
-                <h2>Raffle Ticket</h2>
-                <p class="raffle-discord"><strong>Discord Handle:</strong> ${discordHandle}</p>
-                <p class="raffle-points"><strong>Total Points:</strong> ${totalPoints}</p>
-                <p class="raffle-date"><strong>Date:</strong> ${currentDate}</p>
-                <button onclick="closeRaffleTicket()">Close</button>
-            </div>
-        `;
+    function clearLeaderboard() {
+        const code = prompt('Enter the code to clear the leaderboard:');
+        if (code === '6969') {
+            leaderboard = [];
+            updateLeaderboard();
+        } else {
+            alert('Incorrect code.');
+        }
+    }
+
+    function showRaffleTicket(discordHandle, points) {
         const modal = document.createElement('div');
         modal.className = 'modal';
-        modal.innerHTML = raffleTicket;
+
+        const raffleTicket = document.createElement('div');
+        raffleTicket.className = 'raffle-ticket';
+
+        const currentDate = new Date();
+        const formattedDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()} ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+
+        raffleTicket.innerHTML = `
+            <h2>Raffle Ticket</h2>
+            <p class="raffle-discord">Discord: ${discordHandle}</p>
+            <p class="raffle-points">Points: ${points}</p>
+            <p class="raffle-date">Date: ${formattedDate}</p>
+            <button onclick="closeModal()">Close</button>
+        `;
+
+        modal.appendChild(raffleTicket);
         document.body.appendChild(modal);
     }
 
-    function closeRaffleTicket() {
+    window.closeModal = function () {
         const modal = document.querySelector('.modal');
         if (modal) {
             modal.remove();
         }
-    }
+    };
 
     addButton.addEventListener('click', addComicToShowcase);
     submitButton.addEventListener('click', submitShowcase);
@@ -138,7 +159,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Countdown timer
     const endTime = new Date('July 15, 2024 12:00:00').getTime();
-
     function updateCountdown() {
         const now = new Date().getTime();
         const remainingTime = endTime - now;
