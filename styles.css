@@ -161,6 +161,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 50%; /* Set height to half */
 }
 
 #current-showcase-title, #leaderboard h3 {
