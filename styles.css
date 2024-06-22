@@ -149,6 +149,7 @@ button:hover {
     width: 50%; /* Double the width */
     height: 50%; /* Half the height */
     box-sizing: border-box;
+    top: 0; /* Align top with the showcase box */
 }
 
 .sidebar-left {
