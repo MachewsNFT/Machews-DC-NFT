@@ -28,34 +28,32 @@ body {
     padding: 28px; /* Increased padding by 20% */
     border-radius: 8px;
     text-align: center;
-    width: 80%; /* Adjusted width to fit the sidebars */
+    width: 50%; /* Adjusted width to fit the sidebars */
     max-width: 960px; /* Increased max-width by 20% */
     position: relative;
     margin: 0 auto; /* Center the container */
 }
 
 header {
-    margin-bottom: 10px; /* Reduced margin */
+    margin-bottom: 20px;
 }
 
 header h1 {
     font-size: 2.5em; /* Adjusted font size for Delta Charlie Comics */
-    margin: 10px 0; /* Added margin to control spacing */
 }
 
 header h2 {
     font-size: 1.8em; /* Adjusted font size for the challenge title */
-    margin: 10px 0; /* Added margin to control spacing */
 }
 
 #countdown-timer {
     font-size: 1.5em; /* Increased font size for countdown timer */
     color: #FFD700; /* Highlight color for the countdown timer */
-    margin-bottom: 10px; /* Reduced margin */
+    margin-bottom: 20px;
 }
 
 .main-banner {
-    width: 100%;
+    width: 40%; /* Reduced banner size back to original */
     border-radius: 8px;
     margin-bottom: 20px;
 }
@@ -83,18 +81,18 @@ input, select, button {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    flex-direction: column; /* Align labels vertically */
 }
 
-.form-group label,
+.form-group label {
+    width: 100%;
+}
+
 .form-group input[type="text"],
-.form-group input[type="url"] {
-    width: 48%; /* Make input boxes wider */
-}
-
+.form-group input[type="url"],
 .form-group select,
 .form-group input[type="number"] {
-    width: 48%; /* Make input boxes wider */
-    margin: 0;
+    width: 100%;
 }
 
 button {
@@ -110,9 +108,9 @@ button:hover {
 }
 
 .large-button {
-    width: 100%; /* Make the button stretch across the main content box */
+    width: 100%;
     padding: 10px 20px;
-    margin-top: 23px; /* Move the add button down by 3px */
+    margin-top: 20px; /* Positioned below rarity and mint number fields */
 }
 
 .logos-row {
@@ -129,19 +127,14 @@ button:hover {
 
 .logo-container img {
     width: 80%;
-    max-width: 240px;
+    max-width: 200px;
     border-radius: 8px;
     border: 2px solid gold;
 }
 
-.side-logo {
-    width: 80%;
-    max-width: 200px;
-}
-
 .wiki-logo {
     margin-top: 20px;
-    width: 100%; 
+    width: 100%;
     max-width: 240px;
 }
 
@@ -153,21 +146,21 @@ button:hover {
     border: 2px solid #007AFF;
     color: white;
     position: absolute;
-    width: 50%; /* Double the width */
-    height: auto; /* Adjust height for the smaller box */
-    box-sizing: border-box;
-    top: 0; /* Align top with the showcase box */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%; /* Increased width to be double */
+    height: 80%; /* Increased height */
 }
 
 .sidebar-left {
-    left: -60%; /* Adjusted position */
+    left: -60%; /* Moved further left */
 }
 
 .sidebar-right {
-    right: -60%; /* Adjusted position to match showcase box */
+    right: -60%; /* Moved further right */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 #current-showcase-title, #leaderboard h3 {
@@ -178,108 +171,62 @@ button:hover {
     font-size: 1.2em; /* Increased font size for text inside boxes */
 }
 
-#showcase-info p, #leaderboard-info p {
+#showcase-info p {
     margin: 10px 0;
 }
 
-#leaderboard-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+#submitButton {
+    margin-top: 20px; /* Added margin to position the button at the bottom */
 }
 
-#leaderboard-info p {
-    color: #FFD700; /* Set the text color for players in the leaderboard to gold */
-}
-
-#leaderboard-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0 0 20px 0; /* Ensure space between the list and the button */
-    color: #FFD700; /* Set the text color for leaderboard items to gold */
-}
-
-#leaderboard-list li {
-    margin-bottom: 10px; /* Add some space between list items */
-}
-
-#submitButton, #clearButton {
-    margin-top: 20px; /* Ensure the button is above the image */
-    margin-bottom: 20px; /* Position one space above the image */
-}
-
-.leaderboard-logo {
-    width: 100%;
+.showcase-logo {
+    margin-top: 20px; /* Ensure proper spacing */
+    width: 80%;
     max-width: 200px;
     border-radius: 8px;
     border: 2px solid gold;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px; /* Position one space from the bottom */
 }
 
-#points-info {
-    background-color: #000;
-    padding: 20px;
-    border-radius: 8px;
-    border: 2px solid #007AFF;
-    color: white;
-    margin-top: 20px;
-    text-align: center;
-}
-
-footer {
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-}
-
-#raffle-ticket-container {
-    width: 100%;
-    text-align: center;
+.clear-button {
     margin-top: 20px;
 }
 
-/* Ensure the input boxes for Discord Handle and Showcase Link are the same size */
-input[type="text"],
-input[type="url"] {
-    width: 100%; /* Make the input boxes wider */
-    padding: 12px; /* Increase padding for better readability */
-    margin-bottom: 10px; /* Add margin for spacing */
+.leaderboard-logo {
+    width: 100%;
+    max-width: 150px;
+    margin: 20px auto; /* Center the logo above the clear button */
+}
+
+/* Change color of leaderboard links */
+#leaderboard-list li a {
+    color: gold;
+    text-decoration: none;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
     .container {
         width: 100%;
-        margin: 0;
     }
 
     .sidebar-left, .sidebar-right {
-        width: 100%;
         position: static;
         transform: none;
-        margin: 20px 0;
-    }
-
-    .large-button {
-        width: 100%; /* Ensure the buttons stretch across the width on smaller screens */
+        width: 100%;
+        margin: 10px 0;
     }
 
     .form-group {
         flex-direction: column;
     }
 
+    .form-group label,
     .form-group input,
     .form-group select {
         width: 100%;
-        margin-right: 0;
         margin-bottom: 10px;
-    }
-
-    .form-group input:last-child,
-    .form-group select:last-child {
-        margin-bottom: 0;
     }
 }
