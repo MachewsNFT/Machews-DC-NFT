@@ -60,14 +60,26 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function showRaffleTicket() {
+        const discordHandle = document.getElementById('discordHandle').value;
+        const date = "25 AUGUST 2023"; // Assuming the date is static
+        const time = new Date().toLocaleTimeString();
+        const totalPoints = document.getElementById('totalPoints').textContent;
+
+        document.getElementById('raffleContainer').style.display = 'block';
+        document.getElementById('discord-handle').textContent = discordHandle;
+        document.getElementById('date').textContent = date;
+        document.getElementById('time').textContent = time;
+        document.getElementById('score').textContent = totalPoints;
+    }
+
     function submitShowcase() {
         if (currentShowcase.comics.length === 5) {
             leaderboard.push({ ...currentShowcase });
             leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
             updateLeaderboard();
 
-            // Generate raffle ticket
-            alert(`Raffle Ticket\nDiscord: ${currentShowcase.discordHandle}\nTotal Points: ${currentShowcase.totalPoints}`);
+            showRaffleTicket();
 
             // Reset current showcase
             currentShowcase = {
