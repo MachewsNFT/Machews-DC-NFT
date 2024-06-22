@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    const submissionForm = document.getElementById('submissionForm');
     const addButton = document.getElementById('addButton');
     const submitButton = document.getElementById('submitButton');
     const clearButton = document.getElementById('clearButton');
@@ -12,52 +13,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let leaderboard = [];
 
-    const totalSupplyMap = {
-        'Legendary': 750,
-        'Epic': 1800,
-        'Rare': 2700,
-        'Uncommon': 4800,
-        'Core': 4950
-    };
-
-    const editionMap = {
-        'Legendary': 2,
-        'Epic': 1,
-        'Rare': 3,
-        'Uncommon': 2,
-        'Core': 1
-    };
-
-    function calculatePoints(mintNumber, totalSupply, editionNumber, isLastMint) {
-        let basePoints;
-
-        if (mintNumber === 1) {
-            basePoints = totalSupply;
-        } else if (mintNumber === editionNumber) {
-            basePoints = totalSupply * 2;
-        } else if (isLastMint) {
-            basePoints = totalSupply / 2;
-        } else {
-            basePoints = totalSupply - mintNumber + 1;
+    function calculatePoints(rarity, mintNumber, edition) {
+        let supplyPoints;
+        switch (rarity) {
+            case 'Lego':
+                supplyPoints = 750 - mintNumber + 1;
+                break;
+            case 'Epic':
+                supplyPoints = 1800 - mintNumber + 1;
+                break;
+            case 'Rare':
+                supplyPoints = 2700 - mintNumber + 1;
+                break;
+            case 'UC':
+                supplyPoints = 4800 - mintNumber + 1;
+                break;
+            case 'Core':
+                supplyPoints = 4950 - mintNumber + 1;
+                break;
+            default:
+                supplyPoints = 0;
         }
 
-        return Math.round(basePoints);
+        let doublePoints = (mintNumber == edition) ? supplyPoints * 2 : 0;
+        let lastMintPoints = (mintNumber == supplyPoints) ? supplyPoints / 2 : 0;
+        let perfectSetBonus = (mintNumber == 1998) ? 5000 : 0;
+
+        return supplyPoints + doublePoints + lastMintPoints + perfectSetBonus;
     }
 
     function updateCurrentShowcase() {
         document.getElementById('current-showcase-title').textContent = currentShowcase.discordHandle || 'Current Showcase';
-        document.getElementById('legoPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Legendary')?.points || 0;
+        document.getElementById('legoPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Lego')?.points || 0;
         document.getElementById('epicPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Epic')?.points || 0;
         document.getElementById('rarePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Rare')?.points || 0;
-        document.getElementById('ucPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Uncommon')?.points || 0;
+        document.getElementById('ucPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'UC')?.points || 0;
         document.getElementById('corePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Core')?.points || 0;
-        document.getElementById('totalPoints').textContent = currentShowcase.totalPoints;
+        document.getElementById('totalPoints').textContent = currentShowcase.totalPoints || 0;
     }
 
     function updateLeaderboard() {
         const leaderboardInfo = document.getElementById('leaderboard-info');
         leaderboardInfo.innerHTML = leaderboard.slice(0, 10).map((entry, index) => `
-            <p>${index + 1}. <a href="${entry.showcaseLink}" target="_blank">${entry.discordHandle}</a>: ${entry.totalPoints} points</p>
+            <li>${index + 1}. <a href="${entry.showcaseLink}" target="_blank">${entry.discordHandle}</a>: ${entry.totalPoints} points</li>
         `).join('');
     }
 
@@ -68,17 +66,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const mintNumber = parseInt(document.getElementById('mintNumber').value);
 
         if (discordHandle && showcaseLink && comicRarity && mintNumber) {
-            const totalSupply = totalSupplyMap[comicRarity];
-            const editionNumber = editionMap[comicRarity];
-            const isLastMint = (mintNumber === totalSupply);
+            const edition = comicRarity === 'Lego' ? 2 :
+                            comicRarity === 'Epic' ? 1 :
+                            comicRarity === 'Rare' ? 3 :
+                            comicRarity === 'UC' ? 2 : 1;
 
-            let points = calculatePoints(mintNumber, totalSupply, editionNumber, isLastMint);
-            if (mintNumber === 1 && mintNumber === editionNumber) {
-                points += 1000; // Bonus points for mint #1 matching the edition number
-            }
-            if (mintNumber === 1998) {
-                points += 5000; // Secret bonus points for mint number 1998
-            }
+            const points = calculatePoints(comicRarity, mintNumber, edition);
 
             currentShowcase.discordHandle = discordHandle;
             currentShowcase.showcaseLink = showcaseLink;
@@ -86,40 +79,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const existingComic = currentShowcase.comics.find(c => c.rarity === comicRarity);
             if (existingComic) {
                 existingComic.points = points;
-                existingComic.mintNumber = mintNumber;
             } else {
                 currentShowcase.comics.push({ rarity: comicRarity, mintNumber, points });
             }
 
             currentShowcase.totalPoints = currentShowcase.comics.reduce((total, comic) => total + comic.points, 0);
-
-            // Check for Ultimate Set (all matching mint numbers)
-            const matchingMints = currentShowcase.comics.map(c => c.mintNumber);
-            const isUltimateSet = currentShowcase.comics.length === 5 && new Set(matchingMints).size === 1;
-            if (isUltimateSet) {
-                currentShowcase.totalPoints += 2000; // Ultimate Set bonus
-            }
-
-            // Check for Perfect Set (all five matching mint numbers)
-            if (currentShowcase.comics.length === 5 && new Set(matchingMints).size === 1) {
-                currentShowcase.totalPoints += 5000; // Perfect Set bonus
-            }
-
             updateCurrentShowcase();
         }
     }
 
     function submitShowcase() {
-        if (currentShowcase.comics.length > 0) {
+        if (currentShowcase.comics.length === 5) {
             leaderboard.push({ ...currentShowcase });
             leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
             updateLeaderboard();
 
-            // Generate raffle ticket
-            const raffleTicket = `Raffle Ticket\nDiscord: ${currentShowcase.discordHandle}\nTotal Points: ${currentShowcase.totalPoints}`;
-            document.getElementById('raffle-ticket-container').innerText = raffleTicket;
-
-            // Reset current showcase
+            alert(`Raffle Ticket\nDiscord: ${currentShowcase.discordHandle}\nTotal Points: ${currentShowcase.totalPoints}`);
             currentShowcase = {
                 discordHandle: '',
                 showcaseLink: '',
@@ -128,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             updateCurrentShowcase();
         } else {
-            alert('Please add at least one comic to the showcase.');
+            alert('Please add all 5 comics to the showcase.');
         }
     }
 
@@ -147,9 +122,10 @@ document.addEventListener('DOMContentLoaded', function() {
     clearButton.addEventListener('click', clearLeaderboard);
 
     // Countdown timer
-    const endTime = new Date('2024-07-15T12:00:00'); // July 15, 2024, at 12:00 PM (noon)
+    const endTime = new Date('July 15, 2024 12:00:00').getTime();
+
     function updateCountdown() {
-        const now = new Date();
+        const now = new Date().getTime();
         const remainingTime = endTime - now;
 
         if (remainingTime <= 0) {
@@ -166,5 +142,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     const countdownInterval = setInterval(updateCountdown, 1000);
-    updateCountdown(); // Initial call
+    updateCountdown();
 });
