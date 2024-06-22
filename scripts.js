@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const editionMap = {
-        'Legendary': 2,
+        'Legendary': 1,
         'Epic': 1,
         'Rare': 3,
         'Uncommon': 2,
@@ -74,7 +74,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const isMatchingEdition = (editionNumber === mintNumber);
             const isLastMint = (mintNumber === totalSupply);
 
-            const points = calculatePoints(mintNumber, totalSupply, isMatchingEdition, isLastMint);
+            let points = calculatePoints(mintNumber, totalSupply, isMatchingEdition, isLastMint);
+            if (mintNumber === 1 && mintNumber === editionNumber) {
+                points += 1000; // Bonus points for mint #1 matching the edition number
+            }
+            if (mintNumber === 1998) {
+                points += 5000; // Secret bonus points for mint number 1998
+            }
 
             currentShowcase.discordHandle = discordHandle;
             currentShowcase.showcaseLink = showcaseLink;
@@ -88,6 +94,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             currentShowcase.totalPoints = currentShowcase.comics.reduce((total, comic) => total + comic.points, 0);
+
+            // Check for Ultimate Set (all matching mint numbers)
+            const matchingMints = currentShowcase.comics.map(c => c.mintNumber);
+            const isUltimateSet = currentShowcase.comics.length === 5 && new Set(matchingMints).size === 1;
+            if (isUltimateSet) {
+                currentShowcase.totalPoints += 2000; // Ultimate Set bonus
+            }
 
             updateCurrentShowcase();
         }
