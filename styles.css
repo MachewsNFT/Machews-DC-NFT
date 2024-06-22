@@ -20,60 +20,60 @@ body {
     align-items: center;
     min-height: 100vh;
     color: white;
-    font-size: 1.5em; /* Reduced font size proportionally */
+    font-size: 2em; /* Increased font size */
 }
 
 .container {
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 14px; /* Reduced padding */
+    padding: 20px; /* Increased padding */
     border-radius: 8px;
     text-align: center;
-    width: 70%; /* Adjusted width */
-    max-width: 960px;
+    width: 80%; /* Adjusted width */
+    max-width: 1200px; /* Increased max-width */
     position: relative;
     margin: 0 auto;
 }
 
 header {
-    margin-bottom: 10px; /* Reduced margin */
+    margin-bottom: 20px; /* Increased margin */
 }
 
 header h1 {
-    font-size: 2em; /* Adjusted font size */
+    font-size: 3em; /* Increased font size */
 }
 
 header h2 {
-    font-size: 1.5em; /* Adjusted font size */
+    font-size: 2.5em; /* Increased font size */
 }
 
 #countdown-timer {
-    font-size: 1.2em; /* Adjusted font size */
+    font-size: 2em; /* Increased font size */
     color: #FFD700;
-    margin-bottom: 10px; /* Reduced margin */
+    margin-bottom: 20px; /* Increased margin */
 }
 
 .main-banner {
-    width: 80%; /* Reduced banner size */
+    width: 60%; /* Adjusted banner size */
     border-radius: 8px;
-    margin-bottom: 10px; /* Reduced margin */
+    margin-bottom: 20px; /* Increased margin */
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 10px 0; /* Reduced margin */
+    margin: 20px 0; /* Increased margin */
 }
 
 label {
-    margin: 5px 0; /* Reduced margin */
+    margin: 10px 0; /* Increased margin */
 }
 
 input, select, button {
     width: 100%;
-    padding: 5px; /* Reduced padding */
-    margin-bottom: 5px; /* Reduced margin */
-    font-size: 1em;
+    padding: 10px; /* Increased padding */
+    margin-bottom: 10px; /* Increased margin */
+    font-size: 1.5em; /* Increased font size */
     border-radius: 4px;
 }
 
@@ -109,8 +109,8 @@ button:hover {
 
 .large-button {
     width: 100%;
-    padding: 10px 20px;
-    margin-top: 10px; /* Adjusted margin */
+    padding: 15px 30px; /* Increased padding */
+    margin-top: 20px; /* Increased margin */
 }
 
 .logos-row {
@@ -121,26 +121,26 @@ button:hover {
 
 .logo-container {
     flex: 1;
-    padding: 5px; /* Reduced padding */
+    padding: 10px; /* Increased padding */
     text-align: center;
 }
 
 .logo-container img {
-    width: 70%; /* Adjusted size */
-    max-width: 150px; /* Adjusted max-width */
+    width: 80%; /* Increased size */
+    max-width: 250px; /* Increased max-width */
     border-radius: 8px;
     border: 2px solid gold;
 }
 
 .wiki-logo {
-    margin-top: 10px;
+    margin-top: 20px;
     width: 100%;
-    max-width: 200px;
+    max-width: 300px; /* Increased max-width */
 }
 
 .sidebar {
     background-color: #000;
-    padding: 10px; /* Reduced padding */
+    padding: 20px; /* Increased padding */
     border-radius: 8px;
     text-align: center;
     border: 2px solid #007AFF;
@@ -148,16 +148,16 @@ button:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 35%; /* Adjusted width */
+    width: 45%; /* Increased width */
     height: auto; /* Adjusted height */
 }
 
 .sidebar-left {
-    left: -40%; /* Adjusted position */
+    left: -55%; /* Adjusted position */
 }
 
 .sidebar-right {
-    right: -40%; /* Adjusted position */
+    right: -55%; /* Adjusted position */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -165,25 +165,25 @@ button:hover {
 }
 
 #current-showcase-title, #leaderboard h3 {
-    font-size: 1.2em; /* Adjusted font size */
+    font-size: 2em; /* Increased font size */
 }
 
 #showcase-info, #leaderboard-info {
-    font-size: 1em; /* Adjusted font size */
+    font-size: 1.5em; /* Increased font size */
 }
 
 #showcase-info p {
-    margin: 5px 0; /* Adjusted margin */
+    margin: 10px 0; /* Increased margin */
 }
 
 #submitButton {
-    margin-top: 10px; /* Adjusted margin */
+    margin-top: 20px; /* Increased margin */
 }
 
 .showcase-logo {
-    margin-top: 10px;
+    margin-top: 20px;
     width: 80%;
-    max-width: 150px;
+    max-width: 250px; /* Increased max-width */
     border-radius: 8px;
     border: 2px solid gold;
     display: block;
@@ -192,23 +192,23 @@ button:hover {
 }
 
 .clear-button {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .leaderboard-logo {
     width: 100%;
-    max-width: 150px;
-    margin: 10px auto; /* Adjusted margin */
+    max-width: 200px; /* Increased max-width */
+    margin: 20px auto; /* Increased margin */
 }
 
 #leaderboard-list li a {
     color: gold;
     text-decoration: none;
-    font-size: 1em; /* Adjusted font size */
+    font-size: 1.5em; /* Increased font size */
 }
 
 #leaderboard-info p {
-    margin-bottom: 1px;
+    margin-bottom: 5px; /* Adjusted margin */
 }
 
 /* Modal styles */
@@ -231,12 +231,12 @@ button:hover {
     border-radius: 10px;
     text-align: center;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.5em; /* Increased font size */
 }
 
 .raffle-ticket h2 {
     margin-top: 0;
-    font-size: 1.5em;
+    font-size: 2em; /* Increased font size */
 }
 
 .raffle-ticket p {
@@ -245,18 +245,18 @@ button:hover {
 
 .raffle-discord, .raffle-points {
     font-family: 'Sancreek', sans-serif;
-    font-size: 21pt;
+    font-size: 2em; /* Increased font size */
 }
 
 .raffle-date {
     font-family: 'Antonio', sans-serif;
-    font-size: 13pt;
+    font-size: 1.2em; /* Increased font size */
 }
 
 .raffle-ticket button {
     margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1em;
+    padding: 15px 30px; /* Increased padding */
+    font-size: 1.5em; /* Increased font size */
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -301,5 +301,5 @@ footer {
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-    font-size: 0.8em;
+    font-size: 1em; /* Increased font size */
 }
