@@ -184,7 +184,6 @@ button:hover {
 }
 
 .showcase-logo, .leaderboard-logo {
-    margin-top: auto; /* Ensure the logo is at the bottom */
     width: 100%;
     max-width: 200px;
     border-radius: 8px;
@@ -192,11 +191,13 @@ button:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 20px; /* Position one space from the bottom */
 }
 
 .clear-button, .large-button {
     width: 100%;
     margin-top: 20px; /* Ensure the button is above the image */
+    margin-bottom: 20px; /* Position one space above the image */
 }
 
 /* Media Queries */
