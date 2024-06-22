@@ -94,7 +94,8 @@ document.addEventListener('DOMContentLoaded', function () {
             leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
             updateLeaderboard();
 
-            alert(`Raffle Ticket\nDiscord: ${currentShowcase.discordHandle}\nTotal Points: ${currentShowcase.totalPoints}`);
+            showRaffleTicket(currentShowcase.discordHandle, currentShowcase.totalPoints);
+
             currentShowcase = {
                 discordHandle: '',
                 showcaseLink: '',
@@ -107,13 +108,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function clearLeaderboard() {
-        const code = prompt('Enter the code to clear the leaderboard:');
-        if (code === '6969') {
-            leaderboard = [];
-            updateLeaderboard();
-        } else {
-            alert('Incorrect code.');
+    function showRaffleTicket(discordHandle, totalPoints) {
+        const currentDate = new Date().toLocaleString();
+        const raffleTicket = `
+            <div class="raffle-ticket">
+                <h2>Raffle Ticket</h2>
+                <p class="raffle-discord"><strong>Discord Handle:</strong> ${discordHandle}</p>
+                <p class="raffle-points"><strong>Total Points:</strong> ${totalPoints}</p>
+                <p class="raffle-date"><strong>Date:</strong> ${currentDate}</p>
+                <button onclick="closeRaffleTicket()">Close</button>
+            </div>
+        `;
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.innerHTML = raffleTicket;
+        document.body.appendChild(modal);
+    }
+
+    function closeRaffleTicket() {
+        const modal = document.querySelector('.modal');
+        if (modal) {
+            modal.remove();
         }
     }
 
