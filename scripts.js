@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const submissionForm = document.getElementById('submissionForm');
     const addButton = document.getElementById('addButton');
     const submitButton = document.getElementById('submitButton');
     const clearButton = document.getElementById('clearButton');
@@ -13,18 +12,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let leaderboard = [];
 
-    function calculateBasePoints(mintNumber, totalSupply) {
-        return (1 - (mintNumber - 1) / (totalSupply - 1)) * 100;
-    }
+    const totalSupplyMap = {
+        'Legendary': 750,
+        'Epic': 1800,
+        'Rare': 2700,
+        'Uncommon': 4800,
+        'Core': 4950
+    };
 
     function calculatePoints(mintNumber, totalSupply, isMatchingEdition, isLastMint) {
-        let basePoints = calculateBasePoints(mintNumber, totalSupply);
+        let basePoints = totalSupply - mintNumber + 1;
+
         if (isMatchingEdition) {
             basePoints *= 2;
         }
         if (isLastMint) {
             basePoints /= 2;
         }
+
         return Math.round(basePoints);
     }
 
@@ -52,13 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const mintNumber = parseInt(document.getElementById('mintNumber').value);
 
         if (discordHandle && showcaseLink && comicRarity && mintNumber) {
-            const totalSupplyMap = {
-                'Legendary': 750,
-                'Epic': 1800,
-                'Rare': 2700,
-                'Uncommon': 4800,
-                'Core': 4950
-            };
             const totalSupply = totalSupplyMap[comicRarity];
 
             const isMatchingEdition = (comicRarity === 'Legendary' && mintNumber === 2);
