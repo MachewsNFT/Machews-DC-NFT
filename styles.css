@@ -1,14 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Sancreek&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@font-face {
+    font-family: 'Justice League';
+    src: url('path/to/justice-league-font.ttf') format('truetype');
+}
 
 body {
+    font-family: 'Justice League', sans-serif; /* Changed font family */
+    background: linear-gradient(
+        to bottom,
+        #F9EB00 25%,
+        #C5D600 25%,
+        #007AFF 25%,
+        #FF0064 25%
+    );
+    background-size: cover;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+    min-height: 100vh;
+    color: white;
+    font-size: 2em; /* Increased font size proportionally */
 }
 
 .container {
@@ -139,20 +151,25 @@ button:hover {
     border: 2px solid #007AFF;
     color: white;
     position: absolute;
-    top: 0;
-    height: 100%;
+    width: 50%; /* Double the width */
+    height: auto; /* Adjust height for the smaller box */
+    box-sizing: border-box;
+    top: 0; /* Align top with the showcase box */
 }
 
 .sidebar-left {
-    left: -30%;
+    left: -60%; /* Adjusted position */
 }
 
 .sidebar-right {
-    right: -30%;
+    right: -60%; /* Adjusted position to match showcase box */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 #current-showcase {
-    height: auto;
+    height: auto; /* Adjust height for the smaller box */
     padding-bottom: 40px; /* Add padding to position the image */
 }
 
@@ -203,83 +220,6 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px; /* Position one space from the bottom */
-}
-
-.raffle-container {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    margin-top: 20px;
-}
-
-.raffle-ticket {
-    width: 100%;
-}
-
-.raffle-text {
-    position: absolute;
-    color: white; /* Adjust color as needed */
-    text-shadow: 1px 1px 2px black;
-}
-
-.sancreek {
-    font-family: 'Sancreek', cursive;
-}
-
-.rock-salt {
-    font-family: 'Rock Salt', cursive;
-}
-
-.anton {
-    font-family: 'Anton', sans-serif;
-}
-
-#admit-one-top {
-    top: 10%;
-    left: 10%;
-    font-size: 2em;
-}
-
-#admit-one-bottom {
-    bottom: 10%;
-    left: 10%;
-    font-size: 2em;
-}
-
-#ticket-circus {
-    top: 30%;
-    left: 20%;
-    font-size: 4em;
-}
-
-#score {
-    top: 10%;
-    right: 10%;
-    font-size: 2em;
-}
-
-#time {
-    top: 10%;
-    right: 20%;
-    font-size: 2em;
-}
-
-#one-person {
-    top: 20%;
-    right: 10%;
-    font-size: 1.5em;
-}
-
-#date {
-    top: 30%;
-    right: 10%;
-    font-size: 2em;
-}
-
-#discord-handle {
-    bottom: 10%;
-    left: 30%;
-    font-size: 2em;
 }
 
 /* Media Queries */
