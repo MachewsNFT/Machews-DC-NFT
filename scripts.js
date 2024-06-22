@@ -20,6 +20,14 @@ document.addEventListener('DOMContentLoaded', function() {
         'Core': 4950
     };
 
+    const editionMap = {
+        'Legendary': 2,
+        'Epic': 1,
+        'Rare': 3,
+        'Uncommon': 2,
+        'Core': 1
+    };
+
     function calculatePoints(mintNumber, totalSupply, isMatchingEdition, isLastMint) {
         let basePoints = totalSupply - mintNumber + 1;
 
@@ -58,8 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (discordHandle && showcaseLink && comicRarity && mintNumber) {
             const totalSupply = totalSupplyMap[comicRarity];
+            const editionNumber = editionMap[comicRarity];
 
-            const isMatchingEdition = (comicRarity === 'Legendary' && mintNumber === 2);
+            const isMatchingEdition = (editionNumber === mintNumber);
             const isLastMint = (mintNumber === totalSupply);
 
             const points = calculatePoints(mintNumber, totalSupply, isMatchingEdition, isLastMint);
