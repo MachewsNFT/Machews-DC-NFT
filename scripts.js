@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return (1 - (mintNumber - 1) / (totalSupply - 1)) * 100;
     }
 
-    function calculatePoints(rarity, mintNumber, totalSupply, isMatchingEdition, isLastMint) {
+    function calculatePoints(mintNumber, totalSupply, isMatchingEdition, isLastMint) {
         let basePoints = calculateBasePoints(mintNumber, totalSupply);
         if (isMatchingEdition) {
             basePoints *= 2;
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('legoPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Lego')?.points || 0;
         document.getElementById('epicPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Epic')?.points || 0;
         document.getElementById('rarePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Rare')?.points || 0;
-        document.getElementById('ucPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'UC')?.points || 0;
+        document.getElementById('ucPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Uncommon')?.points || 0;
         document.getElementById('corePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Core')?.points || 0;
         document.getElementById('totalPoints').textContent = currentShowcase.totalPoints;
     }
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const isMatchingEdition = (comicRarity === 'Legendary' && mintNumber == 2); // Example for matching edition condition
             const isLastMint = (mintNumber == totalSupply);
 
-            const points = calculatePoints(comicRarity, mintNumber, totalSupply, isMatchingEdition, isLastMint);
+            const points = calculatePoints(mintNumber, totalSupply, isMatchingEdition, isLastMint);
 
             currentShowcase.discordHandle = discordHandle;
             currentShowcase.showcaseLink = showcaseLink;
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Generate raffle ticket
             const raffleTicket = `Raffle Ticket\nDiscord: ${currentShowcase.discordHandle}\nTotal Points: ${currentShowcase.totalPoints}`;
-            alert(raffleTicket);
+            document.getElementById('raffle-ticket-container').innerText = raffleTicket;
 
             // Reset current showcase
             currentShowcase = {
