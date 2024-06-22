@@ -9,8 +9,7 @@ body {
         to bottom,
         #F9EB00 25%,
         #C5D600 25%,
-        #007AFF 25%,
-        #FF0064 25%
+        #007AFF 25%
     );
     background-size: cover;
     margin: 0;
@@ -146,24 +145,20 @@ button:hover {
     border: 2px solid #007AFF;
     color: white;
     position: absolute;
-    width: 25%; /* Adjusted width */
-    height: auto;
+    width: 50%; /* Double the width */
+    height: 50%; /* Half the height */
     box-sizing: border-box;
 }
 
 .sidebar-left {
-    left: -30%; /* Adjusted position */
-    top: 0; /* Align top with the showcase box */
-    bottom: 0; /* Align bottom with the showcase box */
+    left: -60%; /* Adjusted position */
 }
 
 .sidebar-right {
-    right: -30%; /* Adjusted position to match showcase box */
+    right: -60%; /* Adjusted position to match showcase box */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    top: 0; /* Align top with the showcase box */
-    bottom: 0; /* Align bottom with the showcase box */
 }
 
 #current-showcase-title, #leaderboard h3 {
@@ -186,8 +181,8 @@ button:hover {
     margin-top: 20px; /* Added margin to position the button at the bottom */
 }
 
-.showcase-logo {
-    margin-top: 20px; /* Ensure proper spacing */
+.showcase-logo, .leaderboard-logo {
+    margin-top: auto; /* Ensure the logo is at the bottom */
     width: 100%;
     max-width: 200px;
     border-radius: 8px;
@@ -197,23 +192,9 @@ button:hover {
     margin-right: auto;
 }
 
-.clear-button {
-    margin-top: 22px; /* Move the clear button down by 2px */
-}
-
-.leaderboard-logo {
+.clear-button, .large-button {
     width: 100%;
-    max-width: 200px;
-    border-radius: 8px;
-    border: 2px solid gold;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Ensure sidebar-right matches the height of sidebar-left */
-.sidebar-left, .sidebar-right {
-    height: calc(100% - 40px); /* Adjust height to match the showcase box */
+    margin-top: 20px; /* Ensure the button is above the image */
 }
 
 /* Media Queries */
