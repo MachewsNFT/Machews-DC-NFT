@@ -178,7 +178,7 @@ button:hover {
 }
 
 #leaderboard-info {
-    padding-left: 3ch; /* Move the numbering to the right */
+    padding-left: 3ch;
 }
 
 #current-showcase-title, #leaderboard h3 {
@@ -216,6 +216,12 @@ button:hover {
     width: 100%;
     max-width: 150px;
     margin: 20px auto;
+}
+
+#disclaimer {
+    font-size: 0.5em;
+    color: #CCCCCC;
+    margin-top: 20px;
 }
 
 /* Change color of leaderboard links */
