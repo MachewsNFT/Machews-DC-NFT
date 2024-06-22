@@ -39,11 +39,11 @@ header {
 }
 
 header h1 {
-    font-size: 1.5em;
+    font-size: 2.5em;
 }
 
 header h2 {
-    font-size: 0.8em;
+    font-size: 1.8em;
 }
 
 #countdown-timer {
@@ -53,7 +53,7 @@ header h2 {
 }
 
 .main-banner {
-    width: 100%; /* Reverted back to original size */
+    width: 100%;
     border-radius: 8px;
     margin-bottom: 20px;
 }
@@ -201,8 +201,13 @@ button:hover {
 }
 
 #leaderboard-list li a {
-    color: gold; /* Changed the color to gold */
+    color: gold;
     text-decoration: none;
+    font-size: 1.2em;
+}
+
+#leaderboard-info p {
+    margin-bottom: 1px;
 }
 
 /* Modal styles */
@@ -220,7 +225,7 @@ button:hover {
 }
 
 .raffle-ticket {
-    background-color: #2525A5; /* Dark blue inspired by DC Comics */
+    background-color: #2525A5;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
