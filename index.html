@@ -1,92 +1,232 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delta Charlie DC3 Contest</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="scripts.js" defer></script>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <div id="countdown-timer" class="highlight">27d 23h 59m 41s</div>
-            <h1>Delta Charlie Comics</h1>
-            <h2>JLA The Nail Low Mint Challenge</h2>
-        </header>
+@font-face {
+    font-family: 'Justice League';
+    src: url('path/to/justice-league-font.ttf') format('truetype');
+}
 
-        <img src="comicbanner.jpg" alt="Delta Charlie Comics Banner" class="main-banner">
+body {
+    font-family: 'Justice League', sans-serif; /* Changed font family */
+    background: linear-gradient(
+        to bottom,
+        #F9EB00 25%,
+        #C5D600 25%,
+        #007AFF 25%,
+        #FF0064 25%
+    );
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    font-size: 2em; /* Increased font size proportionally */
+}
 
-        <main>
-            <form id="submissionForm">
-                <div class="form-group">
-                    <label for="discordHandle">Discord Handle:</label>
-                    <input type="text" id="discordHandle" name="discordHandle" placeholder="Enter your handle" required>
-                    
-                    <label for="showcaseLink">Showcase Link:</label>
-                    <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop showcase link here" required>
-                </div>
+.container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 28px; /* Increased padding by 20% */
+    border-radius: 8px;
+    text-align: center;
+    width: 80%; /* Adjusted width to fit the sidebars */
+    max-width: 960px; /* Increased max-width by 20% */
+    position: relative;
+    margin: 0 auto; /* Center the container */
+}
 
-                <div class="form-group">
-                    <label for="comicRarity">Comic Rarity:</label>
-                    <select id="comicRarity" name="comicRarity" required>
-                        <option value="">Select Rarity</option>
-                        <option value="Lego">Lego</option>
-                        <option value="Epic">Epic</option>
-                        <option value="Rare">Rare</option>
-                        <option value="UC">UC</option>
-                        <option value="Core">Core</option>
-                    </select>
+header {
+    margin-bottom: 20px;
+}
 
-                    <label for="mintNumber">Mint Number:</label>
-                    <input type="number" id="mintNumber" name="mintNumber" placeholder="Enter mint number" required>
-                </div>
+header h1 {
+    font-size: 2.5em; /* Adjusted font size for Delta Charlie Comics */
+}
 
-                <button type="button" id="addButton" class="large-button">Add</button>
-            </form>
-        </main>
+header h2 {
+    font-size: 1.8em; /* Adjusted font size for the challenge title */
+}
 
-        <section class="logos-row">
-            <div class="logo-container">
-                <img src="dc3_wiki_logo.jpg" alt="Wiki Logo" class="wiki-logo">
-            </div>
-        </section>
+#countdown-timer {
+    font-size: 1.5em; /* Increased font size for countdown timer */
+    color: #FFD700; /* Highlight color for the countdown timer */
+    margin-bottom: 20px;
+}
 
-        <aside class="sidebar sidebar-left" id="current-showcase">
-            <h3 id="current-showcase-title">Current Showcase</h3>
-            <div id="showcase-info">
-                <p>Lego: <span id="legoPoints">0</span></p>
-                <p>Epic: <span id="epicPoints">0"></span></p>
-                <p>Rare: <span id="rarePoints">0"></span></p>
-                <p>UC: <span id="ucPoints">0"></span></p>
-                <p>Core: <span id="corePoints">0"></span></p>
-                <p>Total Points: <span id="totalPoints">0"></span></p>
-            </div>
-            <button type="button" id="submitButton" class="large-button">LFG</button>
-            <img src="DC3JAL.jpg" alt="DC3JAL Logo" class="showcase-logo">
-        </aside>
+.main-banner {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
 
-        <aside class="sidebar sidebar-right" id="leaderboard">
-            <h3>Leaderboard</h3>
-            <div id="leaderboard-info">
-                <!-- Leaderboard entries will be populated here -->
-                <ol id="leaderboard-list">
-                    <li>Player 1</li>
-                    <li>Player 2</li>
-                    <li>Player 3</li>
-                    <li>Player 4</li>
-                    <li>Player 5</li>
-                    <li>Player 6</li>
-                    <li>Player 7</li>
-                    <li>Player 8</li>
-                    <li>Player 9</li>
-                    <li>Player 10</li>
-                </ol>
-            </div>
-            <button type="button" id="clearButton" class="large-button">Clear</button>
-            <img src="dc.jpg" alt="DC Logo" class="leaderboard-logo">
-        </aside>
-    </div>
-</body>
-</html>
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0;
+}
+
+label {
+    margin: 10px 0 5px;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    border-radius: 4px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.form-group label,
+.form-group input[type="text"],
+.form-group input[type="url"] {
+    width: 45%;
+}
+
+.form-group select,
+.form-group input[type="number"] {
+    width: 45%;
+    margin: 0;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.large-button {
+    width: 100%; /* Make the button stretch across the main content box */
+    padding: 10px 20px;
+    margin-top: 23px; /* Move the add button down by 3px */
+}
+
+.logos-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.logo-container {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+.logo-container img {
+    width: 80%;
+    max-width: 240px;
+    border-radius: 8px;
+    border: 2px solid gold;
+}
+
+.wiki-logo {
+    margin-top: 20px;
+    width: 100%; 
+    max-width: 240px;
+}
+
+.sidebar {
+    background-color: #000;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid #007AFF;
+    color: white;
+    position: absolute;
+    width: 50%; /* Double the width */
+    height: 50%; /* Half the height */
+    box-sizing: border-box;
+    top: 0; /* Align top with the showcase box */
+}
+
+.sidebar-left {
+    left: -60%; /* Adjusted position */
+}
+
+.sidebar-right {
+    right: -60%; /* Adjusted position to match showcase box */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#current-showcase-title, #leaderboard h3 {
+    font-size: 1.5em; /* Reduced font size */
+}
+
+#showcase-info, #leaderboard-info {
+    font-size: 1.2em; /* Increased font size for text inside boxes */
+}
+
+#showcase-info p, #leaderboard-info p {
+    margin: 10px 0;
+}
+
+#leaderboard-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#leaderboard-info p {
+    color: #FFD700; /* Set the text color for players in the leaderboard to gold */
+}
+
+#leaderboard-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0; /* Ensure space between the list and the button */
+    color: #FFD700; /* Set the text color for leaderboard items to gold */
+}
+
+#leaderboard-list li {
+    margin-bottom: 10px; /* Add some space between list items */
+}
+
+#submitButton, #clearButton {
+    margin-top: 20px; /* Ensure the button is above the image */
+    margin-bottom: 20px; /* Position one space above the image */
+}
+
+.showcase-logo, .leaderboard-logo {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    border: 2px solid gold;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px; /* Position one space from the bottom */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        margin: 0;
+    }
+
+    .sidebar-left, .sidebar-right {
+        width: 100%;
+        position: static;
+        transform: none;
+        margin: 20px 0;
+    }
+
+    .large-button {
+        width: 100%; /* Ensure the buttons stretch across the width on smaller screens */
+    }
+}
