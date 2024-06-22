@@ -22,7 +22,7 @@ document.getElementById('submitButton').addEventListener('click', function() {
 
     if (discordHandle && showcaseLink) {
         addToLeaderboard(discordHandle, showcaseLink, totalPoints);
-        printRaffleTicket(discordHandle, totalPoints);
+        displayRaffleTicket(discordHandle, totalPoints);
     }
 });
 
@@ -31,8 +31,18 @@ document.getElementById('clearButton').addEventListener('click', function() {
 });
 
 function calculatePoints(rarity, mintNumber) {
-    // Implement your logic for calculating points
-    return parseInt(mintNumber); // Example logic, replace with your own
+    let points = parseInt(mintNumber); // Basic points based on mint number
+
+    // Add bonus points for special mint numbers
+    if (mintNumber === '1') {
+        points += 50; // First Mint
+    } else if (mintNumber === '1000') { // Example last mint number, replace with actual last mint number
+        points += 30; // Last Mint
+    } else if (mintNumber === rarity) {
+        points += 20; // Edition Matching Mint
+    }
+
+    return points;
 }
 
 function updateTotalPoints() {
@@ -53,7 +63,8 @@ function addToLeaderboard(discordHandle, showcaseLink, totalPoints) {
     leaderboardInfo.appendChild(newEntry);
 }
 
-function printRaffleTicket(discordHandle, totalPoints) {
+function displayRaffleTicket(discordHandle, totalPoints) {
+    const raffleTicketContainer = document.getElementById('raffle-ticket-container');
     const raffleTicket = `
         <div style="border: 2px solid gold; padding: 10px; margin-top: 10px; text-align: center;">
             <h2>Raffle Ticket</h2>
@@ -62,11 +73,7 @@ function printRaffleTicket(discordHandle, totalPoints) {
             <p>Good luck in the raffle!</p>
         </div>
     `;
-
-    const newWindow = window.open('', '', 'width=300,height=400');
-    newWindow.document.write(raffleTicket);
-    newWindow.print();
-    newWindow.close();
+    raffleTicketContainer.innerHTML = raffleTicket;
 }
 
 // Load the initial leaderboard
