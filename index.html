@@ -11,12 +11,11 @@
 <body>
     <div class="container">
         <header>
-            <div id="countdown-timer" class="highlight">27d 23h 59m 41s</div>
+            <img src="comicbanner.jpg" alt="Comic Banner" class="main-banner">
+            <div id="countdown-timer">27d 23h 59m 41s</div>
             <h1>Delta Charlie Comics</h1>
             <h2>JLA The Nail Low Mint Challenge</h2>
         </header>
-
-        <img src="comicbanner.jpg" alt="Delta Charlie Comics Banner" class="main-banner">
 
         <main>
             <form id="submissionForm">
@@ -32,10 +31,10 @@
                     <label for="comicRarity">Comic Rarity:</label>
                     <select id="comicRarity" name="comicRarity" required>
                         <option value="">Select Rarity</option>
-                        <option value="Legendary">Legendary</option>
+                        <option value="Lego">Lego</option>
                         <option value="Epic">Epic</option>
                         <option value="Rare">Rare</option>
-                        <option value="Uncommon">Uncommon</option>
+                        <option value="UC">UC</option>
                         <option value="Core">Core</option>
                     </select>
 
@@ -50,17 +49,17 @@
         <section class="logos-row">
             <div class="logo-container">
                 <a href="https://www.candy.com/dc/drops/8d77ccf6-9518-489e-9dc4-3141f949f3a6" target="_blank">
-                    <img src="DC3JAL.jpg" alt="DC3JAL Logo" class="side-logo">
+                    <img src="DC3JAL.jpg" alt="DC3JAL Logo" class="wiki-logo">
                 </a>
             </div>
             <div class="logo-container">
                 <a href="https://dc3.wiki" target="_blank">
-                    <img src="dc3_wiki_logo.jpg" alt="Wiki Logo" class="wiki-logo">
+                    <img src="dc3_wiki_logo.jpg" alt="DC3 Wiki Logo" class="wiki-logo">
                 </a>
             </div>
             <div class="logo-container">
                 <a href="https://www.candy.com/dc/marketplace?collection=%5B%222024+Super+Power+Packs+-+Series+JLA%3A+The+Nail%22%5D" target="_blank">
-                    <img src="dc.jpg" alt="DC Logo" class="side-logo">
+                    <img src="dc.jpg" alt="DC Logo" class="wiki-logo">
                 </a>
             </div>
         </section>
@@ -71,13 +70,13 @@
                 <p>Legendary: <span id="legoPoints">0</span></p>
                 <p>Epic: <span id="epicPoints">0</span></p>
                 <p>Rare: <span id="rarePoints">0</span></p>
-                <p>Uncommon: <span id="ucPoints">0</span></p>
+                <p>UC: <span id="ucPoints">0</span></p>
                 <p>Core: <span id="corePoints">0</span></p>
                 <p>Total Points: <span id="totalPoints">0</span></p>
             </div>
             <button type="button" id="submitButton" class="large-button">LFG</button>
-            <div id="points-info">
-                <h3>Points Information</h3>
+            <div class="points-info">
+                <h4>Points Information</h4>
                 <p>Mint #1: Supply Points</p>
                 <p>Matching Edition and Mint Number: Double Points</p>
                 <p>Last Mint/Perfect Mint: Half of Supply Points</p>
@@ -91,7 +90,6 @@
         <aside class="sidebar sidebar-right" id="leaderboard">
             <h3>Leaderboard</h3>
             <div id="leaderboard-info">
-                <!-- Leaderboard entries will be populated here -->
                 <ol id="leaderboard-list">
                     <li>Player 1</li>
                     <li>Player 2</li>
@@ -107,8 +105,10 @@
             </div>
             <button type="button" id="clearButton" class="large-button">Clear</button>
         </aside>
-        
-        <div id="raffle-ticket-container"></div>
     </div>
+
+    <footer>
+        <p id="disclaimer">*This contest is in no way supported or affiliated with any DC Comic element. All characters and related elements are the property of their respective owners.</p>
+    </footer>
 </body>
 </html>
