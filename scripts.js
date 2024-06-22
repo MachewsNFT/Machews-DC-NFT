@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
     clearButton.addEventListener('click', clearLeaderboard);
 
     // Countdown timer
-    const endTime = new Date(Date.now() + 28 * 24 * 60 * 60 * 1000); // 28 days from now
+    const endTime = new Date('2024-07-15T12:00:00'); // July 15, 2024, at 12:00 PM (noon)
     function updateCountdown() {
         const now = new Date();
         const remainingTime = endTime - now;
