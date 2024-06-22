@@ -201,7 +201,7 @@ button:hover {
 }
 
 #leaderboard-list li a {
-    color: gold;
+    color: gold; /* Changed the color to gold */
     text-decoration: none;
 }
 
