@@ -49,11 +49,11 @@ header h2 {
 #countdown-timer {
     font-size: 1.2em; /* Adjusted font size */
     color: #FFD700;
-    margin-bottom: 10px; /* Reduced margin */
+    margin-bottom: 0; /* Removed margin */
 }
 
 .main-banner {
-    width: 80%; /* Reduced banner size */
+    width: 100%; /* Increased banner size to fit the container width */
     border-radius: 8px;
     margin-bottom: 10px; /* Reduced margin */
 }
@@ -336,5 +336,11 @@ button:hover {
     .form-group select {
         width: 100%;
         margin-bottom: 10px;
+    }
+
+    footer {
+        position: relative;
+        bottom: 0;
+        margin-top: 10px; /* Adjusted margin */
     }
 }
