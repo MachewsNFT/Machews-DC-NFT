@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let leaderboard = [];
 
+    const database = firebase.database();
+
     function calculatePoints(rarity, mintNumber, edition) {
         let supplyPoints;
         switch (rarity) {
@@ -53,9 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateLeaderboard() {
-        const leaderboardInfo = document.getElementById('leaderboard-info');
-        leaderboardInfo.innerHTML = leaderboard.slice(0, 10).map((entry, index) => `
-            <p>${index + 1}. <a href="${entry.showcaseLink}" target="_blank">${entry.discordHandle}</a>: ${entry.totalPoints} points</p>
+        const leaderboardList = document.getElementById('leaderboard-list');
+        leaderboardList.innerHTML = leaderboard.slice(0, 10).map((entry, index) => `
+            <li>${index + 1}. <a href="${entry.showcaseLink}" target="_blank">${entry.discordHandle}</a>: ${entry.totalPoints} points</li>
         `).join('');
     }
 
@@ -94,21 +96,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function submitShowcase() {
         if (currentShowcase.comics.length === 5) {
-            leaderboard.push({ ...currentShowcase });
-            leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
-            updateLeaderboard();
+            const newEntryRef = database.ref('leaderboard').push();
+            newEntryRef.set(currentShowcase);
 
-            // Generate raffle ticket
-            showRaffleTicket(currentShowcase.discordHandle, currentShowcase.totalPoints);
+            newEntryRef.once('value').then(snapshot => {
+                leaderboard.push(snapshot.val());
+                leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
+                updateLeaderboard();
 
-            // Reset current showcase
-            currentShowcase = {
-                discordHandle: '',
-                showcaseLink: '',
-                comics: [],
-                totalPoints: 0
-            };
-            updateCurrentShowcase();
+                // Generate raffle ticket
+                showRaffleTicket(currentShowcase.discordHandle, currentShowcase.totalPoints);
+
+                // Reset current showcase
+                currentShowcase = {
+                    discordHandle: '',
+                    showcaseLink: '',
+                    comics: [],
+                    totalPoints: 0
+                };
+                updateCurrentShowcase();
+            });
         } else {
             alert('Please add all 5 comics to the showcase.');
         }
@@ -117,8 +124,10 @@ document.addEventListener('DOMContentLoaded', function () {
     function clearLeaderboard() {
         const code = prompt('Enter the code to clear the leaderboard:');
         if (code === '6969') {
-            leaderboard = [];
-            updateLeaderboard();
+            database.ref('leaderboard').remove().then(() => {
+                leaderboard = [];
+                updateLeaderboard();
+            });
         } else {
             alert('Incorrect code.');
         }
@@ -156,6 +165,16 @@ document.addEventListener('DOMContentLoaded', function () {
     addButton.addEventListener('click', addComicToShowcase);
     submitButton.addEventListener('click', submitShowcase);
     clearButton.addEventListener('click', clearLeaderboard);
+
+    // Load leaderboard from Firebase
+    database.ref('leaderboard').on('value', snapshot => {
+        leaderboard = [];
+        snapshot.forEach(childSnapshot => {
+            leaderboard.push(childSnapshot.val());
+        });
+        leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
+        updateLeaderboard();
+    });
 
     // Countdown timer
     const endTime = new Date('July 15, 2024 12:00:00').getTime();
