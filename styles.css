@@ -219,6 +219,12 @@ button:hover {
     margin-right: auto;
 }
 
+.clear-button {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .showcase-logo {
     margin-top: 10px;
     width: 80%;
@@ -228,10 +234,6 @@ button:hover {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-.clear-button {
-    margin-top: 10px;
 }
 
 .leaderboard-logo {
