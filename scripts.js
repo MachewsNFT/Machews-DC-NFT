@@ -1,220 +1,211 @@
-//// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, onValue, push } from "firebase/database";
-import { getAnalytics } from "firebase/analytics";
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCm4kobYmZSWyGAoGYyZxqcLFF5NLZ0",
-  authDomain: "delta-charlie-comics-contest.firebaseapp.com",
-  databaseURL: "https://delta-charlie-comics-contest-default-rtdb.firebaseio.com",
-  projectId: "delta-charlie-comics-contest",
-  storageBucket: "delta-charlie-comics-contest.appspot.com",
-  messagingSenderId: "1069499775430",
-  appId: "1:1069499775430:web:2f7a0eeedee0f94665ac7",
-  measurementId: "G-J9XC9119VE"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-const analytics = getAnalytics(app);
-
 document.addEventListener('DOMContentLoaded', function () {
-  const submissionForm = document.getElementById('submissionForm');
-  const addButton = document.getElementById('addButton');
-  const submitButton = document.getElementById('submitButton');
-  const clearButton = document.getElementById('clearButton');
-
-  let currentShowcase = {
-    discordHandle: '',
-    showcaseLink: '',
-    comics: [],
-    totalPoints: 0
-  };
-
-  let leaderboard = [];
-
-  function calculatePoints(rarity, mintNumber, edition) {
-    let supplyPoints;
-    switch (rarity) {
-      case 'Lego':
-        supplyPoints = 750 - mintNumber + 1;
-        break;
-      case 'Epic':
-        supplyPoints = 1800 - mintNumber + 1;
-        break;
-      case 'Rare':
-        supplyPoints = 2700 - mintNumber + 1;
-        break;
-      case 'UC':
-        supplyPoints = 4800 - mintNumber + 1;
-        break;
-      case 'Core':
-        supplyPoints = 4950 - mintNumber + 1;
-        break;
-      default:
-        supplyPoints = 0;
-    }
-
-    let doublePoints = (mintNumber == edition) ? supplyPoints * 2 : 0;
-    let lastMintPoints = (mintNumber == supplyPoints) ? supplyPoints / 2 : 0;
-    let perfectSetBonus = (mintNumber == 1998) ? 5000 : 0;
-
-    return supplyPoints + doublePoints + lastMintPoints + perfectSetBonus;
-  }
-
-  function updateCurrentShowcase() {
-    document.getElementById('current-showcase-title').textContent = currentShowcase.discordHandle || 'Current Showcase';
-    document.getElementById('legoPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Lego')?.points || 0;
-    document.getElementById('epicPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Epic')?.points || 0;
-    document.getElementById('rarePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Rare')?.points || 0;
-    document.getElementById('ucPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'UC')?.points || 0;
-    document.getElementById('corePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Core')?.points || 0;
-    document.getElementById('totalPoints').textContent = currentShowcase.totalPoints;
-  }
-
-  function updateLeaderboard() {
-    const leaderboardInfo = document.getElementById('leaderboard-info');
-    leaderboardInfo.innerHTML = leaderboard.slice(0, 10).map((entry, index) => `
-      <p>${index + 1}. <a href="${entry.showcaseLink}" target="_blank">${entry.discordHandle}</a>: ${entry.totalPoints} points</p>
-    `).join('');
-  }
-
-  function addComicToShowcase() {
-    const discordHandle = document.getElementById('discordHandle').value;
-    const showcaseLink = document.getElementById('showcaseLink').value;
-    const comicRarity = document.getElementById('comicRarity').value;
-    const mintNumber = document.getElementById('mintNumber').value;
-    const editionMap = {
-      'Lego': 2,
-      'Epic': 1,
-      'Rare': 3,
-      'UC': 2,
-      'Core': 1
+    const firebaseConfig = {
+        apiKey: "AIzaSyCm4kobYmZSWGyA0GyyZxagcLFF5NLZ0",
+        authDomain: "delta-charlie-comics-contest.firebaseapp.com",
+        databaseURL: "https://delta-charlie-comics-contest-default-rtdb.firebaseio.com",
+        projectId: "delta-charlie-comics-contest",
+        storageBucket: "delta-charlie-comics-contest.appspot.com",
+        messagingSenderId: "1069499775430",
+        appId: "1:1069499775430:web:2f7a0eeedee0f94665ac7",
+        measurementId: "G-JX9C11Y9VE"
     };
-    const edition = editionMap[comicRarity];
 
-    if (discordHandle && showcaseLink && comicRarity && mintNumber) {
-      const points = calculatePoints(comicRarity, mintNumber, edition);
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
 
-      currentShowcase.discordHandle = discordHandle;
-      currentShowcase.showcaseLink = showcaseLink;
+    const submissionForm = document.getElementById('submissionForm');
+    const addButton = document.getElementById('addButton');
+    const submitButton = document.getElementById('submitButton');
+    const clearButton = document.getElementById('clearButton');
 
-      const existingComic = currentShowcase.comics.find(c => c.rarity === comicRarity);
-      if (existingComic) {
-        existingComic.points = points;
-      } else {
-        currentShowcase.comics.push({ rarity: comicRarity, mintNumber, points });
-      }
+    let currentShowcase = {
+        discordHandle: '',
+        showcaseLink: '',
+        comics: [],
+        totalPoints: 0
+    };
 
-      currentShowcase.totalPoints = currentShowcase.comics.reduce((total, comic) => total + comic.points, 0);
+    let leaderboard = [];
 
-      updateCurrentShowcase();
+    function calculatePoints(rarity, mintNumber, edition) {
+        let supplyPoints;
+        switch (rarity) {
+            case 'Lego':
+                supplyPoints = 750 - mintNumber + 1;
+                break;
+            case 'Epic':
+                supplyPoints = 1800 - mintNumber + 1;
+                break;
+            case 'Rare':
+                supplyPoints = 2700 - mintNumber + 1;
+                break;
+            case 'UC':
+                supplyPoints = 4800 - mintNumber + 1;
+                break;
+            case 'Core':
+                supplyPoints = 4950 - mintNumber + 1;
+                break;
+            default:
+                supplyPoints = 0;
+        }
+
+        let doublePoints = (mintNumber == edition) ? supplyPoints * 2 : 0;
+        let lastMintPoints = (mintNumber == supplyPoints) ? supplyPoints / 2 : 0;
+        let perfectSetBonus = (mintNumber == 1998) ? 5000 : 0;
+
+        return supplyPoints + doublePoints + lastMintPoints + perfectSetBonus;
     }
-  }
 
-  function submitShowcase() {
-    if (currentShowcase.comics.length === 5) {
-      const newEntryRef = push(ref(database, 'leaderboard'));
-      set(newEntryRef, currentShowcase).then(() => {
-        leaderboard.push({ ...currentShowcase });
-        leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
-        updateLeaderboard();
+    function updateCurrentShowcase() {
+        document.getElementById('current-showcase-title').textContent = currentShowcase.discordHandle || 'Current Showcase';
+        document.getElementById('legoPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Lego')?.points || 0;
+        document.getElementById('epicPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Epic')?.points || 0;
+        document.getElementById('rarePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Rare')?.points || 0;
+        document.getElementById('ucPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'UC')?.points || 0;
+        document.getElementById('corePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Core')?.points || 0;
+        document.getElementById('totalPoints').textContent = currentShowcase.totalPoints;
+    }
 
-        // Generate raffle ticket
-        showRaffleTicket(currentShowcase.discordHandle, currentShowcase.totalPoints);
+    function updateLeaderboard() {
+        const leaderboardInfo = document.getElementById('leaderboard-info');
+        leaderboardInfo.innerHTML = leaderboard.slice(0, 10).map((entry, index) => `
+            <p>${index + 1}. <a href="${entry.showcaseLink}" target="_blank">${entry.discordHandle}</a>: ${entry.totalPoints} points</p>
+        `).join('');
+    }
 
-        // Reset current showcase
-        currentShowcase = {
-          discordHandle: '',
-          showcaseLink: '',
-          comics: [],
-          totalPoints: 0
+    function addComicToShowcase() {
+        const discordHandle = document.getElementById('discordHandle').value;
+        const showcaseLink = document.getElementById('showcaseLink').value;
+        const comicRarity = document.getElementById('comicRarity').value;
+        const mintNumber = document.getElementById('mintNumber').value;
+        const editionMap = {
+            'Lego': 2,
+            'Epic': 1,
+            'Rare': 3,
+            'UC': 2,
+            'Core': 1
         };
-        updateCurrentShowcase();
-      });
-    } else {
-      alert('Please add all 5 comics to the showcase.');
+        const edition = editionMap[comicRarity];
+
+        if (discordHandle && showcaseLink && comicRarity && mintNumber) {
+            const points = calculatePoints(comicRarity, mintNumber, edition);
+
+            currentShowcase.discordHandle = discordHandle;
+            currentShowcase.showcaseLink = showcaseLink;
+
+            const existingComic = currentShowcase.comics.find(c => c.rarity === comicRarity);
+            if (existingComic) {
+                existingComic.points = points;
+            } else {
+                currentShowcase.comics.push({ rarity: comicRarity, mintNumber, points });
+            }
+
+            currentShowcase.totalPoints = currentShowcase.comics.reduce((total, comic) => total + comic.points, 0);
+
+            updateCurrentShowcase();
+        }
     }
-  }
 
-  function clearLeaderboard() {
-    const code = prompt('Enter the code to clear the leaderboard:');
-    if (code === '6969') {
-      set(ref(database, 'leaderboard'), []).then(() => {
-        leaderboard = [];
-        updateLeaderboard();
-      });
-    } else {
-      alert('Incorrect code.');
+    function submitShowcase() {
+        if (currentShowcase.comics.length === 5) {
+            leaderboard.push({ ...currentShowcase });
+            leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
+            updateLeaderboard();
+
+            // Save to Firebase
+            db.ref('leaderboard').set(leaderboard);
+
+            // Generate raffle ticket
+            showRaffleTicket(currentShowcase.discordHandle, currentShowcase.totalPoints);
+
+            // Reset current showcase
+            currentShowcase = {
+                discordHandle: '',
+                showcaseLink: '',
+                comics: [],
+                totalPoints: 0
+            };
+            updateCurrentShowcase();
+        } else {
+            alert('Please add all 5 comics to the showcase.');
+        }
     }
-  }
 
-  function showRaffleTicket(discordHandle, points) {
-    const modal = document.createElement('div');
-    modal.className = 'modal';
+    function clearLeaderboard() {
+        const code = prompt('Enter the code to clear the leaderboard:');
+        if (code === '6969') {
+            leaderboard = [];
+            updateLeaderboard();
 
-    const raffleTicket = document.createElement('div');
-    raffleTicket.className = 'raffle-ticket';
-
-    const currentDate = new Date();
-    const formattedDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()} ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
-
-    raffleTicket.innerHTML = `
-      <h2>Raffle Ticket</h2>
-      <p class="raffle-discord">Discord: ${discordHandle}</p>
-      <p class="raffle-points">Points: ${points}</p>
-      <p class="raffle-date">Date: ${formattedDate}</p>
-      <button onclick="closeModal()">Close</button>
-    `;
-
-    modal.appendChild(raffleTicket);
-    document.body.appendChild(modal);
-  }
-
-  window.closeModal = function () {
-    const modal = document.querySelector('.modal');
-    if (modal) {
-      modal.remove();
+            // Clear Firebase
+            db.ref('leaderboard').remove();
+        } else {
+            alert('Incorrect code.');
+        }
     }
-  };
 
-  addButton.addEventListener('click', addComicToShowcase);
-  submitButton.addEventListener('click', submitShowcase);
-  clearButton.addEventListener('click', clearLeaderboard);
+    function showRaffleTicket(discordHandle, points) {
+        const modal = document.createElement('div');
+        modal.className = 'modal';
 
-  // Fetch and display the leaderboard from Firebase
-  const leaderboardRef = ref(database, 'leaderboard');
-  onValue(leaderboardRef, (snapshot) => {
-    leaderboard = [];
-    snapshot.forEach((childSnapshot) => {
-      const entry = childSnapshot.val();
-      leaderboard.push(entry);
+        const raffleTicket = document.createElement('div');
+        raffleTicket.className = 'raffle-ticket';
+
+        const currentDate = new Date();
+        const formattedDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()} ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+
+        raffleTicket.innerHTML = `
+            <h2>Raffle Ticket</h2>
+            <p class="raffle-discord">Discord: ${discordHandle}</p>
+            <p class="raffle-points">Points: ${points}</p>
+            <p class="raffle-date">Date: ${formattedDate}</p>
+            <button onclick="closeModal()">Close</button>
+        `;
+
+        modal.appendChild(raffleTicket);
+        document.body.appendChild(modal);
+    }
+
+    window.closeModal = function () {
+        const modal = document.querySelector('.modal');
+        if (modal) {
+            modal.remove();
+        }
+    };
+
+    addButton.addEventListener('click', addComicToShowcase);
+    submitButton.addEventListener('click', submitShowcase);
+    clearButton.addEventListener('click', clearLeaderboard);
+
+    // Countdown timer
+    const endTime = new Date('July 15, 2024 12:00:00').getTime();
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const remainingTime = endTime - now;
+
+        if (remainingTime <= 0) {
+            document.getElementById('countdown-timer').textContent = 'Contest has ended';
+            clearInterval(countdownInterval);
+        } else {
+            const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown-timer').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+    }
+
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Load leaderboard from Firebase
+    db.ref('leaderboard').on('value', (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+            leaderboard = data;
+            updateLeaderboard();
+        }
     });
-    leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
-    updateLeaderboard();
-  });
-
-  // Countdown timer
-  const endTime = new Date('July 15, 2024 12:00:00').getTime();
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const remainingTime = endTime - now;
-
-    if (remainingTime <= 0) {
-      document.getElementById('countdown-timer').textContent = 'Contest has ended';
-      clearInterval(countdownInterval);
-    } else {
-      const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((remainingTime % (1000 * 60)) / (1000 * 60));
-      const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-
-      document.getElementById('countdown-timer').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-  }
-
-  const countdownInterval = setInterval(updateCountdown, 1000);
-  updateCountdown();
 });
