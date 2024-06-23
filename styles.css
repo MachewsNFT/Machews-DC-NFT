@@ -77,6 +77,11 @@ input, select, button {
     border-radius: 4px;
 }
 
+input[type="text"],
+input[type="url"] {
+    width: 80%; /* Reduced width */
+}
+
 .form-group {
     display: flex;
     justify-content: space-between;
