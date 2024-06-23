@@ -14,13 +14,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Firebase configuration
     const firebaseConfig = {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "YOUR_AUTH_DOMAIN",
-        projectId: "YOUR_PROJECT_ID",
-        storageBucket: "YOUR_STORAGE_BUCKET",
-        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-        appId: "YOUR_APP_ID",
-        measurementId: "YOUR_MEASUREMENT_ID"
+        apiKey: "AIzaSyCm4kobYmZSWyGAoGYyZxagcLFF5NLZ0",
+        authDomain: "delta-charlie-comics-contest.firebaseapp.com",
+        databaseURL: "https://delta-charlie-comics-contest-default-rtdb.firebaseio.com",
+        projectId: "delta-charlie-comics-contest",
+        storageBucket: "delta-charlie-comics-contest.appspot.com",
+        messagingSenderId: "1069499775430",
+        appId: "1:1069499775430:web:2f7a0eeeedee0f94665ac7",
+        measurementId: "G-JX9XC119VE"
     };
 
     // Initialize Firebase
