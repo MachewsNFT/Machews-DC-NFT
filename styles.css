@@ -84,6 +84,25 @@ input, select, button {
     flex-direction: column;
 }
 
+.form-group.inline {
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-group.inline label,
+.form-group.inline input,
+.form-group.inline select {
+    width: auto;
+    margin-right: 10px;
+    flex: 1;
+}
+
+.form-group.inline label:last-child,
+.form-group.inline input:last-child,
+.form-group.inline select:last-child {
+    margin-right: 0;
+}
+
 .form-group label {
     width: 100%;
 }
