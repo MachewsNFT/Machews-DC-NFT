@@ -40,16 +40,18 @@ header {
 
 header h1 {
     font-size: 2em; /* Adjusted font size */
+    margin: 0; /* Remove margin */
 }
 
 header h2 {
     font-size: 1.5em; /* Adjusted font size */
+    margin: 0; /* Remove margin */
 }
 
 #countdown-timer {
     font-size: 1.2em; /* Adjusted font size */
     color: #FFD700;
-    margin-bottom: 0; /* Removed margin */
+    margin: 0; /* Removed margin */
 }
 
 .main-banner {
