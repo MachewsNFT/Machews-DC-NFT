@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const submissionForm = document.getElementById('submissionForm');
     const addButton = document.getElementById('addButton');
     const submitButton = document.getElementById('submitButton');
     const clearButton = document.getElementById('clearButton');
