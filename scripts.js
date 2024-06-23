@@ -1,23 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const submissionForm = document.getElementById('submissionForm');
+    const addButton = document.getElementById('addButton');
+    const submitButton = document.getElementById('submitButton');
+    const clearButton = document.getElementById('clearButton');
+
     const firebaseConfig = {
-        apiKey: "AIzaSyCm4kobYmZSWGyA0GyyZxagcLFF5NLZ0",
+        apiKey: "AIzaSyCm44kobYnZSWyGYa0GyyZxacgLFF5NLZ0",
         authDomain: "delta-charlie-comics-contest.firebaseapp.com",
         databaseURL: "https://delta-charlie-comics-contest-default-rtdb.firebaseio.com",
         projectId: "delta-charlie-comics-contest",
         storageBucket: "delta-charlie-comics-contest.appspot.com",
         messagingSenderId: "1069499775430",
-        appId: "1:1069499775430:web:2f7a0eeedee0f94665ac7",
-        measurementId: "G-JX9C11Y9VE"
+        appId: "1:1069499775430:web:2f7a0eeeede0f94665ac7",
+        measurementId: "G-JX9C11V9E"
     };
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
-
-    const submissionForm = document.getElementById('submissionForm');
-    const addButton = document.getElementById('addButton');
-    const submitButton = document.getElementById('submitButton');
-    const clearButton = document.getElementById('clearButton');
+    const database = firebase.database();
 
     let currentShowcase = {
         discordHandle: '',
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
             updateLeaderboard();
 
             // Save to Firebase
-            db.ref('leaderboard').set(leaderboard);
+            database.ref('leaderboard').set(leaderboard);
 
             // Generate raffle ticket
             showRaffleTicket(currentShowcase.discordHandle, currentShowcase.totalPoints);
@@ -137,9 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (code === '6969') {
             leaderboard = [];
             updateLeaderboard();
-
-            // Clear Firebase
-            db.ref('leaderboard').remove();
+            database.ref('leaderboard').set(leaderboard); // Clear the Firebase leaderboard
         } else {
             alert('Incorrect code.');
         }
@@ -178,6 +176,12 @@ document.addEventListener('DOMContentLoaded', function () {
     submitButton.addEventListener('click', submitShowcase);
     clearButton.addEventListener('click', clearLeaderboard);
 
+    // Load leaderboard from Firebase
+    database.ref('leaderboard').on('value', (snapshot) => {
+        leaderboard = snapshot.val() || [];
+        updateLeaderboard();
+    });
+
     // Countdown timer
     const endTime = new Date('July 15, 2024 12:00:00').getTime();
     function updateCountdown() {
@@ -199,13 +203,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
-
-    // Load leaderboard from Firebase
-    db.ref('leaderboard').on('value', (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-            leaderboard = data;
-            updateLeaderboard();
-        }
-    });
 });
