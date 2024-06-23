@@ -6,8 +6,8 @@
     <title>Delta Charlie DC3 Contest</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
     <script src="scripts.js" defer></script>
 </head>
 <body>
@@ -29,7 +29,7 @@
                     <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop" required>
                 </div>
 
-                <div class="form-group inline">
+                <div class="form-group">
                     <label for="comicRarity">Comic Rarity:</label>
                     <select id="comicRarity" name="comicRarity" required>
                         <option value="">Select Rarity</option>
@@ -107,26 +107,5 @@
             <button type="button" id="clearButton" class="large-button">Clear</button>
         </aside>
     </div>
-
-    <footer>
-       
-    </footer>
-
-    <!-- Firebase Configuration -->
-    <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyCm4kobYnZSWyGYa0GyyZxagcLFF5NLZ0",
-            authDomain: "delta-charlie-comics-contest.firebaseapp.com",
-            databaseURL: "https://delta-charlie-comics-contest.firebaseio.com",
-            projectId: "delta-charlie-comics-contest",
-            storageBucket: "delta-charlie-comics-contest.appspot.com",
-            messagingSenderId: "1069499775430",
-            appId: "1:1069499775430:web:2f7a0eeedee0f94665ac7",
-            measurementId: "G-J9XC119VE"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
 </body>
 </html>
