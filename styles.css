@@ -157,6 +157,12 @@ button:hover {
     max-width: 200px;
 }
 
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 .sidebar {
     background-color: #000;
     padding: 10px; /* Reduced padding */
@@ -164,22 +170,8 @@ button:hover {
     text-align: center;
     border: 2px solid #007AFF;
     color: white;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 35%; /* Adjusted width */
-    height: auto; /* Adjusted height */
-}
-
-.sidebar-left {
-    left: -40%; /* Adjusted position */
-}
-
-.sidebar-right {
-    right: -40%; /* Adjusted position */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    width: 48%; /* Adjusted width */
+    margin-bottom: 10px;
 }
 
 #current-showcase-title, #leaderboard h3 {
@@ -292,15 +284,24 @@ button:hover {
         width: 100%;
     }
 
-    .sidebar-left, .sidebar-right {
-        position: static;
-        transform: none;
-        width: 100%;
-        margin: 10px 0;
+    .flex-container {
+        flex-direction: column;
     }
 
-    .form-group {
+    .sidebar {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .form-group.inline {
         flex-direction: column;
+    }
+
+    .form-group.inline label,
+    .form-group.inline input,
+    .form-group.inline select {
+        width: 100%;
+        margin-right: 0;
     }
 
     .form-group label,
