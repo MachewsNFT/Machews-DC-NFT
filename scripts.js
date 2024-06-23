@@ -4,21 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const submitButton = document.getElementById('submitButton');
     const clearButton = document.getElementById('clearButton');
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyCm44kobYnZSWyGYa0GyyZxacgLFF5NLZ0",
-        authDomain: "delta-charlie-comics-contest.firebaseapp.com",
-        databaseURL: "https://delta-charlie-comics-contest-default-rtdb.firebaseio.com",
-        projectId: "delta-charlie-comics-contest",
-        storageBucket: "delta-charlie-comics-contest.appspot.com",
-        messagingSenderId: "1069499775430",
-        appId: "1:1069499775430:web:2f7a0eeeede0f94665ac7",
-        measurementId: "G-JX9C11V9E"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
-
     let currentShowcase = {
         discordHandle: '',
         showcaseLink: '',
@@ -27,6 +12,22 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     let leaderboard = [];
+
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCm4kobYmZSWyGAoGYyZxagcLFF5NLZ0",
+        authDomain: "delta-charlie-comics-contest.firebaseapp.com",
+        databaseURL: "https://delta-charlie-comics-contest-default-rtdb.firebaseio.com",
+        projectId: "delta-charlie-comics-contest",
+        storageBucket: "delta-charlie-comics-contest.appspot.com",
+        messagingSenderId: "1069499775430",
+        appId: "1:1069499775430:web:2f7a0eeeedee0f94665ac7",
+        measurementId: "G-JX9XC119VE"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
 
     function calculatePoints(rarity, mintNumber, edition) {
         let supplyPoints;
@@ -63,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('epicPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Epic')?.points || 0;
         document.getElementById('rarePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Rare')?.points || 0;
         document.getElementById('ucPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'UC')?.points || 0;
-        document.getElementById('corePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Core')?.points || 0;
+                document.getElementById('corePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Core')?.points || 0;
         document.getElementById('totalPoints').textContent = currentShowcase.totalPoints;
     }
 
@@ -109,12 +110,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function submitShowcase() {
         if (currentShowcase.comics.length === 5) {
+            const newKey = database.ref().child('leaderboard').push().key;
+            database.ref('leaderboard/' + newKey).set({
+                discordHandle: currentShowcase.discordHandle,
+                showcaseLink: currentShowcase.showcaseLink,
+                comics: currentShowcase.comics,
+                totalPoints: currentShowcase.totalPoints
+            });
+
             leaderboard.push({ ...currentShowcase });
             leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
             updateLeaderboard();
-
-            // Save to Firebase
-            database.ref('leaderboard').set(leaderboard);
 
             // Generate raffle ticket
             showRaffleTicket(currentShowcase.discordHandle, currentShowcase.totalPoints);
@@ -135,9 +141,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function clearLeaderboard() {
         const code = prompt('Enter the code to clear the leaderboard:');
         if (code === '6969') {
+            database.ref('leaderboard').remove();
             leaderboard = [];
             updateLeaderboard();
-            database.ref('leaderboard').set(leaderboard); // Clear the Firebase leaderboard
         } else {
             alert('Incorrect code.');
         }
@@ -176,12 +182,6 @@ document.addEventListener('DOMContentLoaded', function () {
     submitButton.addEventListener('click', submitShowcase);
     clearButton.addEventListener('click', clearLeaderboard);
 
-    // Load leaderboard from Firebase
-    database.ref('leaderboard').on('value', (snapshot) => {
-        leaderboard = snapshot.val() || [];
-        updateLeaderboard();
-    });
-
     // Countdown timer
     const endTime = new Date('July 15, 2024 12:00:00').getTime();
     function updateCountdown() {
@@ -203,4 +203,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    // Load leaderboard from Firebase on page load
+    database.ref('leaderboard').on('value', function(snapshot) {
+        leaderboard = [];
+        snapshot.forEach(function(childSnapshot) {
+            leaderboard.push(childSnapshot.val());
+        });
+        leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
+        updateLeaderboard();
+    });
 });
