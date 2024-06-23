@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const submissionForm = document.getElementById('submissionForm');
     const addButton = document.getElementById('addButton');
     const submitButton = document.getElementById('submitButton');
     const clearButton = document.getElementById('clearButton');
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    const database = firebase.firestore();
+    const database = firebase.database();
 
     function calculatePoints(rarity, mintNumber, edition) {
         let supplyPoints;
@@ -75,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function addComicToShowcase() {
-        console.log('Add button clicked'); // Debugging log
         const discordHandle = document.getElementById('discordHandle').value;
         const showcaseLink = document.getElementById('showcaseLink').value;
         const comicRarity = document.getElementById('comicRarity').value;
@@ -110,8 +110,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function submitShowcase() {
         if (currentShowcase.comics.length === 5) {
-            const newKey = database.collection('leaderboard').doc().id;
-            database.collection('leaderboard').doc(newKey).set({
+            const newKey = database.ref().child('leaderboard').push().key;
+            database.ref('leaderboard/' + newKey).set({
                 discordHandle: currentShowcase.discordHandle,
                 showcaseLink: currentShowcase.showcaseLink,
                 comics: currentShowcase.comics,
@@ -141,11 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function clearLeaderboard() {
         const code = prompt('Enter the code to clear the leaderboard:');
         if (code === '6969') {
-            database.collection('leaderboard').get().then(function(snapshot) {
-                snapshot.forEach(function(doc) {
-                    doc.ref.delete();
-                });
-            });
+            database.ref('leaderboard').remove();
             leaderboard = [];
             updateLeaderboard();
         } else {
@@ -209,10 +205,10 @@ document.addEventListener('DOMContentLoaded', function () {
     updateCountdown();
 
     // Load leaderboard from Firebase on page load
-    database.collection('leaderboard').onSnapshot(function(snapshot) {
+    database.ref('leaderboard').on('value', function(snapshot) {
         leaderboard = [];
-        snapshot.forEach(function(doc) {
-            leaderboard.push(doc.data());
+        snapshot.forEach(function(childSnapshot) {
+            leaderboard.push(childSnapshot.val());
         });
         leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
         updateLeaderboard();
