@@ -79,7 +79,7 @@ input, select, button {
 
 input[type="text"],
 input[type="url"] {
-    width: 80%; /* Reduced width */
+    width: 60%; /* Reduced width by 40% */
 }
 
 .form-group {
