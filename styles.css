@@ -337,21 +337,4 @@ button:hover {
         width: 100%;
         margin-bottom: 10px;
     }
-
-    footer {
-        position: relative;
-        bottom: 0;
-        margin-top: 10px; /* Adjusted margin */
-    }
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    font-size: 0.8em;
 }
