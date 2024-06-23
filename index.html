@@ -6,6 +6,8 @@
     <title>Delta Charlie DC3 Contest</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js"></script>
     <script src="scripts.js" defer></script>
 </head>
 <body>
@@ -16,18 +18,15 @@
             <h1>Delta Charlie Comics</h1>
             <h2>JLA The Nail Low Mint Challenge</h2>
         </header>
-
         <main>
             <form id="submissionForm">
                 <div class="form-group">
                     <label for="discordHandle">Discord Handle:</label>
                     <input type="text" id="discordHandle" name="discordHandle" placeholder="P.Piper" required>
-                    
                     <label for="showcaseLink">Showcase Link:</label>
                     <input type="url" id="showcaseLink" name="showcaseLink" placeholder="Drop" required>
                 </div>
-
-                <div class="form-group">
+                <div class="form-group inline">
                     <label for="comicRarity">Comic Rarity:</label>
                     <select id="comicRarity" name="comicRarity" required>
                         <option value="">Select Rarity</option>
@@ -37,15 +36,12 @@
                         <option value="UC">UC</option>
                         <option value="Core">Core</option>
                     </select>
-
                     <label for="mintNumber">Mint Number:</label>
                     <input type="number" id="mintNumber" name="mintNumber" placeholder="Enter mint number" required>
                 </div>
-
                 <button type="button" id="addButton" class="large-button">Add</button>
             </form>
         </main>
-
         <section class="logos-row">
             <div class="logo-container">
                 <a href="https://www.candy.com/dc/drops/8d77ccf6-9518-489e-9dc4-3141f949f3a6" target="_blank">
@@ -63,7 +59,6 @@
                 </a>
             </div>
         </section>
-
         <aside class="sidebar sidebar-left" id="current-showcase">
             <h3 id="current-showcase-title">Current Showcase</h3>
             <div id="showcase-info">
@@ -85,7 +80,6 @@
                 <p>5000 Secret Bonus Points</p>
             </div>
         </aside>
-
         <aside class="sidebar sidebar-right" id="leaderboard">
             <h3>Leaderboard</h3>
             <div id="leaderboard-info">
