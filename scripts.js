@@ -213,8 +213,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
       document.getElementById('countdown-timer').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
-  }
-
-    const countdownInterval = setInterval(updateCountdown, 1000);
-  updateCountdown();
-});
+ 
