@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('epicPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Epic')?.points || 0;
         document.getElementById('rarePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Rare')?.points || 0;
         document.getElementById('ucPoints').textContent = currentShowcase.comics.find(c => c.rarity === 'UC')?.points || 0;
-                document.getElementById('corePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Core')?.points || 0;
+        document.getElementById('corePoints').textContent = currentShowcase.comics.find(c => c.rarity === 'Core')?.points || 0;
         document.getElementById('totalPoints').textContent = currentShowcase.totalPoints;
     }
 
