@@ -1,23 +1,31 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getDatabase, ref, set, get, child, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCm4k4obYmZSWvGYaOGyyZxacgLFF5NLZ0",
+  authDomain: "delta-charlie-comics-contest.firebaseapp.com",
+  databaseURL: "https://delta-charlie-comics-contest-default-rtdb.firebaseio.com",
+  projectId: "delta-charlie-comics-contest",
+  storageBucket: "delta-charlie-comics-contest.appspot.com",
+  messagingSenderId: "1069499775430",
+  appId: "1:1069499775430:web:2f7a0eeeedee0f94665ac7",
+  measurementId: "G-JX9XC11V9E"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+// Reference to your database
+const dbRef = ref(getDatabase());
+
 document.addEventListener('DOMContentLoaded', function () {
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
-    import { getDatabase, ref, set, get, onValue } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
-
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "YOUR_AUTH_DOMAIN",
-        databaseURL: "YOUR_DATABASE_URL",
-        projectId: "YOUR_PROJECT_ID",
-        storageBucket: "YOUR_STORAGE_BUCKET",
-        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-        appId: "YOUR_APP_ID",
-        measurementId: "YOUR_MEASUREMENT_ID"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
+    const submissionForm = document.getElementById('submissionForm');
+    const addButton = document.getElementById('addButton');
+    const submitButton = document.getElementById('submitButton');
+    const clearButton = document.getElementById('clearButton');
 
     let currentShowcase = {
         discordHandle: '',
@@ -104,18 +112,11 @@ document.addEventListener('DOMContentLoaded', function () {
             currentShowcase.totalPoints = currentShowcase.comics.reduce((total, comic) => total + comic.points, 0);
 
             updateCurrentShowcase();
-
-            // Save to Firebase Realtime Database
-            const showcaseRef = ref(database, 'showcases/' + discordHandle);
-            set(showcaseRef, currentShowcase);
         }
     }
 
     function submitShowcase() {
         if (currentShowcase.comics.length === 5) {
-            const leaderboardRef = ref(database, 'leaderboard/' + currentShowcase.discordHandle);
-            set(leaderboardRef, currentShowcase);
-
             leaderboard.push({ ...currentShowcase });
             leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
             updateLeaderboard();
@@ -175,9 +176,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    document.getElementById('addButton').addEventListener('click', addComicToShowcase);
-    document.getElementById('submitButton').addEventListener('click', submitShowcase);
-    document.getElementById('clearButton').addEventListener('click', clearLeaderboard);
+    addButton.addEventListener('click', addComicToShowcase);
+    submitButton.addEventListener('click', submitShowcase);
+    clearButton.addEventListener('click', clearLeaderboard);
 
     // Countdown timer
     const endTime = new Date('July 15, 2024 12:00:00').getTime();
