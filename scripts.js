@@ -1,4 +1,4 @@
-// Import the functions you need from the SDKs you need
+//// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, onValue, push } from "firebase/database";
 import { getAnalytics } from "firebase/analytics";
@@ -208,9 +208,13 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
       const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+      const minutes = Math.floor((remainingTime % (1000 * 60)) / (1000 * 60));
       const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
       document.getElementById('countdown-timer').textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
- 
+  }
+
+  const countdownInterval = setInterval(updateCountdown, 1000);
+  updateCountdown();
+});
