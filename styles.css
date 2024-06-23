@@ -64,7 +64,7 @@ header h2 {
 form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* Center align the elements */
     margin: 10px 0; /* Reduced margin */
 }
 
@@ -82,7 +82,9 @@ input, select, button {
 
 input[type="text"],
 input[type="url"] {
-    width: 60%; /* Reduced width by 40% */
+    width: 50%; /* Reduced width by 50% */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form-group {
