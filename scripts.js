@@ -15,19 +15,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Firebase configuration
     const firebaseConfig = {
-        apiKey: "AIzaSyCm4kobYmZSWyGAoGYyZxagcLFF5NLZ0",
-        authDomain: "delta-charlie-comics-contest.firebaseapp.com",
-        databaseURL: "https://delta-charlie-comics-contest-default-rtdb.firebaseio.com",
-        projectId: "delta-charlie-comics-contest",
-        storageBucket: "delta-charlie-comics-contest.appspot.com",
-        messagingSenderId: "1069499775430",
-        appId: "1:1069499775430:web:2f7a0eeeedee0f94665ac7",
-        measurementId: "G-JX9XC119VE"
+        apiKey: "YOUR_API_KEY_HERE",
+        authDomain: "YOUR_AUTH_DOMAIN_HERE",
+        databaseURL: "YOUR_DATABASE_URL_HERE",
+        projectId: "YOUR_PROJECT_ID_HERE",
+        storageBucket: "YOUR_STORAGE_BUCKET_HERE",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID_HERE",
+        appId: "YOUR_APP_ID_HERE",
+        measurementId: "YOUR_MEASUREMENT_ID_HERE"
     };
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    const database = firebase.firestore();
+    const database = firebase.database();
 
     function calculatePoints(rarity, mintNumber, edition) {
         let supplyPoints;
@@ -76,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function addComicToShowcase() {
+        console.log("Add button clicked");
         const discordHandle = document.getElementById('discordHandle').value;
         const showcaseLink = document.getElementById('showcaseLink').value;
         const comicRarity = document.getElementById('comicRarity').value;
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (discordHandle && showcaseLink && comicRarity && mintNumber) {
             const points = calculatePoints(comicRarity, mintNumber, edition);
+            console.log(`Calculated points: ${points}`);
 
             currentShowcase.discordHandle = discordHandle;
             currentShowcase.showcaseLink = showcaseLink;
@@ -105,13 +107,15 @@ document.addEventListener('DOMContentLoaded', function () {
             currentShowcase.totalPoints = currentShowcase.comics.reduce((total, comic) => total + comic.points, 0);
 
             updateCurrentShowcase();
+        } else {
+            console.log("Missing fields");
         }
     }
 
     function submitShowcase() {
         if (currentShowcase.comics.length === 5) {
-            const newKey = database.collection('leaderboard').doc().id;
-            database.collection('leaderboard').doc(newKey).set({
+            const newKey = database.ref().child('leaderboard').push().key;
+            database.ref('leaderboard/' + newKey).set({
                 discordHandle: currentShowcase.discordHandle,
                 showcaseLink: currentShowcase.showcaseLink,
                 comics: currentShowcase.comics,
@@ -141,11 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function clearLeaderboard() {
         const code = prompt('Enter the code to clear the leaderboard:');
         if (code === '6969') {
-            database.collection('leaderboard').get().then((snapshot) => {
-                snapshot.forEach((doc) => {
-                    database.collection('leaderboard').doc(doc.id).delete();
-                });
-            });
+            database.ref('leaderboard').remove();
             leaderboard = [];
             updateLeaderboard();
         } else {
@@ -209,13 +209,12 @@ document.addEventListener('DOMContentLoaded', function () {
     updateCountdown();
 
     // Load leaderboard from Firebase on page load
-    database.collection('leaderboard').onSnapshot(function(snapshot) {
+    database.ref('leaderboard').on('value', function(snapshot) {
         leaderboard = [];
-        snapshot.forEach(function(doc) {
-            leaderboard.push(doc.data());
+        snapshot.forEach(function(childSnapshot) {
+            leaderboard.push(childSnapshot.val());
         });
         leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
         updateLeaderboard();
     });
 });
-``
