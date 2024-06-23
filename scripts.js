@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const firebaseConfig = {
         apiKey: "AIzaSyCm4kobYmZSWyGAoGYyZxagcLFF5NLZ0",
         authDomain: "delta-charlie-comics-contest.firebaseapp.com",
+        databaseURL: "https://delta-charlie-comics-contest-default-rtdb.firebaseio.com",
         projectId: "delta-charlie-comics-contest",
         storageBucket: "delta-charlie-comics-contest.appspot.com",
         messagingSenderId: "1069499775430",
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
+    const database = firebase.firestore();
 
     function calculatePoints(rarity, mintNumber, edition) {
         let supplyPoints;
@@ -109,7 +110,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function submitShowcase() {
         if (currentShowcase.comics.length === 5) {
-            db.collection('leaderboard').add({
+            const newKey = database.collection('leaderboard').doc().id;
+            database.collection('leaderboard').doc(newKey).set({
                 discordHandle: currentShowcase.discordHandle,
                 showcaseLink: currentShowcase.showcaseLink,
                 comics: currentShowcase.comics,
@@ -139,9 +141,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function clearLeaderboard() {
         const code = prompt('Enter the code to clear the leaderboard:');
         if (code === '6969') {
-            db.collection('leaderboard').get().then(querySnapshot => {
-                querySnapshot.forEach(doc => {
-                    doc.ref.delete();
+            database.collection('leaderboard').get().then((snapshot) => {
+                snapshot.forEach((doc) => {
+                    database.collection('leaderboard').doc(doc.id).delete();
                 });
             });
             leaderboard = [];
@@ -206,12 +208,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // Load leaderboard from Firestore on page load
-    db.collection('leaderboard').orderBy('totalPoints', 'desc').onSnapshot(snapshot => {
+    // Load leaderboard from Firebase on page load
+    database.collection('leaderboard').onSnapshot(function(snapshot) {
         leaderboard = [];
-        snapshot.forEach(doc => {
+        snapshot.forEach(function(doc) {
             leaderboard.push(doc.data());
         });
+        leaderboard.sort((a, b) => b.totalPoints - a.totalPoints);
         updateLeaderboard();
     });
 });
+``
