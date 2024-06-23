@@ -138,6 +138,8 @@ button:hover {
     width: 50%; /* Reduced width by 50% */
     padding: 10px 20px;
     margin-top: 10px; /* Adjusted margin */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .logos-row {
@@ -213,6 +215,8 @@ button:hover {
 
 #submitButton {
     margin-top: 10px; /* Adjusted margin */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .showcase-logo {
